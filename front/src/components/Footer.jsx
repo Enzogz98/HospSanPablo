@@ -1,7 +1,7 @@
 import React from 'react'
-import ubicacion from ".../imagenes/ubicacion.png";
-import telefono from ".../imagenes/telefono.png";
-import '../App.css';
+import ubicacion from "../assets/ubicacion.png";
+import telefono from "../assets/telefono.png";
+
 const Footer = () => {
   return (
     <div>
