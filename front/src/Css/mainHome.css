@@ -1,0 +1,22 @@
+main{
+  padding: 2em;
+  
+}
+.divCarrusel{
+   width: 100%;
+ 
+}
+.divAncla{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.divAncla>a>img{
+  max-width: 15em;
+}
+#nodos{
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}

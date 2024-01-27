@@ -1,0 +1,24 @@
+#ubicaciones{
+    list-style: none;
+    margin: auto;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px , 1fr));
+    gap: 32px;
+}
+.imgUbicacion{
+    width: 10em;
+}
+#telefonos1{
+    list-style: none;
+    margin: auto;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px , 1fr));
+    gap: 32px;
+}
+.imgTelefono{
+    width: 10em;
+}
