@@ -84,6 +84,7 @@ const MainHome = () => {
           <div className="row">
             <section id="cards" className="col-xl-7 m-auto">
               <div className="divAncla col">
+              
               <div className="row justify-content-center">
 
                 <Card style={{ width: "15em", margin:"1em" }} className="col-xl-2">

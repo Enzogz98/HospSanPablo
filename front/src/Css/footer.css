@@ -1,24 +1,24 @@
-#ubicaciones{
-    list-style: none;
-    margin: auto;
-    padding: 0;
-
+#ubicaciones {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px , 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 32px;
 }
-.imgUbicacion{
+
+.imgUbicacion {
     width: 10em;
 }
-#telefonos1{
+
+#telefonos1 {
     list-style: none;
     margin: auto;
     padding: 0;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px , 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 32px;
 }
-.imgTelefono{
+
+.imgTelefono {
     width: 10em;
 }
