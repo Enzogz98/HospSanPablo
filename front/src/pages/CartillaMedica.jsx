@@ -1,15 +1,16 @@
 import React from 'react'
-import MainHome from '../components/MainHome'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-const Home = () => {
+import MainCartilla from '../components/MainCartilla'
+
+export const CartillaMedica = () => {
   return (
     <div>
         <Header/>
-        <MainHome/>
+        <MainCartilla/>
         <Footer/>
     </div>
   )
 }
 
-export default Home
+export default CartillaMedica

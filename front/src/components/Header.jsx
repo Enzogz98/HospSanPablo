@@ -26,10 +26,11 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
             <div className="col-6 ">
               <Nav>
-                <Nav.Link href="#inicio">Inicio</Nav.Link>
+                <Nav.Link href="/">Inicio</Nav.Link>
                 <Nav.Link href="#historia">Historia</Nav.Link>
                 <Nav.Link href="#noticias">Noticias</Nav.Link>
                 <Nav.Link href="#ubicacion">Ubicacion</Nav.Link>
+                <Nav.Link href="CartillaMedica">Profecionales</Nav.Link>
                 <Nav.Link href="#contacto">Contacto</Nav.Link>  
                 <Nav.Link href="#login">Login</Nav.Link>
               </Nav>
