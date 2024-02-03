@@ -1,22 +1,38 @@
-main{
-  padding: 2em;
-  
+
+
+#horarios .divAncla img{
+  width: 70%;;
 }
-.divCarrusel{
-   width: 100%;
- 
+
+#nodos div img {
+  width: 40%;
 }
-.divAncla{
+
+
+#carrusel {
+  max-width: 70%; 
+  max-height: 50%;
+  margin: 0 auto; 
+  font-family: 'Playfair Display', serif;
+}
+#horarios{
+  font-family: 'Playfair Display', serif;
+}
+.divAncla {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-.divAncla>a>img{
+.divAncla > a > img {
   max-width: 15em;
 }
-#nodos{
+#cards{
+  font-family: 'Playfair Display', serif;
+}
+#nodos {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  font-family: 'Playfair Display', serif;
 }

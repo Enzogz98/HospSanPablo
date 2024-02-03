@@ -1,8 +1,10 @@
-import React from "react";
+
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import hospital1 from "../assets/hospsanp1.jpeg";
+import capsnsdp from "../assets/capsNuestraSraDelPilar.jpg"
+import capsvdr from "../assets/CapsVillaDelRosario.jpeg"
 import hospital from "../assets/hospital.png";
 import profesionales from "../assets/profesionales.png";
 import administrativos from "../assets/administrativos.png";
@@ -31,7 +33,7 @@ const MainHome = () => {
             <Carousel>
               <Carousel.Item>
                 <a href="">
-                  <img src={hospital1} alt="" style={{ width: "100%" }} />
+                  <img src={hospital1} alt="" />
                 </a>
                 <Carousel.Caption>
                   <h3>Hospital de San Pablo</h3>
@@ -40,23 +42,24 @@ const MainHome = () => {
               </Carousel.Item>
               <Carousel.Item>
                 <a href="">
-                  <img src={hospital1} alt="" style={{ width: "100%" }} />
+                  <img src={capsnsdp} alt=""  />
                 </a>
                 <Carousel.Caption>
-                  <h3>Second slide label</h3>
+                  <h3>Caps Nuestra Sra. Del Pilar</h3>
                   <p>Click para mas informacion</p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <a href="">
-                  <img src={hospital1} alt="" style={{ width: "100%" }} />
+                  <img src={capsvdr} alt="" />
                 </a>
                 <Carousel.Caption>
-                  <h3>Third slide label</h3>
+                  <h3>Caps Villa del Rosario</h3>
                   <p>Click para mas informacion</p>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
+            
           </section>
           <section id="horarios" className="col-xl-5  m-auto">
             <div className="divAncla">
@@ -132,26 +135,26 @@ const MainHome = () => {
           <section id="nodos" className="col-xl-5">
             <div className="m-auto">
               <a href="">
-                <img src={vacunacion} alt=""  style={{ width: "15em"}}/>
+                <img src={vacunacion} alt="" />
                 <p>Nodos de vacunacion</p>
               </a>
             </div>
             <div>
               <a href="">
-                <img src={testeos} alt="" style={{ width: "15em"}}/>
+                <img src={testeos} alt=""/>
                 <p>Nodos de testeos</p>
               </a>
             </div>
             <div>
               <a href="https://msptucuman.gov.ar/la-poblacion/">
-                <img src={publico} alt="" style={{ width: "15em"}}/>
+                <img src={publico} alt=""/>
                 <p>Info General</p>
               </a>
             </div>
           </section>
         </div>
 
-        <div className="row">
+      {/*<div className="row">
           <section id="infomsp" className="col-xl-7">
             <Card className="m-3">
               <a href="https://msptucuman.gov.ar/ficha-medica-escolar/">
@@ -218,7 +221,7 @@ const MainHome = () => {
               <p>Ruta de la embarazada y el niño</p>
             </a>
           </section>
-        </div>
+        </div>*/}
       </main>
     </div>
   );
