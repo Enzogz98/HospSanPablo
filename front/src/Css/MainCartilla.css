@@ -1,3 +1,8 @@
+#vacio{
+    width: 100%;
+    height: 80px;
+  }
+  
 .divBusqueda{
     display: flex;
     width: 100%;

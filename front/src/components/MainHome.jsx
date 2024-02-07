@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import hospital1 from "../assets/hospsanp1.jpeg";
 import capsnsdp from "../assets/capsNuestraSraDelPilar.jpg"
-import capsvdr from "../assets/CapsVillaDelRosario.jpeg"
+import capsvdr from "../assets/CapsVillaDelRosario.jpg"
 import hospital from "../assets/hospital.png";
 import profesionales from "../assets/profesionales.png";
 import administrativos from "../assets/administrativos.png";
@@ -14,68 +14,62 @@ import diabetes3 from "../assets/diabetes3.jpg";
 import vacunacion from "../assets/vacunacion.png";
 import testeos from "../assets/testeos.png";
 import publico from "../assets/publico.png";
-import embarazada from "../assets/embarazada.png";
-import nodorosa from "../assets/nodorosa.png";
-import carnet from "../assets/carnetvacunacion.jpg";
-import fichamedica from "../assets/fichamedica.jpeg";
-import cancermama from "../assets/cancermama.jpg";
-import labdengue from "../assets/labdengue.jpg";
-import librodiabetes from "../assets/librodiabetes.png";
-import tucsalud from "../assets/tucsalud.jpeg";
 import "../Css/mainHome.css";
 
 const MainHome = () => {
   return (
     <div className="">
-      <main className="container">
+      <div id="vacio">
+
+      </div>
+
+      <main className="container mainContainer">
         <div className="row">
           <section id="carrusel" className="col-xl-7 m-auto">
-            <Carousel>
-              <Carousel.Item>
-                <a href="">
-                  <img src={hospital1} alt="" />
-                </a>
-                <Carousel.Caption>
-                  <h3>Hospital de San Pablo</h3>
-                  <p>Click para mas informacion</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <a href="">
-                  <img src={capsnsdp} alt=""  />
-                </a>
-                <Carousel.Caption>
-                  <h3>Caps Nuestra Sra. Del Pilar</h3>
-                  <p>Click para mas informacion</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <a href="">
-                  <img src={capsvdr} alt="" />
-                </a>
-                <Carousel.Caption>
-                  <h3>Caps Villa del Rosario</h3>
-                  <p>Click para mas informacion</p>
-                </Carousel.Caption>
-              </Carousel.Item>
+          <Carousel>
+                <Carousel.Item>
+                    <a href="">
+                        <img src={hospital1} alt="" id="img1"/>
+                    </a>
+                    <Carousel.Caption>
+                        <h3>Hospital de San Pablo</h3>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <a href="">
+                        <img src={capsnsdp} alt="" id="img1"/>
+                    </a>
+                    <Carousel.Caption>
+                        <h3>Caps Nuestra Sra. Del Pilar</h3>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <a href="">
+                        <img src={capsvdr} alt="" id="img1"/>
+                    </a>
+                    <Carousel.Caption>
+                        <h3>Caps Villa del Rosario</h3>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                
             </Carousel>
             
           </section>
           <section id="horarios" className="col-xl-5  m-auto">
             <div className="divAncla">
-              <a href="">
+              <a href="" id="hor1">
                 <img src={hospital} alt="" />
                 <p>Horarios de atencion</p>
               </a>
             </div>
-            <div className="divAncla">
-              <a href="">
+            <div className="divAncla ">
+              <a href="" id="hor1">
                 <img src={profesionales} alt="" />
                 <p>Profesionales</p>
               </a>
             </div>
             <div className="divAncla">
-              <a href="">
+              <a href="" id="hor1">
                 <img src={administrativos} alt="" />
                 <p>Horarios administrativos</p>
               </a>

@@ -3,7 +3,8 @@
     z-index: 1000;
     display: flex;
     width: 100%;
-    background-color: lawngreen;
+    background-color: #28B463;
+    top: 0;
 }
 
 .navBar{
@@ -23,7 +24,7 @@
   }
   
   .navBar .nav-link:hover {
-    color: rgb(2, 91, 255);
+    color: #28B463;
     background-color: #ffffff;
   }
   
@@ -34,7 +35,7 @@
   }
   
   .navBar .nav-link img {
-    /* Estilos específicos para la imagen dentro de Nav.Link (ícono de Instagram) */
-    border-radius: 0; /* Restablecer cualquier borde redondeado que pueda heredar */
-    margin: 0; /* Restablecer cualquier margen que pueda heredar */
+  
+    border-radius: 0; 
+    margin: 0; 
   }
