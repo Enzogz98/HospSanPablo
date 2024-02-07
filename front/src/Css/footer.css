@@ -1,24 +1,17 @@
-#ubicaciones {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 32px;
-}
-
-.imgUbicacion {
-    width: 10em;
-}
-
-#telefonos1 {
-    list-style: none;
-    margin: auto;
-    padding: 0;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 32px;
-}
-
-.imgTelefono {
-    width: 10em;
-}
+.footer{
+    background-color: #333;
+    color: white;
+    padding: 20px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+   
+  }
+  
+  .copyright {
+    align-self: flex-end;
+  }
