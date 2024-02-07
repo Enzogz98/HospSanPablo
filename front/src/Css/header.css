@@ -3,7 +3,11 @@
     z-index: 1000;
     display: flex;
     width: 100%;
+<<<<<<< HEAD
     background-color: #28B463;
+=======
+    background-color: lawngreen;
+>>>>>>> b00cab0fb3a83114341cbc541de1ca6c8b5964ed
     top: 0;
 }
 
