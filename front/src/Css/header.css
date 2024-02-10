@@ -1,0 +1,41 @@
+.header{
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    width: 100%;
+    background-color: #28B463;
+    top: 0;
+}
+
+.navBar{
+    
+    width: 100%;
+    
+}
+
+.navBar .nav-link {
+    color: rgb(0, 0, 0);
+    transition: color 0.3s ease;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin: 0 5px;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .navBar .nav-link:hover {
+    color: #28B463;
+    background-color: #ffffff;
+  }
+  
+  .navBar .nav-link.active {
+    font-weight: bold;
+    color: red;
+    background-color: #ffffff;
+  }
+  
+  .navBar .nav-link img {
+  
+    border-radius: 0; 
+    margin: 0; 
+  }
