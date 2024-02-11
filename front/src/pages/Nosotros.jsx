@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Header from '../components/Header'
 import MainNosotros from '../components/MainNosotros'
 import Footer from '../components/Footer'

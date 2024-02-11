@@ -2,9 +2,10 @@
     background-color: #333;
     color: white;
     padding: 20px;
+    font-family: 'Playfair Display', serif;
   }
   
-  .container {
+  .containerFooter {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

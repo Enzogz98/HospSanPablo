@@ -1,4 +1,4 @@
-import React from "react";
+
 import '../Css/aboutUs.css'
 
 const MainNosotros = () => {

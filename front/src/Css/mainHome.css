@@ -1,16 +1,22 @@
-.mainContainer{
+.MainHome{
   background-color: #82E0AA;
 }
+
 #vacio{
   width: 100%;
   height: 80px;
+  background-color: #82E0AA;
 }
+
 #carrusel {
   width: 50%; 
   height: 50%;
   margin: 120px auto 0; 
   font-family: 'Playfair Display', serif;
+  border-radius: 15px;
+  border: 1px solid black;
 }
+
 #img1{
   object-fit: fill;
   width: 100%;
@@ -20,28 +26,38 @@
 #horarios .divAncla img{
   width: 70%;
 }
+
 #horarios{
   font-family: 'Playfair Display', serif;
+  text-decoration: none;
 }
+
 #hor1{
   border: 3px black solid;
   border-radius: 15px;
   margin-top: 5px;
+  text-decoration: none;
+  color: black;
 }
+
 .divAncla {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
+
 .divAncla > a > img {
   max-width: 15em;
 }
+
 #cards{
   
   object-fit: fill;
   font-family: 'Playfair Display', serif;
+  
 }
+
 
 
 #nodos {
@@ -56,10 +72,11 @@
 }
 
 #nodos1{
-  border: 3px black solid;
-  border-radius: 15px;
-  margin-top: 5px;
+  text-decoration: none;
+  color: black;
 }
+
+
 
 
 

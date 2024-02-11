@@ -76,93 +76,97 @@ export const MainCartilla = () => {
       <div id="vacio">
 
       </div>
-      <div className="row my-5">
-        <div className="col-xl-10 m-auto">
-          <div className="divBusqueda">
-            <input
-              type="text"
-              placeholder="Buscar"
-              className=""
-              onChange={(e) => setBusqueda(e.target.value)}
-            />
-            <button onClick={() => handleProfesionales()}>🔎</button>
-          </div>
-          <table
-            className=" table table-hover table-condensed table-bordered bootstrap-datatable dataTable"
-            id="tablausuarios"
-            aria-describedby="tablausuarios_info"
-          >
-            <thead>
-              <tr role="row">
-                <th
-                  className="sorting_asc"
-                  role="columnheader"
-                  tabIndex="0"
-                  aria-controls="tablausuarios"
-                  rowSpan="1"
-                  colSpan="1"
-                  aria-sort="ascending"
-                  aria-label="Especialidad: Activar para ordenar la columna de manera descendente"
-                  onClick={() => ordenarTabla("especialidad")}
-                >
-                  Especialidad{" "}
-                  {ordenColumna === "especialidad" && ordenAscendente ? "▲" : "▼"}
-                </th>
-                <th
-                  className="sorting"
-                  role="columnheader"
-                  tabIndex="0"
-                  aria-controls="tablausuarios"
-                  rowSpan="1"
-                  colSpan="1"
-                  aria-label="Prestador: Activar para ordenar la columna de manera ascendente"
-                  onClick={() => ordenarTabla("prestador")}
-                >
-                  Prestador{" "}
-                  {ordenColumna === "prestador" && ordenAscendente ? "▲" : "▼"}
-                </th>
-                <th
-                  className="sorting"
-                  role="columnheader"
-                  tabIndex="0"
-                  aria-controls="tablausuarios"
-                  rowSpan="1"
-                  colSpan="1"
-                  aria-label="clinica: Activar para ordenar la columna de manera ascendente"
-                  onClick={() => ordenarTabla("clinica")}
-                >
-                  Clinica{" "}
-                  {ordenColumna === "clinica" && ordenAscendente ? "▲" : "▼"}
-                </th>
-                <th
-                  className="sorting"
-                  role="columnheader"
-                  tabIndex="0"
-                  aria-controls="tablausuarios"
-                  rowSpan="1"
-                  colSpan="1"
-                  aria-label="Horarios: Activar para ordenar la columna de manera ascendente"
-                  onClick={() => ordenarTabla("horario")}
-                >
-                  Horarios{" "}
-                  {ordenColumna === "horario" && ordenAscendente ? "▲" : "▼"}
-                </th>
-              </tr>
-            </thead>
+      <div className="MainCartilla">
 
-            <tbody role="alert" aria-live="polite" aria-relevant="all">
-              {prestadores.map((prestador) => {
-                return (
-                  <tr className="odd" key={prestador.id}>
-                    <td className="  sorting_1">{prestador.especialidad}</td>
-                    <td className=" ">{prestador.prestador}</td>
-                    <td className=" ">{prestador.clinica}</td>
-                    <td className=" ">{prestador.horario}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+
+        <div className="row my-5">
+          <div className="col-xl-10 m-auto">
+            <div className="divBusqueda">
+              <input
+                type="text"
+                placeholder="Buscar"
+                className=""
+                onChange={(e) => setBusqueda(e.target.value)}
+                />
+              <button onClick={() => handleProfesionales()}>🔎</button>
+            </div>
+            <table
+              className=" table table-hover table-condensed table-bordered bootstrap-datatable dataTable"
+              id="tablausuarios"
+              aria-describedby="tablausuarios_info"
+              >
+              <thead>
+                <tr role="row">
+                  <th
+                    className="sorting_asc"
+                    role="columnheader"
+                    tabIndex="0"
+                    aria-controls="tablausuarios"
+                    rowSpan="1"
+                    colSpan="1"
+                    aria-sort="ascending"
+                    aria-label="Especialidad: Activar para ordenar la columna de manera descendente"
+                    onClick={() => ordenarTabla("especialidad")}
+                  >
+                    Especialidad{" "}
+                    {ordenColumna === "especialidad" && ordenAscendente ? "▲" : "▼"}
+                  </th>
+                  <th
+                    className="sorting"
+                    role="columnheader"
+                    tabIndex="0"
+                    aria-controls="tablausuarios"
+                    rowSpan="1"
+                    colSpan="1"
+                    aria-label="Prestador: Activar para ordenar la columna de manera ascendente"
+                    onClick={() => ordenarTabla("prestador")}
+                    >
+                    Prestador{" "}
+                    {ordenColumna === "prestador" && ordenAscendente ? "▲" : "▼"}
+                  </th>
+                  <th
+                    className="sorting"
+                    role="columnheader"
+                    tabIndex="0"
+                    aria-controls="tablausuarios"
+                    rowSpan="1"
+                    colSpan="1"
+                    aria-label="clinica: Activar para ordenar la columna de manera ascendente"
+                    onClick={() => ordenarTabla("clinica")}
+                    >
+                    Clinica{" "}
+                    {ordenColumna === "clinica" && ordenAscendente ? "▲" : "▼"}
+                  </th>
+                  <th
+                    className="sorting"
+                    role="columnheader"
+                    tabIndex="0"
+                    aria-controls="tablausuarios"
+                    rowSpan="1"
+                    colSpan="1"
+                    aria-label="Horarios: Activar para ordenar la columna de manera ascendente"
+                    onClick={() => ordenarTabla("horario")}
+                  >
+                    Horarios{" "}
+                    {ordenColumna === "horario" && ordenAscendente ? "▲" : "▼"}
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody role="alert" aria-live="polite" aria-relevant="all">
+                {prestadores.map((prestador) => {
+                  return (
+                    <tr className="odd" key={prestador.id}>
+                      <td className="  sorting_1">{prestador.especialidad}</td>
+                      <td className=" ">{prestador.prestador}</td>
+                      <td className=" ">{prestador.clinica}</td>
+                      <td className=" ">{prestador.horario}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,47 @@
+.container-HA{
+    background-color: #82E0AA;
+}
+.vacioHA{
+    width: 100%;
+    height: 80px;
+}
+
+.encabezado{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.Tablas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .tabla1 {
+    width: 48%;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 3px solid #000000; 
+    padding: 10px; 
+    border-collapse: collapse;
+    margin: 0 auto;
+  }
+
+  .tabla1 table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tabla1 h2,
+  .tabla1 h3 {
+    text-align: center; 
+    text-decoration: underline;
+  }
+
+  .tabla1 th,
+.tabla1 td {
+  border: 2px solid #000000; 
+  padding: 8px; 
+}
+  
+  
