@@ -1,7 +1,8 @@
 
 import logo from "../assets/logo1.png";
-import insta from "../assets/insta.png";
+import { FaInstagram } from "react-icons/fa6";
 import "../Css/header.css";
+
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -40,15 +41,9 @@ const Header = () => {
             <Nav className="justify-content-between">
 
               <div className="col-2">
-                <a href="https://www.instagram.com/hosp.sanpablo/?igsh=MXdiZjdneTRvMWdlag%3D%3D">
-                  <img
-                    src={insta}
-                    width="30"
-                    height="30"
-                    className="d-inline-block align-top"
-                    alt="Instagram"
-                  />
-                </a>
+                <a href="https://www.instagram.com/hosp.sanpablo/?igsh=MXdiZjdneTRvMWdlag%3D%3D" className="instagram-icon"> <FaInstagram />
+</a>
+
               </div>
             </Nav>
         </Container>
