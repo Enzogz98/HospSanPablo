@@ -7,8 +7,7 @@
 }
 .contact-section {
     background-color: #82E0AA;
-    margin-top: 180px;
-    margin-bottom: 40px;
+    margin-top: 65px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
