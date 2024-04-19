@@ -1,11 +1,11 @@
 .MainHome{
-  background-color: #82E0AA;
+  background-color: #82c294;
 }
 
 #vacio{
   width: 100%;
   height: 80px;
-  background-color: #82E0AA;
+  background-color: #82c294;
 }
 
 #carrusel {
@@ -13,8 +13,7 @@
   height: 50%;
   margin: 120px auto 0; 
   font-family: 'Playfair Display', serif;
-  border-radius: 15px;
-  border: 1px solid black;
+
 }
 
 #img1{
@@ -51,11 +50,15 @@
   max-width: 15em;
 }
 
+.divAncla p{
+  font-size: 20px;
+}
+
 #cards{
-  
+
   object-fit: fill;
   font-family: 'Playfair Display', serif;
-  
+
 }
 
 
@@ -76,9 +79,6 @@
   color: black;
 }
 
-
-
-
-
-
-
+#nodos p{
+  font-size: 20px;
+}

@@ -1,4 +1,3 @@
-
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -215,7 +214,7 @@ const MainHome = () => {
               </a>
               <a href="https://msptucuman.gov.ar/ruta-de-la-embarazada-y-el-nino/" className="divAncla">
               <img src={embarazada} alt="" style={{ width: "15em" }}/>
-              <p>Ruta de la embarazada y el niño</p>
+              <p>Ruta de la embarazada y el niÃ±o</p>
               </a>
               </section>
           </div>*/}

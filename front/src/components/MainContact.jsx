@@ -42,10 +42,10 @@ const MainContact = () => {
             >
             <option value="HospitalSanPablo">Hospital San Pablo</option>
             <option value="CAPSNuestraSraDelRosario">
-              CAPS Nuestra Sra. del Rosario
+              CAPS Villa del Rosario
             </option>
-            <option value="CAPSPuntaDelMonte">CAPS Punta del Monte</option>
-            <option value="CAPSOhuanta">CAPS Ohuanta</option>
+            <option value="CAPSPuntaDelMonte">CAPS Nuestra Señora del Pilar</option>
+            <option value="CAPSOhuanta">CAPS La Nueva Esperanza</option>
           </select>
 
           {selectedMap === "HospitalSanPablo" && (
@@ -68,7 +68,7 @@ const MainContact = () => {
             <div className="m-auto">
               {
                 <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.290828519503!2d-65.1521808245633!3d-26.830700676696143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225ed378a56b47%3A0x5083694456a0b3ec!2sCAPS%20Nuestra%20Se%C3%B1ora%20del%20Rosario!5e0!3m2!1ses-419!2sar!4v1706579755915!5m2!1ses-419!2sar"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d889.762914463272!2d-65.32349073045262!3d-26.870099802231348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDUyJzEyLjQiUyA2NcKwMTknMjIuMyJX!5e0!3m2!1ses-419!2sar!4v1709432213552!5m2!1ses-419!2sar"
                 width="600"
                 height="450"
                 style={{ border: 0 }}
@@ -76,7 +76,7 @@ const MainContact = () => {
                   loading="lazy"
                   ></iframe>
               }
-              <p className="negritas">Mapa CAPS Nuestra Sra. del Rosario</p>
+              <p className="negritas">Mapa CAPS Villa del Rosario</p>
             </div>
           )}
 
@@ -100,7 +100,7 @@ const MainContact = () => {
             <div className="m-auto">
               {
                 <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3564.0883928759717!2d-65.26897192456744!3d-26.709622976768912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94226639a29ee871%3A0xcfe448b375702580!2sCAPS%20NUEVA%20ESPERANZA!5e0!3m2!1ses-419!2sar!4v1706580177289!5m2!1ses-419!2sar"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1779.684491844567!2d-65.29793146152116!3d-26.860015601333778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDUxJzM2LjEiUyA2NcKwMTcnNDcuOSJX!5e0!3m2!1ses-419!2sar!4v1709431975473!5m2!1ses-419!2sar"
                 width="600"
                   height="450"
                   style={{ border: 0 }}
@@ -108,7 +108,7 @@ const MainContact = () => {
                   loading="lazy"
                 ></iframe>
               }
-              <p className="negritas">Mapa CAPS Ohuanta</p>
+              <p className="negritas">Mapa CAPS Ouanta</p>
             </div>
           )}
         </div>
