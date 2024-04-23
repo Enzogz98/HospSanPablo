@@ -1,16 +1,16 @@
 .MainContacto {
-  background-color: #82c294;
+  background-color: #82E0AA;
   padding: 20px;
 }
 
 .container-Contacto {
-  background-color: #82c294;
+  background-color: #82E0AA;
   border-radius: 15px;
   padding: 20px;
 }
 
 .contact-section {
-  background-color: #82c294;
+  background-color: #82E0AA;
   margin-top: 65px;
   display: grid;
   grid-template-columns: 100%;

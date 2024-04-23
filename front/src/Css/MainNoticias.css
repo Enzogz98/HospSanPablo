@@ -1,0 +1,83 @@
+
+.row{
+    background-color: #82E0AA;
+}
+
+
+#vacio {
+    width: 100%;
+    height: 80px;
+    background-color: #82E0AA;
+}
+
+
+.m-3:hover {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+  
+.m-3:active {
+    opacity: 0.5;
+    
+}
+
+
+#masinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+#masinfo a {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border: 3px solid #000000;
+    border-radius: 15px;
+    display: inline-block;
+    padding: 5px; 
+    margin: 5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: 100%;
+    max-width: 15em; 
+    height: auto; 
+}
+
+#masinfo a img {
+    max-width: 100%;
+    height: auto;
+}
+
+#masinfo p {
+    font-size: 20px;
+}
+
+#masinfo a::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    transition: .5s ease;
+    z-index: -1;
+}
+
+#masinfo a:hover::before {
+    left: 0;
+}
+
+.divAncla1 {
+    text-decoration: none;
+    color: black;
+}
+
+.divAncla1 p {
+    font-size: 20px;
+}

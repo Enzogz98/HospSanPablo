@@ -1,42 +1,62 @@
-.MainHome{
-  background-color: #82c294;
+.MainHome {
+  background-color: #82E0AA;
 }
 
-#vacio{
+#vacio {
   width: 100%;
   height: 80px;
-  background-color: #82c294;
+  background-color: #82E0AA;
 }
 
 #carrusel {
-  width: 50%; 
-  height: 50%;
-  margin: 120px auto 0; 
+  width: 30%;
+  height: 30%;
+  margin: 120px auto 0;
   font-family: 'Playfair Display', serif;
-
 }
 
-#img1{
+#img1 {
   object-fit: fill;
   width: 100%;
   height: 100%;
 }
 
-#horarios .divAncla img{
-  width: 70%;
+#horarios .divAncla img {
+  width: 30%;
 }
 
-#horarios{
+#horarios {
   font-family: 'Playfair Display', serif;
   text-decoration: none;
 }
 
-#hor1{
+#hor1 {
   border: 3px black solid;
   border-radius: 15px;
   margin-top: 5px;
   text-decoration: none;
   color: black;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#hor1::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+  transition: .5s ease;
+  z-index: -1;
+}
+
+#hor1:hover::before {
+  left: 0;
 }
 
 .divAncla {
@@ -50,18 +70,41 @@
   max-width: 15em;
 }
 
-.divAncla p{
+.divAncla p {
   font-size: 20px;
 }
 
-#cards{
-
+#cards {
   object-fit: fill;
   font-family: 'Playfair Display', serif;
-
 }
 
+.btn {
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #0fd850;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 2px solid #0fd850;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 #0fd850;
+}
 
+.btn:hover {
+  color: white;
+  box-shadow: inset 0 -100px 0 0 #0fd850;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
 
 #nodos {
   flex-direction: column;
@@ -70,15 +113,72 @@
   font-family: 'Playfair Display', serif;
 }
 
-#nodos div img {
-  width: 40%;
+#nodos .m-auto img {
+  width: 30%;
 }
 
-#nodos1{
+#nodos1 {
   text-decoration: none;
   color: black;
+  background-color: white;
+  border: 3px solid #000000;
+  border-radius: 15px;
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  width: 100%; 
+  height: 100%; 
+  max-width: none; 
 }
 
-#nodos p{
+#nodos1::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+  transition: .5s ease;
+  z-index: -1;
+}
+
+#nodos1:hover::before {
+  left: 0;
+}
+
+.divAncla a {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border-radius: 15px;
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+  position: relative;
+}
+
+.divAncla p {
   font-size: 20px;
+}
+
+.divAncla a::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: -110%; 
+  background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+  transition: .5s ease;
+  z-index: -1;
+}
+
+.divAncla a:hover::before {
+  left: 0;
 }

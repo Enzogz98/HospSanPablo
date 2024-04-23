@@ -10,9 +10,9 @@ import administrativos from "../assets/administrativos.png";
 import dengue1 from "../assets/dengue1.jpg";
 import capacdengue from "../assets/capacdengue.jpg";
 import diabetes3 from "../assets/diabetes3.jpg";
-import vacunacion from "../assets/vacunacion.png";
-import testeos from "../assets/testeos.png";
-import publico from "../assets/publico.png";
+import informacion from "../assets/informacion.png";
+import calendario from "../assets/calendario.png";
+import test from "../assets/test.png";
 import "../Css/mainHome.css";
 
 const MainHome = () => {
@@ -90,40 +90,38 @@ const MainHome = () => {
                     <Card.Img
                       variant="top"
                       src={dengue1}
-                      style={{ maxWidth: "100%" }}
+                      style={{ maxWidth: "100%", maxHeight: "250px" }}
                     />
                     <Card.Body>
                       <Card.Title>Sintomas del dengue</Card.Title>
-                      <a href="https://www.instagram.com/p/Cz_R8YIu5mU/?img_index=1"><Button variant="primary">Mas Informacion</Button></a>
+                      <a href="https://www.instagram.com/p/Cz_R8YIu5mU/?img_index=1" ><Button class="btn btn-light">Mas Informacion</Button></a>
                     </Card.Body>
                   </Card>
-                {/* </div>
-                <div className="divAncla col-sm"> */}
+               
                   <Card style={{ width: "15rem", margin:"1em" }} className="col-xl-2">
                     <Card.Img
                       variant="top"
                       src={capacdengue}
-                      style={{ maxWidth: "100%" }}
+                      style={{ maxWidth: "100%", maxHeight: "250px" }}
                     />
                     <Card.Body>
                       <Card.Title>Capacitacion dengue</Card.Title>
-                      <a href="https://www.instagram.com/p/Cz_QUSJu5rn/"><Button variant="primary">Mas Informacion</Button></a>
+                      <a href="https://www.instagram.com/p/Cz_QUSJu5rn/" ><Button class="btn btn-light">Mas Informacion</Button></a>
                     </Card.Body>
                   </Card>
-                {/* </div>
-                <div className="divAncla col-sm"> */}
+                
                   <Card style={{ width: "15rem", margin:"1em" }} className="col-xl-2">
                     <Card.Img
                       variant="top"
                       src={diabetes3}
-                      style={{ maxWidth: "100%" }}
+                      style={{ maxWidth: "100%", maxHeight: "250px" }}
                     />
                     <Card.Body>
                       <Card.Title>Dia mundial de diabetes</Card.Title>
-                      <a href="https://www.instagram.com/p/CzozN1TO849/"><Button variant="primary">Mas Informacion</Button></a>
+                      <a href="https://www.instagram.com/p/CzozN1TO849/" ><Button class="btn btn-light">Mas Informacion</Button></a>
                     </Card.Body>
                   </Card>
-                {/* </div> */}
+                
                 </div>
                 </div>
               </section>
@@ -131,93 +129,24 @@ const MainHome = () => {
             <section id="nodos" className="col-xl-5">
               <div className="m-auto">
                 <a href="https://msptucuman.gov.ar/nodos-de-vacunacion/" id="nodos1">
-                  <img src={vacunacion} alt="" />
+                  <img src={calendario} alt=""  />
                   <p>Nodos de vacunacion</p>
                 </a>
               </div>
-              <div>
+              <div className="m-auto">
                 <a href="https://msptucuman.gov.ar/nodos-de-testeo/" id="nodos1">
-                  <img src={testeos} alt=""/>
+                  <img src={test} alt=""  />
                   <p>Nodos de testeos</p>
                 </a>
               </div>
-              <div>
+              <div className="m-auto">
                 <a href="https://msptucuman.gov.ar/la-poblacion/" id="nodos1">
-                  <img src={publico} alt=""/>
+                  <img src={informacion} alt=""  />
                   <p>Info General</p>
                 </a>
               </div>
             </section>
           </div>
-
-        {/*<div className="row">
-            <section id="infomsp" className="col-xl-7">
-            <Card className="m-3">
-            <a href="https://msptucuman.gov.ar/ficha-medica-escolar/">
-                  <Card.Img
-                  variant="top"
-                  src={fichamedica}
-                  style={{ maxWidth: "100%"}}
-                  />
-                  </a>
-                  </Card>
-                  
-                  <Card  className="m-3">
-                  <a href="https://msptucuman.gov.ar/ubicaciones-de-mamografos/">
-                  <Card.Img
-                  variant="top"
-                  src={cancermama}
-                  style={{ maxWidth: "100%" }}
-                  />
-                  </a>
-                  </Card>
-                  
-                  <Card className="m-3">
-                  <a href="https://srv08.siprosa.gob.ar/caps/carnetemitirplus.aspx">
-                  <Card.Img
-                    variant="top"
-                    src={carnet}
-                    style={{ maxWidth: "100%" }}
-                    />
-                    </a>
-                    </Card>
-                    
-                    <Card className="m-3">
-                    <a href="https://play.google.com/store/apps/details?id=com.artech.serviciosalud.sdmenu&hl=es_AR&gl=US&pli=1">
-                    <Card.Img
-                    variant="top"
-                    src={tucsalud}
-                    style={{ maxWidth: "100%" }}
-                    />
-                    </a>
-                    </Card>
-                    
-                    <Card className="m-3">
-                    <a href="https://msptucuman.gov.ar/aplicativo-para-visualizar-resultados-de-estudios-de-dengue-y-covid-19/">
-                    <Card.Img
-                    variant="top"
-                    src={labdengue}
-                    style={{ maxWidth: "100%" }}
-                    />
-                </a>
-              </Card>
-            </section>
-            
-            <section id="masinfo" className="col-xl-5 m-auto">
-            <a href="https://msptucuman.gov.ar/manual-de-diabetes-para-padres/" className="divAncla">
-                <img src={librodiabetes} alt="" style={{ width: "15em" }}/>
-                <p>Libro de diabetes para padres</p>
-              </a>
-              <a href="https://msptucuman.gov.ar/nodo-rosa/" className="divAncla">
-              <img src={nodorosa} alt="" style={{ width: "15em" }}/>
-              <p>Nodo rosa</p>
-              </a>
-              <a href="https://msptucuman.gov.ar/ruta-de-la-embarazada-y-el-nino/" className="divAncla">
-              <img src={embarazada} alt="" style={{ width: "15em" }}/>
-              <p>Ruta de la embarazada y el niÃ±o</p>
-              </a>
-              </section>
-          </div>*/}
         </main>
       </div>
     </div>
