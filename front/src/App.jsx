@@ -8,6 +8,7 @@ import Contacto from './pages/Contacto';
 import Nosotros from './pages/Nosotros';
 import HoraAtencion from './pages/HoraAtencion';
 import HorarioAdm from './pages/HorarioAdm';
+import Login from "./pages/Login";
 
 function App() {
   
@@ -24,6 +25,7 @@ function App() {
           <Route path="/quienes-somos" element={<Nosotros/>}/>
           <Route path="/HoraAtencion" element={<HoraAtencion/>}/>
           <Route path="/HorarioAdm" element={<HorarioAdm/>}/>
+          <Route path="/login" element={<Login/>} />
 
         </Routes>
       </BrowserRouter>

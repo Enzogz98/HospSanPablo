@@ -73,7 +73,7 @@ export const MainCartilla = () => {
 
   return (
     <div>
-      <div id="vacio">
+      <div id="vacioP">
 
       </div>
       <div className="MainCartilla">

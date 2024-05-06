@@ -14,32 +14,6 @@ INSERT INTO roles (nombre_rol) VALUES ('Admin'); /*1*/
 INSERT INTO roles (nombre_rol) VALUES ('Profesional'); /*2*/
 INSERT INTO roles (nombre_rol) VALUES ('Agente'); /*3*/
 
-CREATE TABLE admin (
-    adminid INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    apellido VARCHAR(50) NOT NULL,
-    dni VARCHAR(50) NOT NULL,
-    direccion VARCHAR(50) NOT NULL,
-    telefono VARCHAR(50) NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    password_salt VARCHAR(50) NOT NULL,
-    rol_id INT,
-    FOREIGN KEY (rol_id) REFERENCES roles(rol_id)
-);
-
-CREATE TABLE profesionales (
-    profesionalesid INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    apellido VARCHAR(50) NOT NULL,
-    dni VARCHAR(50) NOT NULL,
-    direccion VARCHAR(50) NOT NULL,
-    telefono VARCHAR(50) NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    password_salt VARCHAR(50) NOT NULL,
-    rol_id INT,
-    FOREIGN KEY (rol_id) REFERENCES roles(rol_id)
-);
-
 CREATE TABLE agentes (
     agentesid INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
@@ -50,10 +24,10 @@ CREATE TABLE agentes (
     password_hash VARCHAR(255) NOT NULL,
     password_salt VARCHAR(50) NOT NULL,
     rol_id INT,
-    FOREIGN KEY (rol_id) REFERENCES roles(rol_id)
+    FOREIGN KEY (rol_id) REFERENCES roles(rol_id),
+    funcion VARCHAR(50)NOT NULL
 );
 
-select * from rol;
 
 
 create table informacionGeneral(
@@ -223,130 +197,6 @@ END //
 DELIMITER ;
 
 
--- Procedimientos almacenados para admin
-
-DELIMITER //
-
-CREATE PROCEDURE sp_CargarAdmin(
-    IN p_nombre VARCHAR(50),
-    IN p_apellido VARCHAR(50),
-    IN p_dni VARCHAR(50),
-    IN p_direccion VARCHAR(50),
-    IN p_telefono VARCHAR(50),
-    IN p_password_hash VARCHAR(255),
-    IN p_password_salt VARCHAR(50),
-    IN p_rol_id INT
-)
-BEGIN
-    INSERT INTO admin (nombre, apellido, dni, direccion, telefono, password_hash, password_salt, rol_id)
-    VALUES (p_nombre, p_apellido, p_dni, p_direccion, p_telefono, p_password_hash, p_password_salt, p_rol_id);
-END //
-
-DELIMITER ;
-
-DELIMITER //
-
-CREATE PROCEDURE sp_EditarAdmin(
-    IN p_adminid INT,
-    IN p_nombre VARCHAR(50),
-    IN p_apellido VARCHAR(50),
-    IN p_dni VARCHAR(50),
-    IN p_direccion VARCHAR(50),
-    IN p_telefono VARCHAR(50),
-    IN p_password_hash VARCHAR(255),
-    IN p_password_salt VARCHAR(50),
-    IN p_rol_id INT
-)
-BEGIN
-    UPDATE admin
-    SET nombre = p_nombre,
-        apellido = p_apellido,
-        dni = p_dni,
-        direccion = p_direccion,
-        telefono = p_telefono,
-        password_hash = p_password_hash,
-        password_salt = p_password_salt,
-        rol_id = p_rol_id
-    WHERE adminid = p_adminid;
-END //
-
-DELIMITER ;
-
-DELIMITER //
-
-CREATE PROCEDURE sp_EliminarAdmin(
-    IN p_adminid INT
-)
-BEGIN
-    DELETE FROM admin
-    WHERE adminid = p_adminid;
-END //
-
-DELIMITER ;
-
-
--- Procedimientos almacenados para profesionales
-
-DELIMITER //
-
-CREATE PROCEDURE sp_CargarProfesionales(
-    IN p_nombre VARCHAR(50),
-    IN p_apellido VARCHAR(50),
-    IN p_dni VARCHAR(50),
-    IN p_direccion VARCHAR(50),
-    IN p_telefono VARCHAR(50),
-    IN p_password_hash VARCHAR(255),
-    IN p_password_salt VARCHAR(50),
-    IN p_rol_id INT
-)
-BEGIN
-    INSERT INTO profesionales (nombre, apellido, dni, direccion, telefono, password_hash, password_salt, rol_id)
-    VALUES (p_nombre, p_apellido, p_dni, p_direccion, p_telefono, p_password_hash, p_password_salt, p_rol_id);
-END //
-
-DELIMITER ;
-
-DELIMITER //
-
-CREATE PROCEDURE sp_EditarProfesionales(
-    IN p_profesionalesid INT,
-    IN p_nombre VARCHAR(50),
-    IN p_apellido VARCHAR(50),
-    IN p_dni VARCHAR(50),
-    IN p_direccion VARCHAR(50),
-    IN p_telefono VARCHAR(50),
-    IN p_password_hash VARCHAR(255),
-    IN p_password_salt VARCHAR(50),
-    IN p_rol_id INT
-)
-BEGIN
-    UPDATE profesionales
-    SET nombre = p_nombre,
-        apellido = p_apellido,
-        dni = p_dni,
-        direccion = p_direccion,
-        telefono = p_telefono,
-        password_hash = p_password_hash,
-        password_salt = p_password_salt,
-        rol_id = p_rol_id
-    WHERE profesionalesid = p_profesionalesid;
-END //
-
-DELIMITER ;
-
-DELIMITER //
-
-CREATE PROCEDURE sp_EliminarProfesionales(
-    IN p_profesionalesid INT
-)
-BEGIN
-    DELETE FROM profesionales
-    WHERE profesionalesid = p_profesionalesid;
-END //
-
-DELIMITER ;
-
-
 -- Procedimientos almacenados para agentes
 
 DELIMITER //
@@ -359,11 +209,12 @@ CREATE PROCEDURE sp_CargarAgentes(
     IN p_telefono VARCHAR(50),
     IN p_password_hash VARCHAR(255),
     IN p_password_salt VARCHAR(50),
-    IN p_rol_id INT
+    IN p_rol_id INT,
+    IN p_funcion VARCHAR(50)
 )
 BEGIN
-    INSERT INTO agentes (nombre, apellido, dni, direccion, telefono, password_hash, password_salt, rol_id)
-    VALUES (p_nombre, p_apellido, p_dni, p_direccion, p_telefono, p_password_hash, p_password_salt, p_rol_id);
+    INSERT INTO agentes (nombre, apellido, dni, direccion, telefono, password_hash, password_salt, rol_id, funcion)
+    VALUES (p_nombre, p_apellido, p_dni, p_direccion, p_telefono, p_password_hash, p_password_salt, p_rol_id, p_funcion);
 END //
 
 DELIMITER ;
@@ -379,7 +230,8 @@ CREATE PROCEDURE sp_EditarAgentes(
     IN p_telefono VARCHAR(50),
     IN p_password_hash VARCHAR(255),
     IN p_password_salt VARCHAR(50),
-    IN p_rol_id INT
+    IN p_rol_id INT,
+    IN p_funcion VARCHAR(50)
 )
 BEGIN
     UPDATE agentes
@@ -390,7 +242,8 @@ BEGIN
         telefono = p_telefono,
         password_hash = p_password_hash,
         password_salt = p_password_salt,
-        rol_id = p_rol_id
+        rol_id = p_rol_id,
+        funcion = p_funcion
     WHERE agentesid = p_agentesid;
 END //
 
@@ -407,12 +260,3 @@ BEGIN
 END //
 
 DELIMITER ;
-
-
- 
-
-
-
- 
- 
- 
