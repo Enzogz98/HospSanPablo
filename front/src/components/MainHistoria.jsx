@@ -7,6 +7,7 @@ const Historia = () => {
 
     <div>
         <div id="vacioH">
+          
 
         </div>
       <div className="MainHisotia">

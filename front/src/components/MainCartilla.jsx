@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Css/mainHome.css";
+import "../Css/MainCartilla.css";
 import { useEffect } from "react";
 
 const profesionales = [
@@ -73,9 +73,7 @@ export const MainCartilla = () => {
 
   return (
     <div>
-      <div id="vacioP">
-
-      </div>
+      
       <div className="MainCartilla">
 
 

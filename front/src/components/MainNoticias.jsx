@@ -15,10 +15,10 @@ import { Card } from 'react-bootstrap';
 
 const MainNoticias = () => {
   return (
-    <div>
-        <div id="vacio">
+    <div className="bgNoticia">
+        <div className="inicioNoticia">
 
-    </div>
+        </div>
         <div className="row">
             <section id="infomsp" className="col-xl-7">
 

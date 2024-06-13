@@ -11,9 +11,9 @@ const Header = () => {
   return (
     <div className="header">
       
-      <Navbar className="navBar" expand="lg">
+      <Navbar className="navBar" expand="xl">
         <Container>
-          <div className="col-2">
+          <div className="col-lg-2">
             <Navbar.Brand href="#home">
               <img
                 src={logo}
@@ -27,7 +27,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav"/>
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
             <div className="col-6 ">
-              <Nav>
+              <Nav className="justify-content-between">
                 <Nav.Link href="/" id="button">Inicio</Nav.Link>
                 <Nav.Link href="/Historia" id="button">Historia</Nav.Link>
                 <Nav.Link href="/noticias" id="button">Noticias</Nav.Link>

@@ -4,11 +4,11 @@
     font-family: arial;
     color: #fff;
 }
-body{
+.bodyLogin{
     width: 100vw;
     height: 100vh;
     background: #081b29;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-content: center;
 }

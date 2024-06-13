@@ -1,16 +1,17 @@
 .MainHome {
   background-color: #ebebeb;
+  padding-top: 5em;
 }
 
 #vacio {
-  width: 100%;
+
   height: 1100px !important;
   background-color: #ebebeb;
 }
 
-#carrusel {
-  width: 30%;
-  height: 30%;
+
+#carruselImg {
+  max-width: 30em;
   margin: 120px auto 0;
   font-family: 'Playfair Display', serif;
 }
@@ -19,6 +20,10 @@
   object-fit: fill;
   width: 100%;
   height: 100%;
+}
+
+#horarios .divAncla{
+  padding: 1em;
 }
 
 #horarios .divAncla img {
@@ -67,7 +72,7 @@
 }
 
 .divAncla > a > img {
-  max-width: 15em;
+  max-width: 20em;
 }
 
 .divAncla p {
@@ -113,7 +118,7 @@
   font-family: 'Playfair Display', serif;
 }
 
-#nodos .m-auto img {
+#nodos1 > img {
   width: 30%;
 }
 
@@ -131,7 +136,7 @@
   z-index: 1;
   width: 100%; 
   height: 100%; 
-  max-width: none; 
+  max-width: 15em; 
 }
 
 #nodos1::before {

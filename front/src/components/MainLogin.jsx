@@ -39,7 +39,7 @@ const MainLogin = () => {
   };
 
   return (
-    <div>
+    <div className="bodyLogin">
       <div className="Login">
 
         <form className="form1" onSubmit={handleSubmit}>

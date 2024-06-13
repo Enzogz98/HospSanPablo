@@ -12,15 +12,13 @@ const MainContact = () => {
   };
   return (
   <div>
-    <div className="VacioC">
-
-    </div>
+   
 
     <div className="MainContacto">
 
       <div className="container-Contacto container ">
-        <div className="contact-section ">
-          <div className="contact-info">
+        <div className="contact-section row  justify-content-center">
+          <div className="contact-info col-xl-5">
             <h2><span className="negritas">Contacto</span></h2>
             <p><span className="negritas">Dirección:</span> Av. San Martin s/n</p>
             <p><span className="negritas">Teléfono:</span> +54 9 381 123-4567</p>
@@ -28,7 +26,7 @@ const MainContact = () => {
             <p><span className="negritas">Horario:</span> Lunes a Domingos</p>
           </div>
           
-          <div className="contact-form">
+          <div className="contact-form col-xl-5">
             <h2>Envíanos un mensaje</h2>
             <Form>
               <input type="text" placeholder="Nombre" required />
@@ -38,7 +36,7 @@ const MainContact = () => {
             </Form>
           </div>
 
-          <div className="sucursal col-xl-5" >
+          <div className="sucursal col-xl-6" >
               
             <label htmlFor="mapSelector" className="negritas">Hospitales y CAPS:</label>
             <select

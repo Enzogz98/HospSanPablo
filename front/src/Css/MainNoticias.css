@@ -1,13 +1,12 @@
 
-.row{
+.bgNoticia{
     background-color: #ebebeb;
 }
+    
+    
+.inicioNoticia {
+    padding: 40px;
 
-
-#vacio {
-    width: 100%;
-    height: 80px;
-    background-color: #ebebeb;
 }
 
 
