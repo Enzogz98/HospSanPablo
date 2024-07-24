@@ -53,16 +53,6 @@ const MainNoticias = () => {
               </Card>
                     
               <Card className="m-3">
-                <a href="https://play.google.com/store/apps/details?id=com.artech.serviciosalud.sdmenu&hl=es_AR&gl=US&pli=1">
-                  <Card.Img
-                    variant="top"
-                    src={tucsalud}
-                    style={{ maxWidth: "100%" }}
-                  />
-                </a>
-              </Card>
-                    
-              <Card className="m-3">
                 <a href="https://msptucuman.gov.ar/aplicativo-para-visualizar-resultados-de-estudios-de-dengue-y-covid-19/">
                   <Card.Img
                     variant="top"
@@ -73,23 +63,28 @@ const MainNoticias = () => {
               </Card>
             </section>
             
-            <section id="masinfo" className="col-xl-5 m-auto">
+            <section id="masinfo" className="col-xl-5 m-auto justify-content-spacebetween">
 
-              <a href="https://msptucuman.gov.ar/manual-de-diabetes-para-padres/" className="divAncla1">
-                <img src={librodiabetes} alt="" />
-                <p>Libro de diabetes</p>
-              </a>
+              <div className="divAncla1">
+                <a href="https://msptucuman.gov.ar/manual-de-diabetes-para-padres/" >
+                  <img src={librodiabetes} alt="" />
+                  <p>Libro de diabetes</p>
+                </a>
+              </div>
+              <div className="divAncla1">
+                <a href="https://msptucuman.gov.ar/nodo-rosa/" className="divAncla1">
+                  <img src={nodorosa} alt="" />
+                  <p>Nodo rosa</p>
+                </a>
+              </div>
 
-              <a href="https://msptucuman.gov.ar/nodo-rosa/" className="divAncla1">
-                <img src={nodorosa} alt="" />
-                <p>Nodo rosa</p>
-              </a>
-
-              <a href="https://msptucuman.gov.ar/ruta-de-la-embarazada-y-el-nino/" className="divAncla1">
-                <img src={embarazada} alt=""/>
-                <p>Ruta de la embarazada y el niño</p>
-              </a>
-
+              <div className="divAncla1">
+                <a href="https://msptucuman.gov.ar/ruta-de-la-embarazada-y-el-nino/" className="divAncla1">
+                  <img src={embarazada} alt=""/>
+                  <p>Ruta de la embarazada y el niño</p>
+                </a>
+              </div>
+              
               </section>
         </div>
     </div>

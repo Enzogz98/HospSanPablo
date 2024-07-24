@@ -43,43 +43,46 @@ export const Carrousel = () => {
                 <div className="divAncla ">
                 
                 <div className="divCards row justify-content-center">
+                  <div className='d-flex col'>
 
-                  <Card style={{ width: "14em", margin:"1em" }} className="col-1">
-                    <Card.Img
-                      variant="top"
-                      src={dengue1}
-                      style={{ maxWidth: "100%", maxHeight: "250px" }}
-                      
-                    />
-                    <Card.Body>
-                      <Card.Title>Sintomas del dengue</Card.Title>
-                      <a href="https://www.instagram.com/p/Cz_R8YIu5mU/?img_index=1" ><Button class="btn btn-light">Mas Informacion</Button></a>
-                    </Card.Body>
-                  </Card>
-               
-                  <Card style={{ width: "14rem", margin:"1em" }} className="col-1">
-                    <Card.Img
-                      variant="top"
-                      src={capacdengue}
-                      style={{ maxWidth: "100%", maxHeight: "250px" }}
-                    />
-                    <Card.Body>
-                      <Card.Title>Capacitacion dengue</Card.Title>
-                      <a href="https://www.instagram.com/p/Cz_QUSJu5rn/" ><Button class="btn btn-light">Mas Informacion</Button></a>
-                    </Card.Body>
-                  </Card>
+                    <Card style={{ width: "15em", margin:"1em" }} className="col-1">
+                      <Card.Img
+                        variant="top"
+                        src={dengue1}
+                        style={{ maxWidth: "100%", maxHeight: "250px" }}
+                        
+                      />
+                      <Card.Body>
+                        <Card.Title>Sintomas del dengue</Card.Title>
+                        <a href="https://www.instagram.com/p/Cz_R8YIu5mU/?img_index=1" ><Button class="btn btn-light">Mas Informacion</Button></a>
+                      </Card.Body>
+                    </Card>
                 
-                  <Card style={{ width: "14rem", margin:"1em" }} className="col-1">
-                    <Card.Img
-                      variant="top"
-                      src={diabetes3}
-                      style={{ maxWidth: "100%", maxHeight: "250px" }}
-                    />
-                    <Card.Body>
-                      <Card.Title>Dia mundial de diabetes</Card.Title>
-                      <a href="https://www.instagram.com/p/CzozN1TO849/" ><Button class="btn btn-light">Mas Informacion</Button></a>
-                    </Card.Body>
-                  </Card>
+                    <Card style={{ width: "15em", margin:"1em" }} className="col-1">
+                      <Card.Img
+                        variant="top"
+                        src={capacdengue}
+                        style={{ maxWidth: "100%", maxHeight: "250px" }}
+                      />
+                      <Card.Body>
+                        <Card.Title>Capacitacion dengue</Card.Title>
+                        <a href="https://www.instagram.com/p/Cz_QUSJu5rn/" ><Button class="btn btn-light">Mas Informacion</Button></a>
+                      </Card.Body>
+                    </Card>
+                  
+                    <Card style={{ width: "15em", margin:"1em" }} className="col-1">
+                      <Card.Img
+                        variant="top"
+                        src={diabetes3}
+                        style={{ maxWidth: "100%", maxHeight: "250px" }}
+                      />
+                      <Card.Body>
+                        <Card.Title>Dia mundial de diabetes</Card.Title>
+                        <a href="https://www.instagram.com/p/CzozN1TO849/" ><Button class="btn btn-light">Mas Informacion</Button></a>
+                      </Card.Body>
+                    </Card>
+                  </div>
+
     </div>
     </div>
     </div>

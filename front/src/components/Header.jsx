@@ -12,8 +12,9 @@ const Header = () => {
     <div className="header">
       
       <Navbar className="navBar" expand="xl">
-        <Container>
-          <div className="col-lg-2">
+
+
+          <div className="col-lg-2 ms-3">
             <Navbar.Brand href="#home">
               <img
                 src={logo}
@@ -24,10 +25,13 @@ const Header = () => {
             </Navbar.Brand>
           </div>
 
+        <div>
+          
+        </div>
           <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
-            <div className="col-6 ">
-              <Nav className="justify-content-between">
+          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end mx-3">
+            <div className="col-lg-6 divHeaderLink">
+              <Nav className="justify-content-end">
                 <Nav.Link href="/" id="button">Inicio</Nav.Link>
                 <Nav.Link href="/Historia" id="button">Historia</Nav.Link>
                 <Nav.Link href="/noticias" id="button">Noticias</Nav.Link>
@@ -38,15 +42,7 @@ const Header = () => {
             </div>
 
           </Navbar.Collapse>
-            <Nav className="justify-content-between">
-
-              <div className="col-2">
-                <a href="https://www.instagram.com/hosp.sanpablo/?igsh=MXdiZjdneTRvMWdlag%3D%3D" className="instagram-icon"> <FaInstagram />
-</a>
-
-              </div>
-            </Nav>
-        </Container>
+        
       </Navbar>
     </div>
   );

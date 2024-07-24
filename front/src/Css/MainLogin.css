@@ -1,8 +1,10 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: arial;
+    font-weight: bold;
     color: #fff;
+    font-family: var(--bs-body-font-family);
+    letter-spacing: 1px;
 }
 .bodyLogin{
     width: 100vw;
@@ -16,12 +18,13 @@
     color: #0fd850;
 }
 .Login{
+    margin: auto;
     position: relative;
     width: 800px;
     height: 65vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border: 3px solid #f9f047;
+    border: 3px solid #4f976c;
     box-shadow: 0 0 50px 0 #0fd850;
 }
 .form1{
@@ -59,7 +62,7 @@
     border-radius: 40px;
     letter-spacing: 1px;
     cursor: pointer;
-    background: linear-gradient(45deg, #0fd850, #f9f047);
+    background: linear-gradient(45deg, #60ba85 0%, #4f976c 100%);
 }
 .banner1{
     position: absolute;
@@ -67,7 +70,7 @@
     right: 0;
     width: 450px;
     height: 390px;
-    background: linear-gradient(to right,#0fd850, #f9f047 );
+    background: linear-gradient(to right,#60ba85 0%, #4f976c 100%);
     clip-path: polygon(0 0,100% 0,100% 100%, 60% 100%);
     padding-right: 70px;
     text-align: right;
@@ -84,4 +87,8 @@
 
 .error{
     color: #0fd850;
+}
+.btnVolver{
+    color: white;
+    text-decoration: none;
 }

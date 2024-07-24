@@ -1,13 +1,15 @@
-#vacioH{
-    height: 130px !important;
-    background-color: #ebebeb;
-}
-.MainHisotia{
+.MainHistoria{
     background-color: #ebebeb;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 50px;
+    padding-top: 7em;
 
+
+}
+.divHistoria{
+    width: 80%;
+    margin: auto;
 }
 #imgH{
     max-width: 320px;
@@ -41,4 +43,14 @@ h1{
 .text-box p{
     font-size: 16px;
     color: #000000;
+}
+
+.parrafoHistoria{
+    font-size: 30px !important;
+
+
+}
+
+.parrafo1{
+    color: black;
 }

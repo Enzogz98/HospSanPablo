@@ -9,6 +9,7 @@
 .encabezado{
     font-weight: bold;
     text-decoration: underline;
+    color: #000000;
 }
 
 .Tablas {
@@ -25,11 +26,14 @@
     padding: 10px; 
     border-collapse: collapse;
     margin: 0 auto;
+    color: #000000;
   }
 
   .tabla1 table {
     width: 100%;
     border-collapse: collapse;
+    color: #000000;
+
   }
   
   .tabla1 h2,
@@ -42,6 +46,8 @@
 .tabla1 td {
   border: 2px solid #000000; 
   padding: 8px; 
+  color: #000000;
+
 }
   
   

@@ -63,7 +63,7 @@
     position: absolute;
     top: 0;
     left: -100%;
-    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    background-image: linear-gradient(to right, #60ba85 0%, #4f976c 100%);
     transition: .5s ease;
     z-index: -1;
 }
@@ -75,6 +75,7 @@
 .divAncla1 {
     text-decoration: none;
     color: black;
+    margin-top: 100px;
 }
 
 .divAncla1 p {

@@ -3,7 +3,7 @@
   position: fixed;
   z-index: 1000;
   width: 100%;
-  background-color: #82E0AA;
+  background-color: #60ba85;
   top: 0;
 }
 
@@ -15,11 +15,10 @@
   color: rgb(0, 0, 0);
   transition: color 0.3s ease;
   background-color: white;
-  padding: 10px -1px;
+  padding: 10px 5px;
   border-radius: 15px;
   border: 1px solid black;
-  margin: 10 5px;
-  font-family: 'Playfair Display', serif;
+  margin: 10 10px;
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -33,7 +32,7 @@
 
 #button::after{
   content: "";
-  background: #82E0AA;
+  background: #4f976c;
   position: absolute;
   z-index:  -1;
   padding: 10px 10px;
@@ -63,4 +62,8 @@
 .instagram-icon {
   color: white; 
   font-size: 2em; 
+}
+
+.divHeaderLink a{
+  margin-right: 5px;
 }

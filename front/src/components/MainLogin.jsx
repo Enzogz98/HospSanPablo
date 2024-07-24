@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../Css/MainLogin.css";
 import React, { useState } from 'react';
 
@@ -39,38 +40,43 @@ const MainLogin = () => {
   };
 
   return (
-    <div className="bodyLogin">
-      <div className="Login">
+    <div className="">
 
-        <form className="form1" onSubmit={handleSubmit}>
+      <div className="bodyLogin">
+        <div className="Login">
 
-          <h1 className="titulo1">Area Operativa <br />San Pablo</h1>
+          <form className="form1" onSubmit={handleSubmit}>
 
-          <div className="inp1">
-            <input
-              className="input1"
-              type="text"
-              placeholder="Ingresar usuario"
-              value={usuario}
-              onChange={handleUsuario}
-            />
+            <h1 className="titulo1">Area Operativa <br />San Pablo</h1>
+
+            <div className="inp1">
+              <input
+                className="input1"
+                type="text"
+                placeholder="Ingresar usuario"
+                value={usuario}
+                onChange={handleUsuario}
+              />
+            </div>
+
+            <div className="inp1">
+              <input
+                className="input1"
+                type="password"
+                placeholder="Ingresar contraseña"
+                value={contraseña}
+                onChange={handleContraseña}
+              />
+            </div>
+
+            <button type="submit" className="submit1">Ingresar</button>
+            <button type="submit" className="submit1">
+            <Link to={"/"} className="btnVolver">Volver a inicio</Link></button>
+          {error && <p className="error">{error}</p>}
+          </form>
+          <div className="banner1">
+            <h1 className="Bienvenido1">Bienvenido</h1>
           </div>
-
-          <div className="inp1">
-            <input
-              className="input1"
-              type="password"
-              placeholder="Ingresar contraseña"
-              value={contraseña}
-              onChange={handleContraseña}
-            />
-          </div>
-
-          <button type="submit" className="submit1">Ingresar</button>
-         {error && <p className="error">{error}</p>}
-        </form>
-        <div className="banner1">
-          <h1 className="Bienvenido1">Bienvenido</h1>
         </div>
       </div>
     </div>

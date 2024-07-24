@@ -20,7 +20,7 @@ const MainHome = () => {
             <section id="carrusel" className="col-lg-7 col-md-10 col-sm-12 m-auto">
               <Carrousel />
             </section>
-            <section id="horarios" className="col-xl-5  m-auto justifycontent-center">
+            <section id="horarios" className="col-xl-5  m-auto justify-content-center">
               <div className="divAncla">
                 <a href="/HoraAtencion" id="hor1">
                   <img src={hospital} alt="" className="img-fluid"/>
