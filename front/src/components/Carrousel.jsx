@@ -12,7 +12,7 @@ import diabetes3 from "../assets/diabetes3.jpg";
 export const Carrousel = () => {
   return (
     <div>
-        <Carousel id="carruselImg" className="col-lg-12 col-md-10 col-sm-12 m-auto">
+        <Carousel id="carruselImg" className="">
                   <Carousel.Item >
                       <a href="">
                           <img src={hospital1} alt="" id="img1"/>
@@ -42,14 +42,14 @@ export const Carrousel = () => {
               
                 <div className="divAncla ">
                 
-                <div className="divCards row justify-content-center">
-                  <div className='d-flex col'>
+                <div className="divCards">
+                  <div className='d-flex'>
 
-                    <Card style={{ width: "15em", margin:"1em" }} className="col-1">
+                    <Card  className="cartas-mas-info">
                       <Card.Img
                         variant="top"
                         src={dengue1}
-                        style={{ maxWidth: "100%", maxHeight: "250px" }}
+                        
                         
                       />
                       <Card.Body>
@@ -58,11 +58,11 @@ export const Carrousel = () => {
                       </Card.Body>
                     </Card>
                 
-                    <Card style={{ width: "15em", margin:"1em" }} className="col-1">
-                      <Card.Img
+                    <Card className="cartas-mas-info">
+                      <Card.Img className='imagen-cards'
                         variant="top"
                         src={capacdengue}
-                        style={{ maxWidth: "100%", maxHeight: "250px" }}
+                        
                       />
                       <Card.Body>
                         <Card.Title>Capacitacion dengue</Card.Title>
@@ -70,11 +70,11 @@ export const Carrousel = () => {
                       </Card.Body>
                     </Card>
                   
-                    <Card style={{ width: "15em", margin:"1em" }} className="col-1">
+                    <Card className="cartas-mas-info">
                       <Card.Img
                         variant="top"
                         src={diabetes3}
-                        style={{ maxWidth: "100%", maxHeight: "250px" }}
+                       
                       />
                       <Card.Body>
                         <Card.Title>Dia mundial de diabetes</Card.Title>

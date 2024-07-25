@@ -14,7 +14,7 @@ const Header = () => {
       <Navbar className="navBar" expand="xl">
 
 
-          <div className="col-lg-2 ms-3">
+          <div className="col-lg-2 ms-5">
             <Navbar.Brand href="#home">
               <img
                 src={logo}
