@@ -4,11 +4,11 @@ import Footer from "../components/Footer"
 
 const Historia = () => {
   return (
-    <div>
+    <>
         <Header/>
         <MainHistoria/>
         <Footer />
-    </div>
+    </>
   )
 }
 

@@ -28,7 +28,7 @@ const MainHome = () => {
                 <p>Horarios de atencion</p>
               </a>
             </div>
-            <div className="divAncla">
+            <div className="divAncla"  data-aos="fade-up">
               <a href="/CartillaMedica" id="hor1">
                 <img src={profesionales} alt="" className="img-fluid" />
                 <p>Profesionales</p>

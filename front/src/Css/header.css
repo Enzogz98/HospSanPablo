@@ -1,6 +1,5 @@
 .header {
   display: flex;
-  position: fixed;
   z-index: 1000;
   width: 100%;
   background-color: #60ba859f;

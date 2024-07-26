@@ -8,7 +8,7 @@ const Footer = () => {
   	 		<div className="footer-col">
   	 			<h4>Pagina Creada por:</h4>
   	 			<ul>
-  	 				<li><a href="https://github.com/FacundoJoaquinGil" Target="_blank">Joaquin Gil</a></li>
+  	 				<li><a href="https://github.com/FacundoJoaquinGil" target="_blank">Joaquin Gil</a></li>
   	 				<li><a href="#">Franco Cornejo</a></li>
   	 				<li><a href="#">Matias Bordenave</a></li>
   	 				<li><a href="#">Enzo Gonzales</a></li>

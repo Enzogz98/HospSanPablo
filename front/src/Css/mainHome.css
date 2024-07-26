@@ -1,32 +1,35 @@
-body, html{
+body,
+html {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://cdn.lecturio.com/assets/Featured-image-Student-Blog-Hospital-Team.jpg") center/cover no-repeat;
+  letter-spacing: 0.2px;
+
 }
 
-.contenedor-home-body{
+.contenedor-home-body {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 20px;
 }
 
-.cartas-mas-info{
+.cartas-mas-info {
   width: 15em;
   margin-left: 20px;
 }
 
-.cartas-mas-info img{
-  max-width: 100%; 
+.cartas-mas-info img {
+  max-width: 100%;
   height: 250px;
 }
 
-.imagen-cards{
-  
+.imagen-cards {
+
   object-fit: cover;
 }
 
 
 #carruselImg {
-  
+
   padding: 90px;
   margin: auto;
   max-width: 40em;
@@ -57,7 +60,7 @@ body, html{
   z-index: 1;
 }
 
-#hor1 p{
+#hor1 p {
   color: white;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.648);
 }
@@ -79,14 +82,14 @@ body, html{
   left: 0;
 }
 
-.divAncla{
+.divAncla {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.divAncla > a > img {
+.divAncla>a>img {
   max-width: 20em;
 }
 
@@ -116,7 +119,7 @@ body, html{
   box-shadow: inset 0 0 0 0 #60ba85;
 }
 
-.columna-contenedor{
+.columna-contenedor {
   margin-left: 50px;
 }
 
@@ -138,7 +141,7 @@ body, html{
   text-align: center;
 }
 
-#nodos1 > img {
+#nodos1>img {
   width: 30%;
 }
 
@@ -154,9 +157,9 @@ body, html{
   position: relative;
   overflow: hidden;
   z-index: 1;
-  width: 100%; 
-  height: 100%; 
-  max-width: 15em; 
+  width: 100%;
+  height: 100%;
+  max-width: 15em;
 }
 
 #nodos1::before {
@@ -198,7 +201,7 @@ body, html{
   border-radius: 15px;
   position: absolute;
   top: 0;
-  left: -110%; 
+  left: -110%;
   background-image: linear-gradient(to right, #60ba85 0%, #4f976c 100%);
   transition: .5s ease;
   z-index: -1;
