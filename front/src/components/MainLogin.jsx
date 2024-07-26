@@ -1,43 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../Css/MainLogin.css";
-import React, { useState } from 'react';
+import  { useState } from 'react';
+import axios from "axios"
 
 const MainLogin = () => {
+  
+  let navigate = useNavigate()
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
-  const [error, setError] = useState(null);
 
-  const handleUsuario = (event) => {
-    setUsuario(event.target.value);
-  };
-
-  const handleContraseña = (event) => {
-    setContraseña(event.target.value);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      const response = await fetch('http://localhost:5000/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ usuario, contraseña })
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-      } else {
-        throw new Error('Error en la solicitud');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setError('Error al iniciar sesión');
-    }
-  };
+  const handleSubmit = async () =>{
+    axios.post("http://localhost", {
+      usuario: usuario,
+      contraseña: contraseña
+    }).then(()=>{
+      navigate("/home", {replace: true})
+      alert("Bienvenido.")
+    }).catch(()=>{
+      alert("Usuario o contraseña incorrectos.")
+    })
+  } 
 
   return (
     <div className="">
@@ -45,7 +27,7 @@ const MainLogin = () => {
       <div className="bodyLogin">
         <div className="Login">
 
-          <form className="form1" onSubmit={handleSubmit}>
+          <form className="form1">
 
             <h1 className="titulo1">Area Operativa <br />San Pablo</h1>
 
@@ -54,8 +36,7 @@ const MainLogin = () => {
                 className="input1"
                 type="text"
                 placeholder="Ingresar usuario"
-                value={usuario}
-                onChange={handleUsuario}
+                onChange={(e)=> setUsuario(e.target.value)}
               />
             </div>
 
@@ -64,15 +45,16 @@ const MainLogin = () => {
                 className="input1"
                 type="password"
                 placeholder="Ingresar contraseña"
-                value={contraseña}
-                onChange={handleContraseña}
+                onChange={(e)=> setContraseña(e.target.value)}
               />
             </div>
 
-            <button type="submit" className="submit1">Ingresar</button>
+            <Link to={""}>
+              <button type="submit" className="submit1"  onSubmit={handleSubmit}>Ingresar</button>
+            </Link>
+
             <button type="submit" className="submit1">
             <Link to={"/"} className="btnVolver">Volver a inicio</Link></button>
-          {error && <p className="error">{error}</p>}
           </form>
           <div className="banner1">
             <h1 className="Bienvenido1">Bienvenido</h1>

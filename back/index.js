@@ -8,10 +8,15 @@ const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const cors = require("cors");
 
+// ---- RUTAS ----- //
+
+const login = require('./routes/login')
+
+
+
+
+
 const app = express ();
-
-
-
 
 
 app.use(bodyParser.json());
@@ -23,11 +28,17 @@ app.use(cors())
 
 
 
-app.get("/", (req, res) => {
-    res.send("Welcome <br/> Franco CornejoWeb Dev<br> ");
+app.listen(8000, () => {
+    console.log("escuchando en el puerto",8000);
 });
 
 
-app.listen(8000, () => {
-    console.log("escuchando en el puerto",8000);
+
+app.use("/login", login)
+
+
+
+
+app.get("/", (req, res) => {
+    res.send("Welcome <br/> Franco CornejoWeb Dev<br> ");
 });
