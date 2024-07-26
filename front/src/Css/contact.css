@@ -37,9 +37,7 @@
 
 .contact-info,
 .contact-form {
-  background-image: url("https://img.freepik.com/foto-gratis/fondo-papel-viejo-vendimia-grunge_1373-431.jpg?size=626&ext=jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #60ba859f;
     background-position: center;
     filter: drop-shadow(7px 7px 1px rgba(0, 0, 0, 0.551));
     color: black;
