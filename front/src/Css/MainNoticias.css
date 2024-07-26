@@ -1,6 +1,7 @@
 
 .bgNoticia{
-    background-color: #ebebeb;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://cdn.lecturio.com/assets/Featured-image-Student-Blog-Hospital-Team.jpg") center/cover no-repeat;
+    letter-spacing: 0.2px;
 }
     
     

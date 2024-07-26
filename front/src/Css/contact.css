@@ -1,18 +1,18 @@
 
 
 .MainContacto {
-  background-color: #ebebeb;
-  padding-top: 60px;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://cdn.lecturio.com/assets/Featured-image-Student-Blog-Hospital-Team.jpg") center/cover no-repeat;
+  letter-spacing: 0.2px;
 }
 
 .container-Contacto {
-  background-color: #ebebeb;
-  border-radius: 15px;
+  
+  
   padding: 20px;
 }
 
 .contact-section {
-  background-color: #ebebeb;
+  
   margin-top: 65px;
   display: grid;
   grid-template-columns: 100%;
@@ -27,6 +27,7 @@
   .contact-info,
   .contact-form {
     width: 100%;
+    color: #ffffff;
   }
 
   .contact-info {
@@ -36,8 +37,16 @@
 
 .contact-info,
 .contact-form {
-  border: 3px solid black;
-  border-radius: 15px;
+  background-image: url("https://img.freepik.com/foto-gratis/fondo-papel-viejo-vendimia-grunge_1373-431.jpg?size=626&ext=jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: drop-shadow(7px 7px 1px rgba(0, 0, 0, 0.551));
+    color: black;
+    text-align: start;
+    max-width: 750px;
+    font-size: 20px;
+    padding: 20px;
   padding: 20px;
   color: #000000;
 }
@@ -46,9 +55,11 @@
 .contact-form h2 {
   margin-bottom: 20px;
   color: #000000;
+  font-weight: bold;
 }
 
 .contact-form form {
+  
   display: flex;
   flex-direction: column;
   color: #000000;
@@ -67,12 +78,13 @@
 .sucursal {
   width: 100%;
   margin-top: 20px;
-  color: #000000;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 .negritas {
   font-weight: bold;
-color: #000000;}
+  color: #000000;}
 
 
 .map-container {

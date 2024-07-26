@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../Css/MainCartilla.css";
 import { useEffect } from "react";
 

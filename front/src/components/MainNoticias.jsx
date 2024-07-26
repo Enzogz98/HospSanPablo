@@ -2,7 +2,6 @@ import "../Css/MainNoticias.css"
 import fichamedica from "../assets/fichamedica.jpeg"
 import cancermama from "../assets/cancermama.jpg"
 import carnet from "../assets/carnetvacunacion.jpg"
-import tucsalud from "../assets/tucsalud.jpeg"
 import labdengue from "../assets/labdengue.jpg"
 import librodiabetes from "../assets/librodiabetes.png"
 import nodorosa from "../assets/nodorosa.png"
@@ -23,7 +22,9 @@ const MainNoticias = () => {
             <section id="infomsp" className="col-xl-7">
 
               <Card className="m-3">
-                <a href="https://msptucuman.gov.ar/ficha-medica-escolar/">
+                <a href="https://msptucuman.gov.ar/ficha-medica-escolar/"
+                target="_blank"
+                rel="noopener noreferrer">
                   <Card.Img
                     variant="top"
                     src={fichamedica}
@@ -33,7 +34,9 @@ const MainNoticias = () => {
               </Card>
                   
               <Card  className="m-3">
-                <a href="https://msptucuman.gov.ar/ubicaciones-de-mamografos/">
+                <a href="https://msptucuman.gov.ar/ubicaciones-de-mamografos/"
+                target="_blank"
+                rel="noopener noreferrer">
                   <Card.Img
                     variant="top"
                     src={cancermama}
@@ -43,7 +46,9 @@ const MainNoticias = () => {
               </Card>
                   
               <Card className="m-3">
-                <a href="https://srv08.siprosa.gob.ar/caps/carnetemitirplus.aspx">
+                <a href="https://srv08.siprosa.gob.ar/caps/carnetemitirplus.aspx"
+                target="_blank"
+                rel="noopener noreferrer">
                   <Card.Img
                     variant="top"
                     src={carnet}
@@ -53,7 +58,9 @@ const MainNoticias = () => {
               </Card>
                     
               <Card className="m-3">
-                <a href="https://msptucuman.gov.ar/aplicativo-para-visualizar-resultados-de-estudios-de-dengue-y-covid-19/">
+                <a href="https://msptucuman.gov.ar/aplicativo-para-visualizar-resultados-de-estudios-de-dengue-y-covid-19/"
+                target="_blank"
+                rel="noopener noreferrer">
                   <Card.Img
                     variant="top"
                     src={labdengue}
@@ -66,20 +73,26 @@ const MainNoticias = () => {
             <section id="masinfo" className="col-xl-5 m-auto justify-content-spacebetween">
 
               <div className="divAncla1">
-                <a href="https://msptucuman.gov.ar/manual-de-diabetes-para-padres/" >
+                <a href="https://msptucuman.gov.ar/manual-de-diabetes-para-padres/" 
+                target="_blank"
+                rel="noopener noreferrer">
                   <img src={librodiabetes} alt="" />
                   <p>Libro de diabetes</p>
                 </a>
               </div>
               <div className="divAncla1">
-                <a href="https://msptucuman.gov.ar/nodo-rosa/" className="divAncla1">
+                <a href="https://msptucuman.gov.ar/nodo-rosa/" className="divAncla1"
+                target="_blank"
+                rel="noopener noreferrer">
                   <img src={nodorosa} alt="" />
                   <p>Nodo rosa</p>
                 </a>
               </div>
 
               <div className="divAncla1">
-                <a href="https://msptucuman.gov.ar/ruta-de-la-embarazada-y-el-nino/" className="divAncla1">
+                <a href="https://msptucuman.gov.ar/ruta-de-la-embarazada-y-el-nino/" className="divAncla1"
+                target="_blank"
+                rel="noopener noreferrer">
                   <img src={embarazada} alt=""/>
                   <p>Ruta de la embarazada y el niño</p>
                 </a>

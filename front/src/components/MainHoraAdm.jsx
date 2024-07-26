@@ -13,6 +13,8 @@ const MainHoraAdm = () => {
             <br />
 
             <div className="Tablas">
+
+                <div data-aos="fade-right">
                     <div className="tabla1">
                         <h2>Hospital de San Pablo</h2>
 
@@ -28,7 +30,9 @@ const MainHoraAdm = () => {
                             </tr>
                         </table>
                     </div>
+                </div>
 
+                <div data-aos="fade-left">
                     <div className="tabla1">
                         <h3>CAPS Nuestra Señora del Pilar</h3>
                         <table>
@@ -42,7 +46,9 @@ const MainHoraAdm = () => {
                             </tr>
                         </table>
                     </div>
+                </div>
 
+                <div data-aos="fade-right">
                     <div className="tabla1">
                         <h3>CAPS La Nueva Esperanza</h3>
                         <table>
@@ -52,7 +58,9 @@ const MainHoraAdm = () => {
                             </tr>
                         </table>
                     </div>
+                </div>
 
+                <div data-aos="fade-left">
                     <div className="tabla1">
                         <h3>CAPS Villa del Rosario</h3>
                         <table>
@@ -66,6 +74,7 @@ const MainHoraAdm = () => {
                             </tr>
                         </table>
                     </div>
+                </div>
             
             </div>
 

@@ -38,7 +38,7 @@ const MainContact = () => {
 
           <div className="sucursal col-xl-6" >
               
-            <label htmlFor="mapSelector" className="negritas">Hospitales y CAPS:</label>
+            <label htmlFor="mapSelector" className="">Hospitales y CAPS: </label>
             <select
               id="mapSelector"
               value={selectedMap}

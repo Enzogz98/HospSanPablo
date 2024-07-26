@@ -1,5 +1,8 @@
+
 .container-HA{
     background-color: #ebebeb;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://cdn.lecturio.com/assets/Featured-image-Student-Blog-Hospital-Team.jpg") center/cover no-repeat;
+   letter-spacing: 0.2px;
 }
 .vacioHA{
     width: 100%;
@@ -8,8 +11,10 @@
 
 .encabezado{
     font-weight: bold;
-    text-decoration: underline;
-    color: #000000;
+    text-decoration: none;
+    color: #ffffff;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.733);
+    text-align: center;
 }
 
 .Tablas {
@@ -18,15 +23,17 @@
     justify-content: space-between;
   }
   
-  .tabla1 {
-    width: 48%;
-    margin-bottom: 20px;
-    text-align: center;
-    border: 3px solid #000000; 
-    padding: 10px; 
-    border-collapse: collapse;
-    margin: 0 auto;
-    color: #000000;
+.tabla1{
+    background-image: url("https://img.freepik.com/foto-gratis/fondo-papel-viejo-vendimia-grunge_1373-431.jpg?size=626&ext=jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: drop-shadow(7px 7px 1px rgba(0, 0, 0, 0.551));
+    color: black;
+    text-align: start;
+    max-width: 750px;
+    font-size: 20px;
+    padding: 20px;
   }
 
   .tabla1 table {
@@ -42,7 +49,7 @@
     text-decoration: underline;
   }
 
-  .tabla1 th,
+.tabla1 th,
 .tabla1 td {
   border: 2px solid #000000; 
   padding: 8px; 
@@ -50,4 +57,6 @@
 
 }
   
+
+
   
