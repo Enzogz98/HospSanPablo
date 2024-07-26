@@ -24,7 +24,8 @@ const MainNoticias = () => {
               <Card className="m-3">
                 <a href="https://msptucuman.gov.ar/ficha-medica-escolar/"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+                data-aos="fade-right">
                   <Card.Img
                     variant="top"
                     src={fichamedica}
@@ -36,7 +37,8 @@ const MainNoticias = () => {
               <Card  className="m-3">
                 <a href="https://msptucuman.gov.ar/ubicaciones-de-mamografos/"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+                data-aos="fade-right">
                   <Card.Img
                     variant="top"
                     src={cancermama}
@@ -48,7 +50,8 @@ const MainNoticias = () => {
               <Card className="m-3">
                 <a href="https://srv08.siprosa.gob.ar/caps/carnetemitirplus.aspx"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+                data-aos="fade-right">
                   <Card.Img
                     variant="top"
                     src={carnet}
@@ -60,7 +63,8 @@ const MainNoticias = () => {
               <Card className="m-3">
                 <a href="https://msptucuman.gov.ar/aplicativo-para-visualizar-resultados-de-estudios-de-dengue-y-covid-19/"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+                data-aos="fade-right">
                   <Card.Img
                     variant="top"
                     src={labdengue}
@@ -75,7 +79,8 @@ const MainNoticias = () => {
               <div className="divAncla1">
                 <a href="https://msptucuman.gov.ar/manual-de-diabetes-para-padres/" 
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+                data-aos="fade-left">
                   <img src={librodiabetes} alt="" />
                   <p>Libro de diabetes</p>
                 </a>
@@ -83,7 +88,8 @@ const MainNoticias = () => {
               <div className="divAncla1">
                 <a href="https://msptucuman.gov.ar/nodo-rosa/" className="divAncla1"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+                data-aos="fade-left">
                   <img src={nodorosa} alt="" />
                   <p>Nodo rosa</p>
                 </a>
@@ -92,7 +98,8 @@ const MainNoticias = () => {
               <div className="divAncla1">
                 <a href="https://msptucuman.gov.ar/ruta-de-la-embarazada-y-el-nino/" className="divAncla1"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+                data-aos="fade-left">
                   <img src={embarazada} alt=""/>
                   <p>Ruta de la embarazada y el niño</p>
                 </a>

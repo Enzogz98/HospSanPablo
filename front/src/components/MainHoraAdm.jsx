@@ -41,8 +41,8 @@ const MainHoraAdm = () => {
                                 <th>Horarios</th>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td>Lunes a Viernes</td>
+                                <td>07:00 a 19:00</td>  
                             </tr>
                         </table>
                     </div>
@@ -55,6 +55,10 @@ const MainHoraAdm = () => {
                             <tr>
                                 <th>Dias</th>
                                 <th>Horarios</th>
+                            </tr>
+                            <tr>
+                                <td>Lunes a Viernes</td>
+                                <td>07:00 a 19:00</td>
                             </tr>
                         </table>
                     </div>
@@ -69,8 +73,8 @@ const MainHoraAdm = () => {
                                 <th>Horarios</th>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td>Lunes a Viernes</td>
+                                <td>07:00 a 19:00</td>
                             </tr>
                         </table>
                     </div>
