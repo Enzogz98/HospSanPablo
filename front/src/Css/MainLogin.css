@@ -1,7 +1,7 @@
 .bodyLogin{
+    background: linear-gradient(to top, #081b29c5, #193a1faa);
     width: 100vw;
     height: 100vh;
-    background: #081b29;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -10,14 +10,14 @@
     color: #0fd850;
 }
 .Login{
+    background: #081b29df;
     margin: auto;
     position: relative;
     width: 800px;
     height: 65vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border: 3px solid #4f976c;
-    box-shadow: 0 0 50px 0 #0fd850;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.108);
 }
 .form1{
     display: flex;
@@ -42,9 +42,10 @@
     padding-right: 10px;
     font-size: 17px;
     color: #0fd850;
-
 }
+
 .submit1{
+    color: white;
     border: none;
     outline: none;
     width: 288px;
@@ -56,6 +57,11 @@
     cursor: pointer;
     background: linear-gradient(45deg, #60ba85 0%, #4f976c 100%);
 }
+
+.submit1:hover{
+    background: #3f7c57;
+}
+
 .banner1{
     position: absolute;
     top: 0;
@@ -75,6 +81,7 @@
     font-size: 40px;
     margin-top: -50px;
     line-height: 50px;
+    color: white;
 }
 
 .error{

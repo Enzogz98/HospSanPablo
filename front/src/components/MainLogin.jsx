@@ -25,7 +25,7 @@ const MainLogin = () => {
     <div className="">
 
       <div className="bodyLogin">
-        <div className="Login">
+        <div className="Login"  data-aos="flip-left">
 
           <form className="form1">
 
@@ -52,9 +52,9 @@ const MainLogin = () => {
             <Link to={""}>
               <button type="submit" className="submit1"  onSubmit={handleSubmit}>Ingresar</button>
             </Link>
-
+            <Link to={"/"} className="btnVolver">
             <button type="submit" className="submit1">
-            <Link to={"/"} className="btnVolver">Volver a inicio</Link></button>
+            Volver a inicio</button></Link>
           </form>
           <div className="banner1">
             <h1 className="Bienvenido1">Bienvenido</h1>
