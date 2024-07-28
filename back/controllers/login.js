@@ -31,6 +31,19 @@ const registro = async (req, res) => {
     }
 };
 
+    const mostrarUsuarios = (req, res) => {
+        db.query("SELECT * FROM users;", (err, result) => {
+            if (err) {
+                console.error('Error querying database:', err);
+                return res.status(500).json({ message: 'Error del servidor', error: err });
+            }else {
+                res.status(201).json(result);
+            }
+          });
+
+
+    }
+
 const login = async (req, res) => {
     const { usuario, contraseña } = req.body;
 
@@ -63,4 +76,4 @@ const login = async (req, res) => {
     }
 };
 
-module.exports = { registro, login };
+module.exports = { registro, login, mostrarUsuarios  };
