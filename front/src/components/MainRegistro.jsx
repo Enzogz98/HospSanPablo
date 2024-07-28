@@ -16,7 +16,7 @@ const MainRegistro = () => {
                 contraseña: contraseña
             });
             alert("Registrado.");
-            navigate("/home", { replace: true });
+            navigate("/", { replace: true });
         } catch (error) {
             console.error("Error al registrar usuario:", error);
             alert("Error al registrar usuario.");

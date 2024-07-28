@@ -10,6 +10,7 @@ import HoraAtencion from './pages/HoraAtencion';
 import HorarioAdm from './pages/HorarioAdm';
 import Login from "./pages/Login";
 import Registro from './pages/Registro';
+import { PanelControl } from './pages/PanelControl';
 
 function App() {
   
@@ -28,6 +29,7 @@ function App() {
           <Route path="/HorarioAdm" element={<HorarioAdm/>}/>
           <Route path="/login" element={<Login/>} />
           <Route path='/registro' element= {<Registro/>}/>
+          <Route path='/panelControl' element= {<PanelControl/>}/>
 
         </Routes>
       </BrowserRouter>
