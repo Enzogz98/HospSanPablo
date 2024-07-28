@@ -10,11 +10,11 @@ const MainLogin = () => {
   const [contraseña, setContraseña] = useState("");
 
   const handleSubmit = async () =>{
-    axios.post("http://localhost", {
+    axios.post("http://localhost:8000/login/login", {
       usuario: usuario,
       contraseña: contraseña
     }).then(()=>{
-      navigate("/home", {replace: true})
+      navigate("/", {replace: true})
       alert("Bienvenido.")
     }).catch(()=>{
       alert("Usuario o contraseña incorrectos.")
@@ -50,7 +50,7 @@ const MainLogin = () => {
             </div>
 
             <Link to={""}>
-              <button type="submit" className="submit1"  onSubmit={handleSubmit}>Ingresar</button>
+              <button type="submit" className="submit1"  onClick={handleSubmit}>Ingresar</button>
             </Link>
             <Link to={"/"} className="btnVolver">
             <button type="submit" className="submit1">
