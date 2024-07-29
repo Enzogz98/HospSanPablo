@@ -64,7 +64,7 @@ const MainContact = () => {
                   loading="lazy"
                   ></iframe>
                 }
-                <p className="negritas">Mapa Hospital San Pablo</p>
+                <p className="negritas1">Mapa Hospital San Pablo</p>
               </div>
             )}
 

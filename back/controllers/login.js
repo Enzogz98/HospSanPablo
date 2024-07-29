@@ -1,5 +1,5 @@
 
-const db = require('../database/config.js');
+const db = require('../config.js');
 const bcrypt = require('bcryptjs');
 
 const registro = async (req, res) => {

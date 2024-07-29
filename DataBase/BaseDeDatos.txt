@@ -1,27 +1,27 @@
-create database HospSanPablo;
-use HospSanPablo;
+CREATE DATABASE HospSanPablo;
+USE HospSanPablo;
 
-/* ROLES */
-
-CREATE TABLE roles (
-    rol_id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_rol VARCHAR(50) NOT NULL
+-- Crear la tabla users primero
+CREATE TABLE users (
+    usersid INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(50),
+    nomUser VARCHAR(50),
+    pass VARCHAR(50)
 );
 
+-- Crear la tabla roles con la clave foránea después
+CREATE TABLE roles (
+    rol_id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_rol VARCHAR(50) NOT NULL,
+    usersid INT,  -- Agregar la columna usersid
+    FOREIGN KEY (usersid) REFERENCES users(usersid)  -- Establecer la clave foránea
+);
 
 -- Insertar roles iniciales
-INSERT INTO roles (nombre_rol) VALUES ('Admin'); /*1*/
-INSERT INTO roles (nombre_rol) VALUES ('Profesional'); /*2*/
-INSERT INTO roles (nombre_rol) VALUES ('Agente'); /*3*/
+INSERT INTO roles (nombre_rol, usersid) VALUES ('Admin', NULL); /*1*/
+INSERT INTO roles (nombre_rol, usersid) VALUES ('Agentes', NULL); /*2*/
 
-
-create table users(
-email varchar(50),
-nomUser varchar(50),
-pass varchar(50),
-id int primary key auto_increment);
-
-
+-- Crear la tabla agentes
 CREATE TABLE agentes (
     agentesid INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
@@ -32,179 +32,94 @@ CREATE TABLE agentes (
     password_hash VARCHAR(255) NOT NULL,
     password_salt VARCHAR(50) NOT NULL,
     rol_id INT,
+    usersid INT,
+    funcion VARCHAR(50) NOT NULL,
     FOREIGN KEY (rol_id) REFERENCES roles(rol_id),
-    funcion VARCHAR(50)NOT NULL
+    FOREIGN KEY (usersid) REFERENCES users(usersid)
 );
 
-
-
-create table informacionGeneral(
-	informacionGeneralid int AUTO_INCREMENT primary key,
-    titulo varchar(200) not null,
-    contenido text not null,
-    imagen_URL varchar (3000) not null
+-- Crear la tabla documentos
+CREATE TABLE documentos (
+    documentosid INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    documento VARCHAR (200) NOT NULL
 );
 
-create table formularios(
-	formulariosid int AUTO_INCREMENT primary key,
-    titulo varchar(200) not null,
-    contenido text not null,
-    imagen_URL varchar(3000) not null,
-    archivo_ruta varchar(255) not null,
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-create table informes(
-	informesid int AUTO_INCREMENT primary key,
-    titulo varchar(200) not null,
-    contenido text not null,
-    imagen_URL varchar(3000) not null,
-    archivo_ruta varchar(255) not null,
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-
-
-------- INFORMACION_GENERAL ------
+-- Procedimientos almacenados para documentos
 
 DELIMITER //
 
-CREATE PROCEDURE sp_CargarInformacionGeneral(
-    IN p_titulo VARCHAR(100),
-    IN p_contenido TEXT,
-    IN p_imagen_url VARCHAR(3000),
-    IN p_archivo_ruta VARCHAR (255)
+CREATE PROCEDURE sp_CargarDocumentos(
+    IN p_titulo VARCHAR(200),
+    IN p_documento VARCHAR(255)
 )
 BEGIN
-    INSERT INTO informacionGeneral (titulo, contenido, imagen_URL, archivo_ruta)
-    VALUES (p_titulo, p_contenido, p_imagen_url, p_archivo_ruta);
+    INSERT INTO documentos (titulo, documento)
+    VALUES (p_titulo, p_documento);
 END //
 
 DELIMITER ;
 
 DELIMITER //
 
-CREATE PROCEDURE sp_EditarInformacionGeneral(
-    IN p_informacionGeneral_id INT,
-    IN p_titulo VARCHAR(100),
-    IN p_contenido TEXT,
-    IN p_imagen_url VARCHAR(3000),
-    IN p_archivo_ruta VARCHAR (255)
+CREATE PROCEDURE sp_EditarDocumentos(
+    IN p_documentosid INT,
+    IN p_titulo VARCHAR(200),
+    IN p_documento VARCHAR(255)
 )
 BEGIN
-    UPDATE informacionGeneral
-    SET titulo = p_titulo, contenido = p_contenido, imagen_URL = p_imagen_url, archivo_ruta = p_archivo_ruta
-    WHERE informacionGeneralid = p_informacionGeneral_id;
-END //
-
-DELIMITER ;
-
-
-DELIMITER //
-
-CREATE PROCEDURE sp_EliminarInformacionGeneral(
-    IN p_informacionGeneral_id INT
-)
-BEGIN
-    DELETE FROM informacionGeneral
-    WHERE informacionGeneralid = p_informacionGeneral_id;
-END //
-
-DELIMITER ;
-
---------/* FORMULARIOS */
-
-DELIMITER //
-
-CREATE PROCEDURE sp_CargarFormularios(
-    IN p_titulo VARCHAR(100),
-    IN p_contenido TEXT,
-    IN p_imagen_url VARCHAR(3000),
-    IN p_archivo_ruta VARCHAR(255)
-)
-BEGIN
-    INSERT INTO formularios (titulo, contenido, imagen_url, archivo_ruta)
-    VALUES (p_titulo, p_contenido, p_imagen_url, p_archivo_ruta);
+    UPDATE documentos
+    SET titulo = p_titulo,
+        documento = p_documento
+    WHERE documentosid = p_documentosid;
 END //
 
 DELIMITER ;
 
 DELIMITER //
 
-CREATE PROCEDURE sp_EditarFormularios(
-    IN p_formularios_id INT,
-    IN p_titulo VARCHAR(100),
-    IN p_contenido TEXT,
-    IN p_imagen_url VARCHAR(3000),
-    IN p_archivo_ruta VARCHAR(255)
+CREATE PROCEDURE sp_EliminarDocumentos(
+    IN p_documentosid INT
 )
 BEGIN
-    UPDATE formularios
-    SET titulo = p_titulo, contenido = p_contenido, imagen_url = p_imagen_url, archivo_ruta = p_archivo_ruta
-    WHERE formulariosid = p_formularios_id;
+    DELETE FROM documentos
+    WHERE documentosid = p_documentosid;
 END //
 
 DELIMITER ;
 
 DELIMITER //
 
-CREATE PROCEDURE sp_EliminarFormularios(
-    IN p_formularios_id INT
-)
+CREATE PROCEDURE sp_ListarDocumentos()
 BEGIN
-    DELETE FROM formularios
-    WHERE formulariosid = p_formularios_id;
-END //
-
-DELIMITER ;
-ALTER TABLE users MODIFY COLUMN pass VARCHAR(200);
-
-
-
-DELIMITER //
-
-CREATE PROCEDURE sp_CargarInformes(
-    IN p_titulo VARCHAR(100),
-    IN p_contenido TEXT,
-    IN p_imagen_url VARCHAR(255),
-    IN p_archivo_ruta VARCHAR(255)
-)
-BEGIN
-    INSERT INTO informes (titulo, contenido, imagen_url, archivo_ruta)
-    VALUES (p_titulo, p_contenido, p_imagen_url, p_archivo_ruta);
+    SELECT * FROM documentos;
 END //
 
 DELIMITER ;
 
 DELIMITER //
 
-CREATE PROCEDURE sp_EditarInformes(
-    IN p_informes_id INT,
-    IN p_titulo VARCHAR(100),
-    IN p_contenido TEXT,
-    IN p_imagen_url VARCHAR(255),
-    IN p_archivo_ruta VARCHAR(255)
+CREATE PROCEDURE sp_ObtenerDocumentoPorID(
+    IN p_documentosid INT
 )
 BEGIN
-    UPDATE informes
-    SET titulo = p_titulo, contenido = p_contenido, imagen_url = p_imagen_url, archivo_ruta = p_archivo_ruta
-    WHERE informesid = p_informes_id;
+    SELECT * FROM documentos
+    WHERE documentosid = p_documentosid;
 END //
 
 DELIMITER ;
 
 DELIMITER //
 
-CREATE PROCEDURE sp_EliminarInformes(
-    IN p_informes_id INT
+CREATE PROCEDURE sp_BuscarDocumentosPorTitulo(
+    IN p_titulo VARCHAR(200)
 )
 BEGIN
-    DELETE FROM informes
-    WHERE informesid = p_informes_id;
+    SELECT * FROM documentos
+    WHERE titulo LIKE CONCAT('%', p_titulo, '%');
 END //
 
 DELIMITER ;
-
 
 -- Procedimientos almacenados para agentes
 
@@ -267,3 +182,5 @@ BEGIN
     DELETE FROM agentes
     WHERE agentesid = p_agentesid;
 END //
+
+DELIMITER ;
