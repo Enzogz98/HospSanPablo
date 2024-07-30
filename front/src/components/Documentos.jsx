@@ -5,6 +5,7 @@ const Documentos = () => {
     const [titulo, setTitulo] = useState('');
     const [file, setFile] = useState(null);
     const [documentos, setDocumentos] = useState([]);
+    const [fileName, setFileName] = useState('');  // Estado para el nombre del archivo
 
     const fetchDocumentos = async () => {
         try {
@@ -21,6 +22,7 @@ const Documentos = () => {
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
+        setFileName(e.target.files[0].name);  // Actualiza el nombre del archivo
     };
 
     const handleUpload = async () => {
@@ -37,6 +39,7 @@ const Documentos = () => {
             fetchDocumentos();
             setTitulo('');  // Clear the title field after upload
             setFile(null);  // Clear the file field after upload
+            setFileName('');  // Clear the file name after upload
         } catch (error) {
             console.error('Error al subir documento:', error);
         }
@@ -60,14 +63,18 @@ const Documentos = () => {
             <div className='pb-3'>
                 <h3 style={{ color: 'white' }}>Documentos</h3>
                 <input type='text' placeholder='Buscar Documento' />
-                <button>Buscar</button>
+                <button className='btn btn-primary' >Buscar</button>
                 <br/>
                 <input type='text' value={titulo} onChange={(e) => setTitulo(e.target.value)} placeholder='Título del Documento' />
-                <input type='file' onChange={handleFileChange} />
-                <button onClick={handleUpload}>Agregar</button>
+                <div className="custom-file-upload">
+                    <input type='file' id="fileInput" onChange={handleFileChange} style={{ display: 'none' }} />
+                    <label htmlFor="fileInput" className="btn btn-info">Seleccionar Archivo</label>
+                    <span>{fileName}</span>
+                </div>
+                <button className='btn btn-success' onClick={handleUpload}>Agregar</button>
             </div>
 
-            <table className="table table-hover table-condensed table-bordered bootstrap-datatable dataTable" 
+            <table className="table table-hover table-condensed table-bordered bootstrap-datatable dataTable table-dark" 
             id="Documentos"
             aria-describedby='Documentos_info'>
                 <thead>

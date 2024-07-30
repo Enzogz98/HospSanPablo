@@ -23,8 +23,8 @@ const TablaUsuarios = () => {
         <h3 style={{color:"white"}}>Usuarios</h3>
 
         <input type="text" placeholder='buscar usuario'/> 
-        <button>Buscar</button>
-        <button onClick={() => setToggleUser(true)}>Agregar</button>
+        <button className='btn btn-primary'>Buscar</button>
+        <button className='btn btn-success' onClick={() => setToggleUser(true)}>Agregar</button>
         </div>
 
         {
@@ -71,7 +71,7 @@ const TablaUsuarios = () => {
                       :
 
         <table
-              className=" table table-hover table-condensed table-bordered bootstrap-datatable dataTable"
+              className=" table table-hover table-condensed table-bordered bootstrap-datatable dataTable table-dark"
               id="tablausuarios"
               aria-describedby="tablausuarios_info"
               >
@@ -169,7 +169,7 @@ const TablaUsuarios = () => {
                         <td className=" ">{usuario.nomUser}</td>
                         <td className=" ">{usuario.nomUser}</td>
                         <td>
-                          <button className=" btn btn-warning">Editar</button>
+                          <button className="btn btn-warning">Editar</button>
                           </td>
                         <td>
                           <button className="btn btn-danger">Eliminar</button>

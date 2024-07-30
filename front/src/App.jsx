@@ -31,9 +31,7 @@ function App() {
             <Route path="/HorarioAdm" element={<HorarioAdm/>}/>
             <Route path="/login" element={<Login/>} />
             <Route path='/registro' element= {<Registro/>}/>
-            <Route path='/panelControl' element= {<PanelControl/>}/>
-
-      
+            <Route path='/panelControl' element= {<PanelControl/>}/>      
           </Routes>
         </BrowserRouter>
     </>

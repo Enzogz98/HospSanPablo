@@ -8,7 +8,7 @@ export const PanelControl = () => {
     <>
         <Header/>
         <MainControl/>
-        {/* <Footer/> */}
+        <Footer/> 
     </>
   )
 }
