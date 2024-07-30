@@ -12,27 +12,30 @@ import Login from "./pages/Login";
 import Registro from './pages/Registro';
 import { PanelControl } from './pages/PanelControl';
 
+
 function App() {
   
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/Historia" element={<Historia/>} />
-          <Route path="/Noticias" element={<Noticias/>} />
-          <Route path="/CartillaMedica" element={<CartillaMedica />} />
-          <Route path="/contacto" element={<Contacto/>}/>
-          <Route path="/quienes-somos" element={<Nosotros/>}/>
-          <Route path="/HoraAtencion" element={<HoraAtencion/>}/>
-          <Route path="/HorarioAdm" element={<HorarioAdm/>}/>
-          <Route path="/login" element={<Login/>} />
-          <Route path='/registro' element= {<Registro/>}/>
-          <Route path='/panelControl' element= {<PanelControl/>}/>
+      
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/Historia" element={<Historia/>} />
+            <Route path="/Noticias" element={<Noticias/>} />
+            <Route path="/CartillaMedica" element={<CartillaMedica />} />
+            <Route path="/contacto" element={<Contacto/>}/>
+            <Route path="/quienes-somos" element={<Nosotros/>}/>
+            <Route path="/HoraAtencion" element={<HoraAtencion/>}/>
+            <Route path="/HorarioAdm" element={<HorarioAdm/>}/>
+            <Route path="/login" element={<Login/>} />
+            <Route path='/registro' element= {<Registro/>}/>
+            <Route path='/panelControl' element= {<PanelControl/>}/>
 
-        </Routes>
-      </BrowserRouter>
+      
+          </Routes>
+        </BrowserRouter>
     </>
   )
 }

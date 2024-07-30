@@ -24,6 +24,7 @@ app.listen(8000, () => {
 
 app.use('/login', login);
 app.use('/documentos', documentos);
+// app.use('/agentes', agentes);
 
 app.get('/', (req, res) => {
     res.send('Welcome <br/> Franco CornejoWeb Dev<br> ');

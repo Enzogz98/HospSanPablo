@@ -1,3 +1,5 @@
+DROP DATABASE HospSanPablo;
+
 CREATE DATABASE HospSanPablo;
 USE HospSanPablo;
 
@@ -37,6 +39,7 @@ CREATE TABLE agentes (
     FOREIGN KEY (rol_id) REFERENCES roles(rol_id),
     FOREIGN KEY (usersid) REFERENCES users(usersid)
 );
+
 
 -- Crear la tabla documentos
 CREATE TABLE documentos (
@@ -143,6 +146,8 @@ END //
 
 DELIMITER ;
 
+call sp_CargarAgentes("franco", "cornejo", "1231231232", "centro", "123123", "hcura", "asdasd", "1", "LaMaquina")
+
 DELIMITER //
 
 CREATE PROCEDURE sp_EditarAgentes(
@@ -181,6 +186,28 @@ CREATE PROCEDURE sp_EliminarAgentes(
 BEGIN
     DELETE FROM agentes
     WHERE agentesid = p_agentesid;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE sp_validarAgente(
+IN p_dni VARCHAR(50),
+IN p_nomUser VARCHAR(50)
+)
+BEGIN
+
+SELECT 'user' AS type, u.usersid AS id, u.nomUser AS value
+FROM users u
+WHERE u.nomUser = p_nomUser
+UNION
+SELECT 'agente' AS type, a.agentesid AS id, a.dni AS value
+FROM agentes a
+WHERE a.dni = p_dni;
+
 END //
 
 DELIMITER ;

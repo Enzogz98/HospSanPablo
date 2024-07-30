@@ -1,51 +1,19 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 
-const Users = [
-    {
-      id: 1,
-      usuario: "matias",
-      nombre: "Matias",
-      apellido: "Bordenave",
-      documento: "38116188",
-    },
-    {
-      id: 2,
-      usuario: "fack",
-      nombre: "Lajoaqi",
-      apellido: "Gil",
-      documento: "123123123",
-    },
-    {
-      id: 3,
-      usuario: "AgusYarotor",
-      nombre: "Agustin",
-      apellido: "Tapier",
-      documento: "123456789",
-    },
-    {
-      id: 4,
-      usuario: "Calzonman",
-      nombre: "gonzalo",
-      apellido: "Galvan",
-      documento: "123123123",
-    },
-  ];
 
 const TablaUsuarios = () => {
 
     const [usuarios, setUsuarios] = useState();
+    const [toggleUser, setToggleUser] = useState(false);
 
     
-    useEffect(() => {
-        
+    useEffect(() => {    
             axios.get("http://localhost:8000/login")
             .then((resp) => {
                 setUsuarios(resp.data)
                 console.log(resp.data)
             })
-        
-      
     }, [])
     
 
@@ -56,8 +24,51 @@ const TablaUsuarios = () => {
 
         <input type="text" placeholder='buscar usuario'/> 
         <button>Buscar</button>
-        <button>Agregar</button>
+        <button onClick={() => setToggleUser(true)}>Agregar</button>
         </div>
+
+        {
+              toggleUser 
+                          ?
+                          <div className='bg-light'>
+                              <h3>Datos del usuario</h3>
+                              <form action="">
+                                <label htmlFor="">Usuario</label>
+                                <input type="text" placeholder='username'/>
+
+                                <label htmlFor="">Contraseña</label>
+                                <input type="text" placeholder='contraseña'/>
+
+                                <label htmlFor="">Nombre</label>
+                                <input type="text" placeholder='nombre'/>
+                                
+                                <label htmlFor="">Apellido</label>
+                                <input type="text" placeholder='apellido'/>
+
+                                <label htmlFor="">Documento</label>
+                                <input type="text" placeholder='dni'/>
+                                
+                                <label htmlFor="">Direccion</label>
+                                <input type="text" placeholder='direccion'/>
+                                
+                                <label htmlFor="">Telefono</label>
+                                <input type="text" placeholder='telefono'/>
+                                
+                                <label htmlFor="">Funcion</label>
+                                <input type="text" placeholder='funcion'/>
+
+                                <label htmlFor="">Rol</label>
+                                <select name="" id="" placeholder="rol">
+                                <option value="1">Admin</option>
+                                <option value="2">Agente</option>
+                                </select>
+
+                                <br />
+                              <button onClick={() => setToggleUser(false)}>Cancelar</button>
+                              <button onClick={() => setAgregarUser(false)}>Agregar</button>
+                              </form>
+                          </div>
+                      :
 
         <table
               className=" table table-hover table-condensed table-bordered bootstrap-datatable dataTable"
@@ -149,24 +160,26 @@ const TablaUsuarios = () => {
               </thead>
 
               <tbody role="alert" aria-live="polite" aria-relevant="all">
-                { usuarios && usuarios.map((usuario) => {
-                  return (
-                    <tr className="odd" key={usuario.id}>
-                      <td className="  sorting_1">{usuario.nomUser}</td>
-                      <td className=" ">{usuario.nomUser}</td>
-                      <td className=" ">{usuario.nomUser}</td>
-                      <td className=" ">{usuario.nomUser}</td>
-                      <td>
-                        <button className=" btn btn-warning">Editar</button>
-                        </td>
-                      <td>
-                        <button className="btn btn-danger">Eliminar</button>
-                    </td>
-                    </tr>
+                { 
+                  usuarios && usuarios.map((usuario) => {
+                    return (
+                      <tr className="odd" key={usuario.id}>
+                        <td className="  sorting_1">{usuario.nomUser}</td>
+                        <td className=" ">{usuario.nomUser}</td>
+                        <td className=" ">{usuario.nomUser}</td>
+                        <td className=" ">{usuario.nomUser}</td>
+                        <td>
+                          <button className=" btn btn-warning">Editar</button>
+                          </td>
+                        <td>
+                          <button className="btn btn-danger">Eliminar</button>
+                        </td> 
+                      </tr>
                   );
                 })}
               </tbody>
             </table>
+          }
     </div>
   )
 }

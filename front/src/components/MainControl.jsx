@@ -1,12 +1,17 @@
 import { Button } from 'react-bootstrap';
 import TablaUsuarios from './TablaUsuarios';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Documentos from './Documentos';
+import { UserContext } from '../context/UserContext';
+
 
 
 export const MainControl = () => {
     
     const [mostrarTabla, setMostrarTabla] = useState(false)
+
+    
+  const { user } = useContext(UserContext)
 
     
     
@@ -29,7 +34,11 @@ export const MainControl = () => {
 
             <div className='col'>
 
-                {mostrarTabla ? <Documentos/> : <TablaUsuarios/> }
+                {
+                    mostrarTabla
+                    ? <Documentos/> 
+                    : <TablaUsuarios/>
+                }
                 
             </div>
 

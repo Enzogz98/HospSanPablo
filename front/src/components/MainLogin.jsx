@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../Css/MainLogin.css";
-import  { useState } from 'react';
+import  { useContext, useState } from 'react';
 import axios from "axios"
+import { UserContext } from "../context/UserContext";
 
 const MainLogin = () => {
   
@@ -9,11 +10,15 @@ const MainLogin = () => {
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
 
+  const { handleLogear, getUser  } = useContext(UserContext)
+
   const handleSubmit = async () =>{
     axios.post("http://localhost:8000/login/login", {
       usuario: usuario,
       contraseña: contraseña
-    }).then(()=>{
+    }).then((resp)=>{
+      getUser(resp.data.nomUser)
+      handleLogear(true)
       navigate("/", {replace: true})
       alert("Bienvenido.")
     }).catch(()=>{
