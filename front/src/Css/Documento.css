@@ -1,0 +1,11 @@
+.custom-file-upload span{
+    background-color: rgba(128, 128, 128, 0.622);
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.359);
+}
+
+.body-file-upload{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}

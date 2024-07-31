@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import '../Css/Documento.css'
 
 const Documentos = () => {
     const [titulo, setTitulo] = useState('');
@@ -65,6 +66,7 @@ const Documentos = () => {
                 <input type='text' placeholder='Buscar Documento' />
                 <button className='btn btn-primary' >Buscar</button>
                 <br/>
+                <div className='body-file-upload'>
                 <input type='text' value={titulo} onChange={(e) => setTitulo(e.target.value)} placeholder='Título del Documento' />
                 <div className="custom-file-upload">
                     <input type='file' id="fileInput" onChange={handleFileChange} style={{ display: 'none' }} />
@@ -72,6 +74,7 @@ const Documentos = () => {
                     <span>{fileName}</span>
                 </div>
                 <button className='btn btn-success' onClick={handleUpload}>Agregar</button>
+                </div>
             </div>
 
             <table className="table table-hover table-condensed table-bordered bootstrap-datatable dataTable table-dark" 

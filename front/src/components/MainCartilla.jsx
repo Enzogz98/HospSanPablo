@@ -83,13 +83,13 @@ export const MainCartilla = () => {
               <input
                 type="text"
                 placeholder="Buscar"
-                className=""
+                className="input-buscar"
                 onChange={(e) => setBusqueda(e.target.value)}
                 />
-              <button onClick={() => handleProfesionales()}>🔎</button>
+              <button className="lupa" onClick={() => handleProfesionales()}>🔎</button>
             </div>
             <table
-              className=" table table-hover table-condensed table-bordered bootstrap-datatable dataTable"
+              className=" table table-hover table-condensed table-bordered bootstrap-datatable dataTable table-dark"
               id="tablausuarios"
               aria-describedby="tablausuarios_info"
               >
