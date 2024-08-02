@@ -1,7 +1,7 @@
 
 import '../Css/aboutUs.css'
 
-const MainNosotros = () => {
+export const MainNosotros = () => {
   return (
     <div className="container">
       <div className="container-about">

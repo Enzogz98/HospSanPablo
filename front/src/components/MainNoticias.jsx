@@ -12,7 +12,7 @@ import { Card } from 'react-bootstrap';
 
 
 
-const MainNoticias = () => {
+export const MainNoticias = () => {
   return (
     <div className="bgNoticia">
         <div className="inicioNoticia">

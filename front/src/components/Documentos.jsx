@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '../Css/Documento.css'
 
-const Documentos = () => {
+export const Documentos = () => {
     const [titulo, setTitulo] = useState('');
     const [file, setFile] = useState(null);
     const [documentos, setDocumentos] = useState([]);

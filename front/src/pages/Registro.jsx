@@ -1,7 +1,7 @@
 import React from 'react'
 import MainRegistro from '../components/MainRegistro'
 
-const Registro = () => {
+export const Registro = () => {
   return (
     <div>
       <MainRegistro/>

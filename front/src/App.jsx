@@ -6,7 +6,7 @@ import Noticias from './pages/Noticias';
 import CartillaMedica from './pages/CartillaMedica';
 import Contacto from './pages/Contacto';
 import Nosotros from './pages/Nosotros';
-import HoraAtencion from './pages/HoraAtencion';
+import HorarioAtencion from './pages/HorarioAtencion';
 import HorarioAdm from './pages/HorarioAdm';
 import Login from "./pages/Login";
 import Registro from './pages/Registro';
@@ -27,7 +27,7 @@ function App() {
             <Route path="/CartillaMedica" element={<CartillaMedica />} />
             <Route path="/contacto" element={<Contacto/>}/>
             <Route path="/quienes-somos" element={<Nosotros/>}/>
-            <Route path="/HoraAtencion" element={<HoraAtencion/>}/>
+            <Route path="/HoraAtencion" element={<HorarioAtencion/>}/>
             <Route path="/HorarioAdm" element={<HorarioAdm/>}/>
             <Route path="/login" element={<Login/>} />
             <Route path='/registro' element= {<Registro/>}/>

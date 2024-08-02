@@ -3,21 +3,22 @@ import "../Css/MainLogin.css";
 import  { useContext, useState } from 'react';
 import axios from "axios"
 import { UserContext } from "../context/UserContext";
+import { useForm } from "../hooks/useForm"
 
-const MainLogin = () => {
+export const MainLogin = () => {
   
   let navigate = useNavigate()
-  const [usuario, setUsuario] = useState("");
-  const [contraseña, setContraseña] = useState("");
 
-  const { handleLogear, getUser  } = useContext(UserContext)
+
+  const { handleLogear } = useContext(UserContext)
+  const { valuesForm, onInputChange } = useForm({
+      usuario: '',
+      contraseña: ''
+  })
 
   const handleSubmit = async () =>{
-    axios.post("http://localhost:8000/login/login", {
-      usuario: usuario,
-      contraseña: contraseña
-    }).then((resp)=>{
-      getUser(resp.data.nomUser)
+    axios.post("http://localhost:8000/login/login",valuesForm)
+    .then((resp)=>{
       handleLogear(true)
       navigate("/", {replace: true})
       alert("Bienvenido.")
@@ -41,7 +42,8 @@ const MainLogin = () => {
                 className="input1"
                 type="text"
                 placeholder="Ingresar usuario"
-                onChange={(e)=> setUsuario(e.target.value)}
+                name='usuario' 
+                onChange={ onInputChange }
               />
             </div>
 
@@ -50,7 +52,8 @@ const MainLogin = () => {
                 className="input1"
                 type="password"
                 placeholder="Ingresar contraseña"
-                onChange={(e)=> setContraseña(e.target.value)}
+                name='contraseña' 
+                onChange={ onInputChange }
               />
             </div>
 

@@ -3,7 +3,7 @@ import "../Css/MainLogin.css";
 import { useState } from 'react';
 import axios from "axios";
 
-const MainRegistro = () => {
+export const MainRegistro = () => {
     let navigate = useNavigate();
     const [usuario, setUsuario] = useState("");
     const [contraseña, setContraseña] = useState("");

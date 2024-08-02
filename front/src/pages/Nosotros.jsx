@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import MainNosotros from '../components/MainNosotros'
 import Footer from '../components/Footer'
 
-const Nosotros = () => {
+export const Nosotros = () => {
   return (
     <div>
       <Header/>

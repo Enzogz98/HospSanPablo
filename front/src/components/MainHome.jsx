@@ -7,7 +7,7 @@ import test from "../assets/test.png";
 import "../Css/mainHome.css";
 import { Carrousel } from "./Carrousel";
 
-const MainHome = () => {
+export const MainHome = () => {
   return (
     <main className="contenedor-home-body">
       <div className="row">
