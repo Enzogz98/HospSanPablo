@@ -83,7 +83,6 @@ export const Documentos = () => {
                 <thead>
                     <tr role="row">
                         <th>Documentos</th>
-                        <th>Título</th>
                         <th>Eliminar</th>
                         <th>Ver</th>
                     </tr>
@@ -92,7 +91,6 @@ export const Documentos = () => {
                     {documentos && documentos.map((documento) => (
                         <tr className="odd" key={documento.documentosid}>
                             <td>{documento.documento}</td>
-                            <td>{documento.titulo}</td>
                             <td>
                                 <button className="btn btn-danger" onClick={() => handleDelete(documento.documentosid)}>Eliminar</button>
                             </td>

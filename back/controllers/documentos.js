@@ -14,7 +14,7 @@ const getDocumentos = (req, res) => {
 };
 
 const uploadDocumento = (req, res) => {
-    const { titulo } = req.body;
+
     const documento = req.files.documento;
 
     const uploadPath = path.join(__dirname, '../uploads', documento.name);
