@@ -28,7 +28,6 @@ export const Documentos = () => {
 
     const handleUpload = async () => {
         const formData = new FormData();
-        formData.append('titulo', titulo);
         formData.append('documento', file);
 
         try {
