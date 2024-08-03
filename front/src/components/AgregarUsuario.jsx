@@ -1,125 +1,149 @@
-import React from 'react'
-import { useForm } from '../hooks'
+import React from "react";
+import { useForm } from "../hooks";
+import "../Css/agregrarUsuario.css";
 
 export const AgregarUsuario = ({ handleToggleUser }) => {
+  const { valuesForm, onInputChange, onResetForm } = useForm({
+    username: "",
+    contraseña: "",
+    nombre: "",
+    apellido: "",
+    dni: "",
+    direccion: "",
+    telefono: "",
+    funcion: "",
+    rol: "1",
+  });
 
-    const { valuesForm, onInputChange, onResetForm } = useForm({
-        username: '',
-        contraseña: '',
-        nombre: '',
-        apellido: '',
-        dni: '',
-        direccion: '',
-        telefono: '',
-        funcion: '',
-        rol: '1'
-    })
-    
-      
-      const handleCancelar =() => {
-        handleToggleUser()
-        onResetForm()
-      }
+  const handleCancelar = () => {
+    handleToggleUser();
+    onResetForm();
+  };
 
-      const handleOnSubmit =(e) => {
+  const handleOnSubmit = (e) => {
+    //Funcion para agregar
+    //
 
-      //Funcion para agregar
-      // 
-
-        e.preventDefault()   
-        onResetForm()    
-        handleToggleUser()
-      }
-
+    e.preventDefault();
+    onResetForm();
+    handleToggleUser();
+  };
 
   return (
-    <div>
-        <div className='bg-light'>
-            <h3>Datos del usuario</h3>
-            <form action="" onSubmit={ handleOnSubmit }>
-              <label htmlFor="">Usuario</label>
-              <input 
-              type="text" 
-              placeholder='username' 
-              name='username' 
-              onChange={ onInputChange }
-              value={valuesForm.username}
+    <>
+      <div className="body-agregar-usuario">
+        <div>
+          <h3>Datos del usuario</h3>
+          <form action="" onSubmit={handleOnSubmit}>
+            <div>
+              <label htmlFor="">Usuario:</label>
+              <input
+                type="text"
+                name="username"
+                onChange={onInputChange}
+                value={valuesForm.username}
               />
+            </div>
 
-              <label htmlFor="">Contraseña</label>
-              <input 
-              type="text" 
-              placeholder='contraseña' 
-              name='contraseña' 
-              onChange={ onInputChange }
-              value={valuesForm.contraseña}
+            <div>
+              {" "}
+              <label htmlFor="">Contraseña:</label>
+              <input
+                type="text"
+                name="contraseña"
+                onChange={onInputChange}
+                value={valuesForm.contraseña}
               />
+            </div>
 
-              <label htmlFor="">Nombre</label>
-              <input 
-              type="text" 
-              placeholder='nombre' 
-              name='nombre' 
-              onChange={ onInputChange }
-              value={valuesForm.nombre}
+            <div>
+              <label htmlFor="">Nombre:</label>
+              <input
+                type="text"
+                name="nombre"
+                onChange={onInputChange}
+                value={valuesForm.nombre}
               />
+            </div>
 
-              <label htmlFor="">Apellido</label>
-              <input 
-              type="text" 
-              placeholder='apellido' 
-              name='apellido' 
-              onChange={ onInputChange }
-              value={valuesForm.apellido}
+            <div>
+              {" "}
+              <label htmlFor="">Apellido:</label>
+              <input
+                type="text"
+                name="apellido"
+                onChange={onInputChange}
+                value={valuesForm.apellido}
               />
+            </div>
 
-              <label htmlFor="">Documento</label>
-              <input 
-              type="text" 
-              placeholder='dni' 
-              name='dni' 
-              onChange={ onInputChange }
-              value={valuesForm.dni}
+            <div>
+              <label htmlFor="">Documento:</label>
+              <input
+                type="text"
+                name="dni"
+                onChange={onInputChange}
+                value={valuesForm.dni}
               />
+            </div>
 
-              <label htmlFor="">Direccion</label>
-              <input 
-              type="text" 
-              placeholder='direccion' 
-              name='direccion' 
-              onChange={ onInputChange }
-              value={valuesForm.direccion}
+            <div>
+              <label htmlFor="">Direccion:</label>
+              <input
+                type="text"
+                name="direccion"
+                onChange={onInputChange}
+                value={valuesForm.direccion}
               />
+            </div>
 
-              <label htmlFor="">Telefono</label>
-              <input 
-              type="text" 
-              placeholder='telefono' 
-              name='telefono' 
-              onChange={ onInputChange }
-              value={valuesForm.telefono}
+            <div>
+              <label htmlFor="">Telefono:</label>
+              <input
+                type="text"
+                name="telefono"
+                onChange={onInputChange}
+                value={valuesForm.telefono}
               />
+            </div>
 
-              <label htmlFor="">Funcion</label>
-              <input 
-              type="text" 
-              placeholder='funcion' 
-              name='funcion' 
-              onChange={ onInputChange }
-              value={valuesForm.funcion}
+            <div>
+              <label htmlFor="">Funcion:</label>
+              <input
+                type="text"
+                name="funcion"
+                onChange={onInputChange}
+                value={valuesForm.funcion}
               />
+            </div>
 
-              <label htmlFor="">Rol</label>
-              <select name="rol" id="" placeholder="rol"  onChange={ onInputChange } value={valuesForm.rol}>
-                <option value="1" >Admin</option>
-                <option value="2" >Agente</option>
-              </select>
+            <label htmlFor="">Rol:</label>
+            <select
+              name="rol"
+              id=""
+              onChange={onInputChange}
+              value={valuesForm.rol}
+            >
+              <option value="1">Admin</option>
+              <option value="2">Agente</option>
+            </select>
 
-              <br />
-              <button type="button" onClick={ handleCancelar }>Cancelar</button>
-              <button type="submit">Agregar</button>
-            </form>
-          </div>
-    </div>
-  )
-}
+            <br />
+            <div className="body-botones-usuario">
+              <button
+                className="boton-cancelar-usuario"
+                type="button"
+                onClick={handleCancelar}
+              >
+                Cancelar
+              </button>
+              <button className="boton-agregar-usuario" type="submit">
+                Agregar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+};
