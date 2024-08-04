@@ -6,6 +6,7 @@ const TablaUsuarios = () => {
 
     const [usuarios, setUsuarios] = useState();
     const [toggleUser, setToggleUser] = useState(false);
+    const [agregarUser, setAgregarUser] = useState(false)
 
     
     useEffect(() => {    
