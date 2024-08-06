@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '../Css/Documento.css'
 
-const Documentos = () => {
+export const Documentos = () => {
     const [titulo, setTitulo] = useState('');
     const [file, setFile] = useState(null);
     const [documentos, setDocumentos] = useState([]);
@@ -28,7 +28,6 @@ const Documentos = () => {
 
     const handleUpload = async () => {
         const formData = new FormData();
-        formData.append('titulo', titulo);
         formData.append('documento', file);
 
         try {
@@ -83,7 +82,6 @@ const Documentos = () => {
                 <thead>
                     <tr role="row">
                         <th>Documentos</th>
-                        <th>Título</th>
                         <th>Eliminar</th>
                         <th>Ver</th>
                     </tr>
@@ -92,7 +90,6 @@ const Documentos = () => {
                     {documentos && documentos.map((documento) => (
                         <tr className="odd" key={documento.documentosid}>
                             <td>{documento.documento}</td>
-                            <td>{documento.titulo}</td>
                             <td>
                                 <button className="btn btn-danger" onClick={() => handleDelete(documento.documentosid)}>Eliminar</button>
                             </td>

@@ -14,7 +14,7 @@ const getDocumentos = (req, res) => {
 };
 
 const uploadDocumento = (req, res) => {
-    const { titulo } = req.body;
+
     const documento = req.files.documento;
 
     const uploadPath = path.join(__dirname, '../uploads', documento.name);
@@ -25,8 +25,8 @@ const uploadDocumento = (req, res) => {
             return res.status(500).send(err);
         }
 
-        const query = 'INSERT INTO documentos (titulo, documento) VALUES (?, ?)';
-        db.query(query, [titulo, documento.name], (err, result) => {
+        const query = 'INSERT INTO documentos ( documento) VALUES (?)';
+        db.query(query, [ documento.name], (err, result) => {
             if (err) {
                 console.error('Error al guardar documento en la base de datos:', err);
                 return res.status(500).send(err);

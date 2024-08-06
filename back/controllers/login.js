@@ -2,7 +2,7 @@
 const db = require('../config.js');
 const bcrypt = require('bcryptjs');
 
-const registro = async (req, res) => {
+const registrar = async (req, res) => {
     const { usuario, contraseña } = req.body;
     try {
         db.query('SELECT * FROM users WHERE nomUser = ?', [usuario], async (err, results) => {
@@ -40,9 +40,50 @@ const mostrarUsuarios = (req, res) => {
                 res.status(201).json(result);
             }
         });
-
-
 }
+
+const mostrarUsuario = (req, res) => {
+
+    const { id } = req.params
+
+    db.query("SELECT * FROM users where usersid = ?;", [ id ], (err, result) => {
+            if (err) {
+                console.error('Error querying database:', err);
+                return res.status(500).json({ message: 'Error del servidor', error: err });
+            }else {
+                res.status(201).json(result);
+            }
+        });
+}
+
+const deleteUsuario = (req, res) => {
+
+    const { id } = req.params
+
+    db.query("DELETE FROM users where usersid = ?;", [ id ], (err, result) => {
+            if (err) {
+                console.error('Error querying database:', err);
+                return res.status(500).json({ message: 'Error del servidor', error: err });
+            }else {
+                res.status(201).json({ message: 'Usuario Eliminado exitosamente' });
+            }
+        });
+}
+
+const mostrarUsuarioNombre = (req, res) => {
+  
+    const { nombre } = req.params;
+  
+    db.query(`SELECT * FROM users WHERE nomUser = "${nombre}";`, (err, result) => {
+     if (err) {
+        
+            return res.status(400).json({ message: 'El usuario no existe' });
+        
+     } else {
+        res.status(201).json(result);
+     }
+   });
+  }
 
 const login = async (req, res) => {
     const { usuario, contraseña } = req.body;
@@ -76,4 +117,4 @@ const login = async (req, res) => {
     }
 };
 
-module.exports = { registro, login, mostrarUsuarios  };
+module.exports = { registrar, login, mostrarUsuarios, mostrarUsuario, deleteUsuario, mostrarUsuarioNombre };

@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { UserContext } from "../context/UserContext";
 
-const Header = () => {
+export const Header = () => {
 
   const { logeado, handleLogear } = useContext(UserContext)
 

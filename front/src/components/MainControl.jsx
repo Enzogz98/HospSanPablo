@@ -1,5 +1,5 @@
 import { Button } from 'react-bootstrap';
-import TablaUsuarios from './TablaUsuarios';
+import AdminUsuarios from './AdminUsuarios';
 import { useContext, useState } from 'react';
 import Documentos from './Documentos';
 import { UserContext } from '../context/UserContext';
@@ -13,8 +13,6 @@ export const MainControl = () => {
     
   const { user } = useContext(UserContext)
 
-    
-    
 
 
   return (
@@ -37,7 +35,7 @@ export const MainControl = () => {
                 {
                     mostrarTabla
                     ? <Documentos/> 
-                    : <TablaUsuarios/>
+                    : <AdminUsuarios/>
                 }
                 
             </div>

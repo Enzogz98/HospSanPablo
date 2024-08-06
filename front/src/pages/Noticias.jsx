@@ -2,7 +2,7 @@ import Header from "../components/Header"
 import MainNoticias from "../components/MainNoticias"
 import Footer from "../components/Footer"
 
-const Noticias = () => {
+export const Noticias = () => {
   return (
     <div>
         <Header/>

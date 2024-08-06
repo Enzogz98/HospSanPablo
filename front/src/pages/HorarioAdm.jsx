@@ -2,7 +2,7 @@ import Header from "../components/Header"
 import MainHoraAdm from "../components/MainHoraAdm"
 import Footer from "../components/Footer"
 
-const HorarioAdm = () => {
+export const HorarioAdm = () => {
   return (
     <div>
         <Header />

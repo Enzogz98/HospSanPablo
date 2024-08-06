@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 
 import "../Css/contact.css";
 
-const MainContact = () => {
+export const MainContact = () => {
   const [selectedMap, setSelectedMap] = useState("HospitalSanPablo");
 
   const handleMapChange = (event) => {

@@ -44,7 +44,6 @@ CREATE TABLE agentes (
 -- Crear la tabla documentos
 CREATE TABLE documentos (
     documentosid INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(200) NOT NULL,
     documento VARCHAR (200) NOT NULL
 );
 
@@ -53,12 +52,11 @@ CREATE TABLE documentos (
 DELIMITER //
 
 CREATE PROCEDURE sp_CargarDocumentos(
-    IN p_titulo VARCHAR(200),
     IN p_documento VARCHAR(255)
 )
 BEGIN
-    INSERT INTO documentos (titulo, documento)
-    VALUES (p_titulo, p_documento);
+    INSERT INTO documentos ( documento)
+    VALUES ( p_documento);
 END //
 
 DELIMITER ;
@@ -67,13 +65,11 @@ DELIMITER //
 
 CREATE PROCEDURE sp_EditarDocumentos(
     IN p_documentosid INT,
-    IN p_titulo VARCHAR(200),
     IN p_documento VARCHAR(255)
 )
 BEGIN
     UPDATE documentos
-    SET titulo = p_titulo,
-        documento = p_documento
+    SET   documento = p_documento
     WHERE documentosid = p_documentosid;
 END //
 
@@ -112,17 +108,6 @@ END //
 
 DELIMITER ;
 
-DELIMITER //
-
-CREATE PROCEDURE sp_BuscarDocumentosPorTitulo(
-    IN p_titulo VARCHAR(200)
-)
-BEGIN
-    SELECT * FROM documentos
-    WHERE titulo LIKE CONCAT('%', p_titulo, '%');
-END //
-
-DELIMITER ;
 
 -- Procedimientos almacenados para agentes
 

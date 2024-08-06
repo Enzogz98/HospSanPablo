@@ -1,0 +1,35 @@
+
+//  Pages
+
+export { Registro } from '../pages/Registro'
+export { PanelControl } from '../pages/PanelControl'
+export { Noticias } from '../pages/Noticias'
+export { Nosotros } from '../pages/Nosotros'
+export { Login } from '../pages/Login'
+export { HorarioAdm } from '../pages/HorarioAdm'
+export { HorarioAtencion } from '../pages/HorarioAtencion'
+export { Home } from '../pages/Home'
+export { Historia } from '../pages/Historia'
+export { Contacto } from '../pages/Contacto'
+export { CartillaMedica } from '../pages/CartillaMedica'
+
+// Components
+
+export { AdminUsuarios } from '../components/AdminUsuarios'
+export { AgregarUsuario } from '../components/AgregarUsuario'
+export { Carrousel } from '../components/Carrousel'
+export { Documentos } from '../components/Documentos'
+export { Footer } from '../components/Footer'
+export { Header } from '../components/Header'
+export { MainCartilla } from '../components/MainCartilla'
+export { MainContact } from '../components/MainContact'
+export { MainControl } from '../components/MainControl'
+export { MainHistoria } from '../components/MainHistoria'
+export { MainHome } from '../components/MainHome'
+export { MainHoraAdm } from '../components/MainHoraAdm'
+export { MainHoraAtencion } from '../components/MainHoraAtencion'
+export { MainLogin } from '../components/MainLogin'
+export { MainNosotros } from '../components/MainNosotros'
+export { MainNoticias } from '../components/MainNoticias'
+export { MainRegistro } from '../components/MainRegistro'
+export { TablaUsuarios } from '../components/TablaUsuarios'

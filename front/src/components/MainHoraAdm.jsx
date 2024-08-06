@@ -1,6 +1,6 @@
 import "../Css/MainHoraAdm.css"
 
-const MainHoraAdm = () => {
+export const MainHoraAdm = () => {
   return (
     <div>
         <div className="container-HA">

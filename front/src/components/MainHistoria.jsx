@@ -2,7 +2,7 @@ import "../Css/mainhistoria.css";
 import hospital1 from "../assets/hospsanp1.jpeg";
 import hospital2 from "../assets/hospitalSPB.jpg";
 
-const Historia = () => {
+export const MainHistoria = () => {
   return (
     <div className="contenedor-historia">
       
@@ -75,4 +75,4 @@ const Historia = () => {
   );
 };
 
-export default Historia;
+export default MainHistoria;

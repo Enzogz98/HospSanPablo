@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const registro = async (req, res) => {
     const { usuario, contraseña, dni, } = req.body;
     try {
-        db.query('call sp_validarAgente(?,?) ', [usuario, dni], async (err, results) => {
+        db.query('call sp_validarAgente(?,?)', [usuario, dni], async (err, results) => {
             if (err) {
                 console.error('Error querying database:', err);
                 return res.status(500).json({ message: 'Error del servidor', error: err });
