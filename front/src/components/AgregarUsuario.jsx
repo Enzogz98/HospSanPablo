@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import { useContext, useState, useEffect } from 'react';
+import { UserContext } from '../context/UserContext';
 // import { useForm } from "../hooks";
 import "../Css/agregrarUsuario.css";
 import axios from "axios";
@@ -6,29 +7,50 @@ import axios from "axios";
 export const AgregarUsuario = ({ handleToggleUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [usuarios, setUsuarios] = useState();
 
   const handleCancelar = () => {
     handleToggleUser();
     
   };
 
+  const getUsuarios = ()=>{
+    axios.get("http://localhost:8000/login")
+      .then((resp) => {
+        setUsuarios(resp.data)
+      })
+  }
+
+  useEffect(() => {
+    getUsuarios()
+  }, [])
+
+  console.log(usuarios)
+
   const handleOnSubmit = async (e) => {
     
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/agentes/registrar", {
-        user: username,
-        pass: password,
-        // nombre: valuesForm.nombre,
-        // apellido: valuesForm.apellido,
-        // dni: valuesForm.dni,
-        // direccion: valuesForm.direccion,
-        // telefono: valuesForm.telefono,
-        // funcion: valuesForm.funcion,
-        // rol: valuesForm.rol,
-      });
-      console.log("usuarioAgregado", response.data);
-      handleToggleUser();
+      usuarios.find((usuario) => {
+        if(usuario.nomUser === username){
+    
+          alert("El usuario ya existe")
+          return
+        }
+      })
+        const response = await axios.post("http://localhost:8000/agentes/registrar", {
+          user: username,
+          pass: password,
+          // nombre: valuesForm.nombre,
+          // apellido: valuesForm.apellido,
+          // dni: valuesForm.dni,
+          // direccion: valuesForm.direccion,
+          // telefono: valuesForm.telefono,
+          // funcion: valuesForm.funcion,
+          // rol: valuesForm.rol,
+        });
+        console.log("usuarioAgregado", response.data);
+        handleToggleUser();
     } catch (error) {
       console.log("error al agregar user", error);
     }

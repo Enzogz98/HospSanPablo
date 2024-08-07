@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { UserContext } from './UserContext';
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+
+  const [userId, setUserId] = useState(null);
   
   const [userNombre, setUserNombre] = useState(() => {
     const savedUserNombre = localStorage.getItem('userNombre');
@@ -17,6 +19,11 @@ export const UserProvider = ({ children }) => {
   const getUser = (value) => {
     setUserNombre(value);
   };
+
+  const getUserId = (value) => {
+    setUserId(value);
+  };
+
 
   const handleLogear = (status) => {
     setLogeado(status);
@@ -35,8 +42,12 @@ export const UserProvider = ({ children }) => {
   }, [userNombre]);
 
   return (
-    <UserContext.Provider value={{ userNombre, setUserNombre, user, getUser, logeado, handleLogear }}>
+    <UserContext.Provider value={{ userNombre, setUserNombre, user, getUser, logeado, handleLogear, userId, getUserId }}>
       {children}
     </UserContext.Provider>
   );
 };
+
+
+
+

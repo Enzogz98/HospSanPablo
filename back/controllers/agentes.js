@@ -50,6 +50,25 @@ const mostrarAgentes = (req, res) => {
         });
 }
 
+const editarUsuario = async (req, res) => {
+
+
+    const { userid, nomUser, pass} = req.body
+    const hashedPassword = await bcrypt.hash(pass, 5);
+
+    db.query("call sp_EditarUsers (userid, nomUser, pass)", [ userid, nomUser, hashedPassword ], (err, result) => {
+            if (err) {
+                console.error('Error querying database:', err);
+                return res.status(500).json({ message: 'Error del servidor', error: err });
+            }else {
+                res.status(201).json({ message: 'Usuario editado exitosamente' });
+            }
+        });
+}
+
+
+
+
 
 
 const deleteAgente = (req, res) => {
@@ -67,4 +86,4 @@ const deleteAgente = (req, res) => {
 }
 
 
-module.exports = { registro, deleteAgente, mostrarAgentes };
+module.exports = { registro,editarUsuario, deleteAgente, mostrarAgentes };

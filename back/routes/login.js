@@ -8,8 +8,9 @@ const { registrar, login, mostrarUsuarios, mostrarUsuario, deleteUsuario, mostra
 
 router.post("/registrar", registrar)
 router.post("/login", login)
+
 router.get("/", mostrarUsuarios)
-router.get("/:id", mostrarUsuario)
+router.get("/usuario/:id", mostrarUsuario)
 
 router.get("/user/:nombre", mostrarUsuarioNombre)
 

@@ -1,7 +1,9 @@
-import  { useEffect, useState } from 'react'
+import  { useEffect, useState, useContext } from 'react'
 import axios from 'axios';
 
-export const TablaUsuarios = () => {
+import { UserContext } from "../context/UserContext";
+
+export const TablaUsuarios = ({ handleToggleEditar }) => {
 
     const [usuarios, setUsuarios] = useState();
     const [user, setUser] = useState();
@@ -17,6 +19,13 @@ export const TablaUsuarios = () => {
     useEffect(() => {
       getUsuarios()
     }, [])
+
+    const { getUserId } = useContext(UserContext)
+
+    const handleEditar = (id) =>{
+      getUserId(id)
+      
+    }
 
     const handledelete = ( id ) => {
       axios.get(`http://localhost:8000/login/${id}`)
@@ -82,7 +91,7 @@ export const TablaUsuarios = () => {
                   aria-label="clinica: Activar para ordenar la columna de manera ascendente"
 
                 >
-                  Apellido{" "}
+                  {/* Apellido{" "}
 
                 </th>
                 <th
@@ -105,9 +114,9 @@ export const TablaUsuarios = () => {
                   aria-controls="tablausuarios"
                   rowSpan="1"
                   colSpan="1"
-                  aria-label="Horarios: Activar para ordenar la columna de manera ascendente"
+                  aria-label="Horarios: Activar para ordenar la columna de manera ascendente" 
 
-                >
+                >*/}
                   {" "}
 
                 </th>
@@ -134,10 +143,10 @@ export const TablaUsuarios = () => {
                     <tr className="odd" key={usuario.usersid}>
                       <td className="  sorting_1">{usuario.nomUser}</td>
                       <td className=" ">{usuario.nomUser}</td>
-                      <td className=" ">{usuario.nomUser}</td>
-                      <td className=" ">{usuario.nomUser}</td>
+                      {/* <td className=" ">{usuario.nomUser}</td>
+                      <td className=" ">{usuario.nomUser}</td> */}
                       <td>
-                        <button className="btn btn-warning">Editar</button>
+                        <button className="btn btn-warning"onClick={()=> {handleToggleEditar(), getUserId(usuario.usersid)}}>Editar</button>
                       </td>
                       <td>
                         <button className="btn btn-danger"onClick={()=> handledelete(usuario.usersid)}>Eliminar</button>
