@@ -1,12 +1,12 @@
 DROP DATABASE HospSanPablo;
 
+
 CREATE DATABASE HospSanPablo;
 USE HospSanPablo;
 
 -- Crear la tabla users primero
 CREATE TABLE users (
     usersid INT PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(50),
     nomUser VARCHAR(50),
     pass VARCHAR(200)
 );
@@ -33,9 +33,13 @@ CREATE TABLE agentes (
     telefono VARCHAR(50) NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
     password_salt VARCHAR(50) NOT NULL,
-    rol INT
-    
+    rol_id INT,
+    usersid INT,
+    funcion VARCHAR(50) NOT NULL,
+    FOREIGN KEY (rol_id) REFERENCES roles(rol_id),
+    FOREIGN KEY (usersid) REFERENCES users(usersid)
 );
+
 
 -- Crear la tabla documentos
 CREATE TABLE documentos (
@@ -193,15 +197,21 @@ END //
 
 DELIMITER ;
 
+
 DELIMITER //
 
-CREATE PROCEDURE sp_validarUsuario(
-    IN p_nomUser VARCHAR(50)
+CREATE PROCEDURE sp_EditarUsers(
+    IN p_userid INT,
+    IN p_nomUser VARCHAR(50),
+    IN p_password_hash VARCHAR(255)
+    
 )
 BEGIN
-    SELECT 'user' AS type, u.usersid AS id, u.nomUser AS value
-    FROM users u
-    WHERE u.nomUser = p_nomUser;
+    UPDATE users
+    SET nomUser = p_nomUser,
+        pass = p_password_hash
+
+    WHERE usersid = p_userid;
 END //
 
 DELIMITER ;

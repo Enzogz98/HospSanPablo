@@ -1,12 +1,12 @@
 DROP DATABASE HospSanPablo;
 
+
 CREATE DATABASE HospSanPablo;
 USE HospSanPablo;
 
 -- Crear la tabla users primero
 CREATE TABLE users (
     usersid INT PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(50),
     nomUser VARCHAR(50),
     pass VARCHAR(200)
 );
@@ -193,6 +193,25 @@ SELECT 'agente' AS type, a.agentesid AS id, a.dni AS value
 FROM agentes a
 WHERE a.dni = p_dni;
 
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE sp_EditarUsers(
+    IN p_userid INT,
+    IN p_nomUser VARCHAR(50),
+    IN p_password_hash VARCHAR(255)
+    
+)
+BEGIN
+    UPDATE users
+    SET nomUser = p_nomUser,
+        pass = p_password_hash
+
+    WHERE usersid = p_userid;
 END //
 
 DELIMITER ;
