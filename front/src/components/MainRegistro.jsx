@@ -5,15 +5,15 @@ import axios from "axios";
 
 export const MainRegistro = () => {
     let navigate = useNavigate();
-    const [usuario, setUsuario] = useState("");
-    const [contraseña, setContraseña] = useState("");
+    const [user, setUsuario] = useState("");
+    const [pass, setContraseña] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
         try {
             await axios.post("http://localhost:8000/login/registrar", {
-                usuario: usuario,
-                contraseña: contraseña
+                user: user,
+                pass: pass
             });
             alert("Registrado.");
             navigate("/", { replace: true });

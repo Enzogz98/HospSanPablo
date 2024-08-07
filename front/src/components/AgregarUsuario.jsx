@@ -1,64 +1,70 @@
-import React from "react";
-import { useForm } from "../hooks";
+import React, {useState} from "react";
+// import { useForm } from "../hooks";
 import "../Css/agregrarUsuario.css";
+import axios from "axios";
 
 export const AgregarUsuario = ({ handleToggleUser }) => {
-  const { valuesForm, onInputChange, onResetForm } = useForm({
-    username: "",
-    contraseña: "",
-    nombre: "",
-    apellido: "",
-    dni: "",
-    direccion: "",
-    telefono: "",
-    funcion: "",
-    rol: "1",
-  });
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleCancelar = () => {
     handleToggleUser();
-    onResetForm();
+    
   };
 
-  const handleOnSubmit = (e) => {
-    //Funcion para agregar
-    //
-
+  const handleOnSubmit = async (e) => {
+    
     e.preventDefault();
-    onResetForm();
-    handleToggleUser();
+    try {
+      const response = await axios.post("http://localhost:8000/agentes/registrar", {
+        user: username,
+        pass: password,
+        // nombre: valuesForm.nombre,
+        // apellido: valuesForm.apellido,
+        // dni: valuesForm.dni,
+        // direccion: valuesForm.direccion,
+        // telefono: valuesForm.telefono,
+        // funcion: valuesForm.funcion,
+        // rol: valuesForm.rol,
+      });
+      console.log("usuarioAgregado", response.data);
+      handleToggleUser();
+    } catch (error) {
+      console.log("error al agregar user", error);
+    }
   };
+  const handleUsernameChange = (e) => setUsername(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
 
-  
 
   return (
     <>
       <div className="body-agregar-usuario">
         <div>
           <h3>Datos del usuario</h3>
-          <form action="" onSubmit={handleOnSubmit}>
-            <div>
-              <label htmlFor="">Usuario:</label>
-              <input
-                type="text"
-                name="username"
-                onChange={onInputChange}
-                value={valuesForm.username}
-              />
-            </div>
+          <form onSubmit={handleOnSubmit}>
+          <div>
+            <label>Usuario:</label>
+            <input
+              type="text"
+              name="username"
+              onChange={handleUsernameChange}
+              value={username}
+            />
+          </div>
 
-            <div>
-              {" "}
-              <label htmlFor="">Contraseña:</label>
-              <input
-                type="text"
-                name="contraseña"
-                onChange={onInputChange}
-                value={valuesForm.contraseña}
-              />
-            </div>
+          <div>
+            <label>Contraseña:</label>
+            <input
+              type="password"
+              name="password"
+              onChange={handlePasswordChange}
+              value={password}
+            />
+          </div>
 
-            <div>
+
+  {/*           <div>
               <label htmlFor="">Nombre:</label>
               <input
                 type="text"
@@ -128,7 +134,7 @@ export const AgregarUsuario = ({ handleToggleUser }) => {
             >
               <option value="1">Admin</option>
               <option value="2">Agente</option>
-            </select>
+            </select>  */}
 
             <br />
             <div className="body-botones-usuario">

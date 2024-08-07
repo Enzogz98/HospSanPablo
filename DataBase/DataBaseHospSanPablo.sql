@@ -1,3 +1,5 @@
+DROP DATABASE HospSanPablo;
+
 CREATE DATABASE HospSanPablo;
 USE HospSanPablo;
 
@@ -6,7 +8,7 @@ CREATE TABLE users (
     usersid INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(50),
     nomUser VARCHAR(50),
-    pass VARCHAR(50)
+    pass VARCHAR(200)
 );
 
 -- Crear la tabla roles con la clave foránea después
@@ -31,17 +33,13 @@ CREATE TABLE agentes (
     telefono VARCHAR(50) NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
     password_salt VARCHAR(50) NOT NULL,
-    rol_id INT,
-    usersid INT,
-    funcion VARCHAR(50) NOT NULL,
-    FOREIGN KEY (rol_id) REFERENCES roles(rol_id),
-    FOREIGN KEY (usersid) REFERENCES users(usersid)
+    rol INT
+    
 );
 
 -- Crear la tabla documentos
 CREATE TABLE documentos (
     documentosid INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(200) NOT NULL,
     documento VARCHAR (200) NOT NULL
 );
 
@@ -50,12 +48,11 @@ CREATE TABLE documentos (
 DELIMITER //
 
 CREATE PROCEDURE sp_CargarDocumentos(
-    IN p_titulo VARCHAR(200),
     IN p_documento VARCHAR(255)
 )
 BEGIN
-    INSERT INTO documentos (titulo, documento)
-    VALUES (p_titulo, p_documento);
+    INSERT INTO documentos ( documento)
+    VALUES ( p_documento);
 END //
 
 DELIMITER ;
@@ -64,13 +61,11 @@ DELIMITER //
 
 CREATE PROCEDURE sp_EditarDocumentos(
     IN p_documentosid INT,
-    IN p_titulo VARCHAR(200),
     IN p_documento VARCHAR(255)
 )
 BEGIN
     UPDATE documentos
-    SET titulo = p_titulo,
-        documento = p_documento
+    SET   documento = p_documento
     WHERE documentosid = p_documentosid;
 END //
 
@@ -109,17 +104,6 @@ END //
 
 DELIMITER ;
 
-DELIMITER //
-
-CREATE PROCEDURE sp_BuscarDocumentosPorTitulo(
-    IN p_titulo VARCHAR(200)
-)
-BEGIN
-    SELECT * FROM documentos
-    WHERE titulo LIKE CONCAT('%', p_titulo, '%');
-END //
-
-DELIMITER ;
 
 -- Procedimientos almacenados para agentes
 
@@ -142,6 +126,8 @@ BEGIN
 END //
 
 DELIMITER ;
+
+call sp_CargarAgentes("franco", "cornejo", "1231231232", "centro", "123123", "hcura", "asdasd", "1", "LaMaquina")
 
 DELIMITER //
 
@@ -181,6 +167,41 @@ CREATE PROCEDURE sp_EliminarAgentes(
 BEGIN
     DELETE FROM agentes
     WHERE agentesid = p_agentesid;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE sp_validarAgente(
+IN p_dni VARCHAR(50),
+IN p_nomUser VARCHAR(50)
+)
+BEGIN
+
+SELECT 'user' AS type, u.usersid AS id, u.nomUser AS value
+FROM users u
+WHERE u.nomUser = p_nomUser
+UNION
+SELECT 'agente' AS type, a.agentesid AS id, a.dni AS value
+FROM agentes a
+WHERE a.dni = p_dni;
+
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE sp_validarUsuario(
+    IN p_nomUser VARCHAR(50)
+)
+BEGIN
+    SELECT 'user' AS type, u.usersid AS id, u.nomUser AS value
+    FROM users u
+    WHERE u.nomUser = p_nomUser;
 END //
 
 DELIMITER ;
