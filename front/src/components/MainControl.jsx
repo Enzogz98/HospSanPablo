@@ -11,12 +11,15 @@ export const MainControl = () => {
     const [mostrarTabla, setMostrarTabla] = useState(false)
 
     
-  const { user } = useContext(UserContext)
+  const { userNombre } = useContext(UserContext)
+
+  console.log(userNombre)
 
 
 
   return (
     <div className=''>
+        <h1 style={{color:'white'}}>Bienvenido {userNombre}</h1>
         <div className='container row'>
             <div className='col-xl-4 pt-3'>
                 <div>

@@ -8,7 +8,7 @@ CREATE TABLE users (
     usersid INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(50),
     nomUser VARCHAR(50),
-    pass VARCHAR(50)
+    pass VARCHAR(200)
 );
 
 -- Crear la tabla roles con la clave foránea después

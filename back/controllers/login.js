@@ -70,6 +70,7 @@ const deleteUsuario = (req, res) => {
         });
 }
 
+
 const mostrarUsuarioNombre = (req, res) => {
   
     const { nombre } = req.params;
@@ -84,6 +85,8 @@ const mostrarUsuarioNombre = (req, res) => {
      }
    });
   }
+
+
 
 const login = async (req, res) => {
     const { usuario, contraseña } = req.body;

@@ -8,6 +8,7 @@ const cors = require('cors');
 
 const login = require('./routes/login');
 const documentos = require('./routes/documentos');
+const agentesRoute = require('./routes/agentes');
 
 const app = express();
 
@@ -24,7 +25,7 @@ app.listen(8000, () => {
 
 app.use('/login', login);
 app.use('/documentos', documentos);
-// app.use('/agentes', agentes);
+app.use('/agentes', agentesRoute);
 
 app.get('/', (req, res) => {
     res.send('Welcome <br/> Franco CornejoWeb Dev<br> ');

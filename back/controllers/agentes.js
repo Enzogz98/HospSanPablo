@@ -33,4 +33,32 @@ const registro = async (req, res) => {
 };
 
 
-module.exports = { registro };
+const mostrarAgentes = (req, res) => {
+    db.query("SELECT * FROM agentes;", (err, result) => {
+            if (err) {
+                console.error('Error querying database:', err);
+                return res.status(500).json({ message: 'Error del servidor', error: err });
+            }else {
+                res.status(201).json(result);
+            }
+        });
+}
+
+
+
+const deleteAgente = (req, res) => {
+
+    const { id } = req.params
+
+    db.query("DELETE FROM users where userid = ?;", [ id ], (err, result) => {
+            if (err) {
+                console.error('Error querying database:', err);
+                return res.status(500).json({ message: 'Error del servidor', error: err });
+            }else {
+                res.status(201).json({ message: 'Agente Eliminado exitosamente' });
+            }
+        });
+}
+
+
+module.exports = { registro, deleteAgente, mostrarAgentes };

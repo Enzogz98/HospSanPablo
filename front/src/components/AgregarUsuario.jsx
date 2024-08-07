@@ -29,6 +29,8 @@ export const AgregarUsuario = ({ handleToggleUser }) => {
     handleToggleUser();
   };
 
+  
+
   return (
     <>
       <div className="body-agregar-usuario">

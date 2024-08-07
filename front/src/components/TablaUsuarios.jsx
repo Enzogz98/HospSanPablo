@@ -1,18 +1,39 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import axios from 'axios';
 
 export const TablaUsuarios = () => {
 
     const [usuarios, setUsuarios] = useState();
+    const [user, setUser] = useState();
     const [toggleUser, setToggleUser] = useState(false);
 
-
-    useEffect(() => {
+    const getUsuarios = ()=>{
       axios.get("http://localhost:8000/login")
         .then((resp) => {
           setUsuarios(resp.data)
         })
+    }
+
+    useEffect(() => {
+      getUsuarios()
     }, [])
+
+    const handledelete = ( id ) => {
+      axios.get(`http://localhost:8000/login/${id}`)
+      .then((resp) => {
+        setUser(resp)
+      })
+      if(user.userid === id ){
+        alert('No podes borrar tu usuario')
+      }else{
+        axios.delete(`http://localhost:8000/login/${id}`)
+        .then((resp) => {
+          alert("usuario eliminado correctamente")
+          getUsuarios()
+        })
+      }
+    }
+
 
   return (
     <div>
@@ -87,7 +108,7 @@ export const TablaUsuarios = () => {
                   aria-label="Horarios: Activar para ordenar la columna de manera ascendente"
 
                 >
-                  Editar{" "}
+                  {" "}
 
                 </th>
                 <th
@@ -100,7 +121,7 @@ export const TablaUsuarios = () => {
                   aria-label="Horarios: Activar para ordenar la columna de manera ascendente"
 
                 >
-                  Eliminar{" "}
+                  {" "}
 
                 </th>
               </tr>
@@ -119,7 +140,7 @@ export const TablaUsuarios = () => {
                         <button className="btn btn-warning">Editar</button>
                       </td>
                       <td>
-                        <button className="btn btn-danger">Eliminar</button>
+                        <button className="btn btn-danger"onClick={()=> handledelete(usuario.usersid)}>Eliminar</button>
                       </td>
                     </tr>
                   );

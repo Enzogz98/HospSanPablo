@@ -10,7 +10,7 @@ export const MainLogin = () => {
   let navigate = useNavigate()
 
 
-  const { handleLogear } = useContext(UserContext)
+  const { handleLogear, getUser } = useContext(UserContext)
   const { valuesForm, onInputChange } = useForm({
       usuario: '',
       contraseña: ''
@@ -20,6 +20,7 @@ export const MainLogin = () => {
     axios.post("http://localhost:8000/login/login",valuesForm)
     .then((resp)=>{
       handleLogear(true)
+      getUser(valuesForm.usuario)
       navigate("/", {replace: true})
       alert("Bienvenido.")
     }).catch(()=>{
