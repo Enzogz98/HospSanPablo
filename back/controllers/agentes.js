@@ -4,9 +4,14 @@ const bcrypt = require('bcryptjs');
 
 
 const registro = async (req, res) => {
-    const { usuario, contraseña, dni, } = req.body;
+    const { user, pass } = req.body;
+
+    if (!user || !pass) {
+        return res.status(400).json({ message: 'Usuario y contraseña son requeridos' });
+    }
+
     try {
-        db.query('call sp_validarAgente(?,?)', [usuario, dni], async (err, results) => {
+        db.query('SELECT * FROM users WHERE nomUser = ?', [user], async (err, results) => {
             if (err) {
                 console.error('Error querying database:', err);
                 return res.status(500).json({ message: 'Error del servidor', error: err });
@@ -15,9 +20,9 @@ const registro = async (req, res) => {
                 return res.status(400).json({ message: 'El usuario ya existe' });
             }
 
-            const hashedPassword = await bcrypt.hash(contraseña, 5);
+            const hashedPassword = await bcrypt.hash(pass, 5);
 
-            db.query('INSERT INTO users (nomUser, pass) VALUES (?, ?)', [usuario, hashedPassword], (err, results) => {
+            db.query('INSERT INTO users (nomUser, pass) VALUES (?, ?)', [user, hashedPassword], (err, results) => {
                 if (err) {
                     console.error('Error inserting into database:', err);
                     return res.status(500).json({ message: 'Error del servidor', error: err });
@@ -30,7 +35,8 @@ const registro = async (req, res) => {
         console.error('Error al registrar usuario:', error);
         res.status(500).json({ message: 'Error del servidor' });
     }
-};
+    };
+
 
 
 const mostrarAgentes = (req, res) => {

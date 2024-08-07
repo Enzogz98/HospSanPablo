@@ -3,9 +3,9 @@ const db = require('../config.js');
 const bcrypt = require('bcryptjs');
 
 const registrar = async (req, res) => {
-    const { usuario, contraseña } = req.body;
+    const { user, pass } = req.body;
     try {
-        db.query('SELECT * FROM users WHERE nomUser = ?', [usuario], async (err, results) => {
+        db.query('SELECT * FROM users WHERE nomUser = ?', [user], async (err, results) => {
             if (err) {
                 console.error('Error querying database:', err);
                 return res.status(500).json({ message: 'Error del servidor', error: err });
@@ -14,9 +14,9 @@ const registrar = async (req, res) => {
                 return res.status(400).json({ message: 'El usuario ya existe' });
             }
 
-            const hashedPassword = await bcrypt.hash(contraseña, 5);
+            const hashedPassword = await bcrypt.hash(pass, 5);
 
-            db.query('INSERT INTO users (nomUser, pass) VALUES (?, ?)', [usuario, hashedPassword], (err, results) => {
+            db.query('INSERT INTO users (nomUser, pass) VALUES (?, ?)', [user, hashedPassword], (err, results) => {
                 if (err) {
                     console.error('Error inserting into database:', err);
                     return res.status(500).json({ message: 'Error del servidor', error: err });
