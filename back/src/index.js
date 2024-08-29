@@ -4,6 +4,9 @@ const logger = require('morgan');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const { config } = require('dotenv')
+config()
+// const env-var = require('env-var')
 
 
 const login = require('./routes/login');
@@ -19,14 +22,18 @@ app.use(cors());
 app.use(fileUpload());
 app.use('/uploads', express.static('uploads'));
 
-app.listen(8000, () => {
-    console.log('escuchando en el puerto', 8000);
-});
+const port = process.env.PORT || 8000
+
+app.listen(port, () => {
+
+    console.log( `Escuchando el puerto ${port}`)
+
+})
 
 app.use('/login', login);
 app.use('/documentos', documentos);
 app.use('/agentes', agentesRoute);
 
 app.get('/', (req, res) => {
-    res.send('Welcome <br/> Franco CornejoWeb Dev<br> ');
+    res.send('Welcome <br/> Franco Gay<br> ');
 });

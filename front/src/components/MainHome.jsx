@@ -10,7 +10,7 @@ import { Carrousel } from "./Carrousel";
 export const MainHome = () => {
   return (
     <main className="contenedor-home-body">
-      <div className="row">
+      <div className=" row m-3">
         <section
           id="carrusel"
           className="col-lg-6 col-md-10 col-sm-12 d-flex justify-content-center m-auto"
