@@ -1,0 +1,14 @@
+.contenedor-error{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: auto;
+    align-items: center;
+}
+
+.titulo-error{
+    font-size: 200px;
+    text-align: center;
+    color: red;
+
+}

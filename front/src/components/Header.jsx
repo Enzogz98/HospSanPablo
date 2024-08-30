@@ -2,7 +2,8 @@
 import { useContext, useState } from "react";
 import logo from "../assets/logo1.png";
 import "../Css/header.css";
-import Nav from "react-bootstrap/Nav";
+import Nav  from "react-bootstrap/Nav";
+import { Link, NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import { UserContext } from "../context/UserContext";
 
@@ -19,14 +20,14 @@ export const Header = () => {
 
 
           <div className="col-lg-2 ms-5">
-            <Navbar.Brand href="#home">
+            <Link to='/'>
               <img
                 src={logo}
                 height="50"
                 className="d-inline-block align-top"
                 alt="Logo"
               />
-            </Navbar.Brand>
+            </Link>
           </div>
 
         <div>
@@ -38,23 +39,19 @@ export const Header = () => {
               <Nav className="justify-content-end">
                 <div>
 
-                <Nav.Link href="/" id="button">Inicio</Nav.Link>
+                <NavLink to='/' id="button">Inicio</NavLink>
                 </div>
                 <div>
 
-                <Nav.Link href="/Historia" id="button">Historia</Nav.Link>
+                <NavLink to="/Historia" id="button">Historia</NavLink>
                 </div>
                 <div>
 
-                <Nav.Link href="/noticias" id="button">Noticias</Nav.Link>
+                <NavLink to="/noticias" id="button">Noticias</NavLink>
                 </div>
                 <div>
 
-                <Nav.Link href="/CartillaMedica" id="button">Profesionales</Nav.Link>
-                </div>
-                <div>
-
-                  <Nav.Link href="/Contacto" id="button">Contacto</Nav.Link>  
+                <NavLink to="/CartillaMedica" id="button">Profesionales</NavLink>
                 </div>
 
                 {
@@ -63,7 +60,7 @@ export const Header = () => {
                     <>
 
                       <div >
-                        <Nav.Link href="/panelControl" id="button">Panel de Control</Nav.Link>
+                        <NavLink to="/panelControl" id="button">Panel de Control</NavLink>
 
                       </div>
                       <div>
@@ -90,4 +87,3 @@ export const Header = () => {
 };
 
 export default Header;
-

@@ -52,7 +52,6 @@ const mostrarAgentes = (req, res) => {
 
 const editarUsuario = async (req, res) => {
 
-
     const { userid, nomUser, pass} = req.body
     const hashedPassword = await bcrypt.hash(pass, 5);
 
@@ -65,9 +64,6 @@ const editarUsuario = async (req, res) => {
             }
         });
 }
-
-
-
 
 
 

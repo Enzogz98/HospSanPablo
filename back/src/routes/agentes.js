@@ -1,9 +1,6 @@
-
 const express = require("express")
 const router = express.Router()
 const { registro,editarUsuario, deleteAgente,mostrarAgentes } = require ("../controllers/agentes")
-
-
 
 
 
