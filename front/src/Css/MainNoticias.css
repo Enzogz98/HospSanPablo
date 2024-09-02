@@ -1,84 +1,94 @@
-
-.bgNoticia{
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://cdn.lecturio.com/assets/Featured-image-Student-Blog-Hospital-Team.jpg") center/cover no-repeat;
-    letter-spacing: 0.2px;
-}
-    
-    
-.inicioNoticia {
-    padding: 40px;
-
-}
-
-
-.m-3:hover {
-    transform: translateY(3px);
-    box-shadow: none;
+.bg{
+    padding-bottom: 10px;
 }
   
-.m-3:active {
-    opacity: 0.5;
-    
-}
-
-
-#masinfo {
+  #infomsp,
+  #masinfo {
+    background-color: #f8f9fa5c;
+    border-radius: 5px;
+    margin: 0 auto;
+  }
+  
+  #infomsp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+  }
+  
+  #masinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #masinfo .divAncla1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-}
-
-#masinfo a {
-    text-decoration: none;
-    color: black;
-    background-color: white;
-    border: 3px solid #000000;
-    border-radius: 15px;
-    display: inline-block;
-    padding: 5px; 
-    margin: 5px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    width: 100%;
-    max-width: 15em; 
-    height: auto; 
-}
-
-#masinfo a img {
-    max-width: 100%;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    max-width: 300px;
+  }
+  
+  #masinfo .divAncla1:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.709);
+  }
+  
+  #masinfo .divAncla1 img {
+    max-width: 100px;
     height: auto;
-}
+    border-radius: 8px;
+  }
+  
+  #masinfo .divAncla1 p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+  }
+  
+  .card {
+    border: none;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 10px;
 
-#masinfo p {
-    font-size: 20px;
-}
-
-#masinfo a::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    position: absolute;
-    top: 0;
-    left: -100%;
-    background-image: linear-gradient(to right, #60ba85 0%, #4f976c 100%);
-    transition: .5s ease;
-    z-index: -1;
-}
-
-#masinfo a:hover::before {
-    left: 0;
-}
-
-.divAncla1 {
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.506);
+  }
+  
+  .card img {
+    border-radius: 5px;
+  }
+  
+  .card a {
     text-decoration: none;
-    color: black;
-    margin-top: 100px;
-}
-
-.divAncla1 p {
-    font-size: 20px;
-}
+    color: inherit;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    #infomsp {
+      grid-template-columns: 1fr;
+    }
+  
+    #masinfo .divAncla1 img {
+      max-width: 80px;
+    }
+  
+    #infomsp,
+    #masinfo {
+      padding: 0.5rem;
+    }
+  }
+  

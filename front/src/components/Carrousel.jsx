@@ -45,7 +45,7 @@ export const Carrousel = () => {
             <Card className="cartas-mas-info">
               <Card.Img variant="top" src={dengue1} />
               <Card.Body>
-                <Card.Title>Sintomas del dengue</Card.Title>
+                <Card.Title className="titulo-card">Sintomas del dengue</Card.Title>
                 <a href="https://www.instagram.com/p/Cz_R8YIu5mU/?img_index=1"
                 target="_blank"
                 rel="noopener noreferrer">
@@ -61,7 +61,7 @@ export const Carrousel = () => {
                 src={capacdengue}
               />
               <Card.Body>
-                <Card.Title>Capacitacion dengue</Card.Title>
+                <Card.Title className="titulo-card">Capacitacion dengue</Card.Title>
                 <a href="https://www.instagram.com/p/Cz_QUSJu5rn/"
                 target="_blank"
                 rel="noopener noreferrer">
@@ -73,7 +73,7 @@ export const Carrousel = () => {
             <Card className="cartas-mas-info">
               <Card.Img variant="top" src={diabetes3} />
               <Card.Body>
-                <Card.Title>Dia mundial de diabetes</Card.Title>
+                <Card.Title className="titulo-card">Dia mundial de diabetes</Card.Title>
                 <a href="https://www.instagram.com/p/CzozN1TO849/"
                 target="_blank"
                 rel="noopener noreferrer">

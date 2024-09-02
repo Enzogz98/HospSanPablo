@@ -32,6 +32,11 @@ body{
   object-fit: cover;
 }
 
+.titulo-card{
+  margin: auto;
+  width: 150px;
+}
+
 
 #carruselImg {
 
@@ -110,16 +115,14 @@ body{
   position: relative;
   display: inline-block;
   margin: 4px;
-  padding: 15px 30px;
+  padding: 10px ;
   text-align: center;
   font-size: 18px;
   letter-spacing: 1px;
   text-decoration: none;
-  color: #346548;
-  background: transparent;
+  color: #ffffff;
   cursor: pointer;
   transition: ease-out 0.5s;
-  border: 2px solid #60ba85;
   border-radius: 10px;
 }
 
@@ -132,7 +135,6 @@ body{
   color: rgb(23, 96, 242) !important;
   border: 2px solid rgb(23, 96, 242);
   box-shadow: inset 0 -100px 0 0 #ffffff;
-
 }
 
 .btn:active {

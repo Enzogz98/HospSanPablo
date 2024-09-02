@@ -47,7 +47,7 @@ export const Documentos = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:8000/documentos/${id}`);
+            await axios.delete(`http://localhost:8000/agentes/${id}`);
             fetchDocumentos();
         } catch (error) {
             console.error('Error al eliminar documento:', error);

@@ -1,14 +1,14 @@
 .contenedor-error{
     display: flex;
     justify-content: center;
-    height: 100vh;
-    margin: auto;
     align-items: center;
+    margin: auto;
+    height: 102vh; 
+    background-color: rgb(90, 180, 91);
 }
 
-.titulo-error{
-    font-size: 200px;
-    text-align: center;
-    color: red;
+.img-error{
 
+    margin: auto;
+    height: 117vh;
 }
