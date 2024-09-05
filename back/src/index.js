@@ -20,7 +20,7 @@ app.use(compression());
 app.use(logger('dev'));
 app.use(cors());
 app.use(fileUpload());
-app.use('/uploads', express.static('uploads'));
+app.use('../uploads', express.static('uploads'));
 
 const port = process.env.PORT || 8000
 

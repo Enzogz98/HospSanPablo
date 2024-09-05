@@ -8,6 +8,8 @@ import "../Css/mainHome.css";
 import { Carrousel } from "./Carrousel";
 
 export const MainHome = () => {
+
+
   return (
     <main className="contenedor-home-body">
       <div className=" row m-3">

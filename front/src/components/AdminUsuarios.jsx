@@ -10,6 +10,8 @@ export const AdminUsuarios = () => {
 
   const [toggleUser, setToggleUser] = useState(false);
   const [toggleEditar, setToggleEditar] = useState(false);
+  const [idUsuarioEditar, setIdUsuarioEditar] = useState(false);
+
   
   const handleToggleUser = () =>{
     setToggleUser(false)
@@ -39,7 +41,7 @@ export const AdminUsuarios = () => {
             toggleEditar ?
             <AgregarUsuario handleToggleUser={ handleToggleUser }/>
             :
-            <EditarAgente handleToggleEditar={ handleToggleEditar } handleToggleUser={ handleToggleUser }/>
+            <EditarAgente handleToggleEditar={ handleToggleEditar } handleToggleUser={ handleToggleUser } />
             }
           </div>
 

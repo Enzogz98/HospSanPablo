@@ -88,7 +88,7 @@ const mostrarUsuarioNombre = (req, res) => {
 
 
 
-const login = async (req, res) => {
+  const login = async (req, res) => {
     const { usuario, contraseña } = req.body;
 
     if (!usuario || !contraseña) {
@@ -112,12 +112,17 @@ const login = async (req, res) => {
                 return res.status(400).json({ message: 'Contraseña incorrecta' });
             }
 
-            res.status(200).json({ message: 'Inicio de sesión exitoso' });
+            // Aquí se incluye el ID del usuario en la respuesta
+            res.status(200).json({ 
+                message: 'Inicio de sesión exitoso',
+                userId: user.usersid,  // Asegúrate de que 'id' es el nombre del campo en tu base de datos
+            });
         });
     } catch (error) {
         console.error('Error al iniciar sesión:', error);
         res.status(500).json({ message: 'Error del servidor' });
     }
 };
+
 
 module.exports = { registrar, login, mostrarUsuarios, mostrarUsuario, deleteUsuario, mostrarUsuarioNombre };

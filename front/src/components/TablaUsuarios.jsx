@@ -1,161 +1,107 @@
-import  { useEffect, useState, useContext } from 'react'
-import axios from 'axios';
+import { useEffect, useState, useContext } from "react";
+import axios from "axios";
 
 import { UserContext } from "../context/UserContext";
 
 export const TablaUsuarios = ({ handleToggleEditar }) => {
+  const [usuarios, setUsuarios] = useState([]);
 
-    const [usuarios, setUsuarios] = useState();
-    const [user, setUser] = useState();
-    const [toggleUser, setToggleUser] = useState(false);
+  
+  const { userId, getUserIdEdit } = useContext(UserContext);
 
-    const getUsuarios = ()=>{
-      axios.get("http://localhost:8000/login")
-        .then((resp) => {
-          setUsuarios(resp.data)
-        })
-    }
+  // Función para obtener la lista de usuarios
+  const getUsuarios = () => {
+    axios.get("http://localhost:8000/login").then((resp) => {
+      setUsuarios(resp.data);
+    });
+  };
 
-    useEffect(() => {
-      getUsuarios()
-    }, [])
+  useEffect(() => {
+    getUsuarios();
+  }, []);
 
-    const { getUserId } = useContext(UserContext)
+  const handleEditar = async ( usersId ) => {
 
-    const handleEditar = (id) =>{
-      getUserId(id)
+    getUserIdEdit( usersId )
+    handleToggleEditar()
+    alert(usersId)
+
+    
+  //   handleToggleEditar(id)
+  //   try {
+  //     await axios.patch('http://localhost:8000/editar'{
+  //       user: username,
+  //       pass: password,
+  //     )}
+  //     });
       
-    }
+  //   } catch (error) {
+  //     alert("error al editar usuario")
+  //   }
+  };
 
-    const handledelete = ( id ) => {
-      axios.get(`http://localhost:8000/login/${id}`)
-      .then((resp) => {
-        setUser(resp)
-      })
-      if(user.userid === id ){
-        alert('No podes borrar tu usuario')
-      }else{
-        axios.delete(`http://localhost:8000/login/${id}`)
-        .then((resp) => {
-          alert("usuario eliminado correctamente")
-          getUsuarios()
-        })
+  // Función para manejar la eliminación de un usuario
+  const handleDelete = async (id) => {
+    console.log(id)
+    console.log(userId)
+    try {
+      if (id == userId) {
+        alert("No puedes borrar tu usuario");
+      } else {
+        // comentado para no borrar a cada rato el usuario
+       // await axios.delete(`http://localhost:8000/login/${id}`);
+        alert("Usuario eliminado correctamente");
+        getUsuarios();  // Actualiza la lista de usuarios después de eliminar
       }
+    } catch (error) {
+      console.error("Error al eliminar el usuario:", error);
     }
+  };
 
+
+  // Log para verificar el userId en el localStorage
+  console.log("ID del usuario logueado desde Local Storage: ", localStorage.getItem('userId'));
 
   return (
     <div>
-        
-        <table
-            className=" table table-hover table-condensed table-bordered bootstrap-datatable dataTable table-dark"
-            id="tablausuarios"
-            aria-describedby="tablausuarios_info"
-          >
-            <thead>
-              <tr role="row">
-                <th
-                  className="sorting_asc"
-                  role="columnheader"
-                  tabIndex="0"
-                  aria-controls="tablausuarios"
-                  rowSpan="1"
-                  colSpan="1"
-                  aria-sort="ascending"
-                  aria-label="Especialidad: Activar para ordenar la columna de manera descendente"
-
+      <table
+        className="table table-hover table-condensed table-bordered bootstrap-datatable dataTable table-dark"
+        id="tablausuarios"
+        aria-describedby="tablausuarios_info"
+      >
+        <thead>
+          <tr role="row">
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {usuarios.map((usuario) => (
+            <tr key={usuario.usersid}>
+              <td>{usuario.nomUser}</td>
+              <td>{usuario.nomUser}</td>
+              <td>
+                <button
+                  className="btn btn-warning"
+                  onClick={() => handleEditar(usuario.usersid)}
                 >
-                  Usuario{" "}
-
-                </th>
-                <th
-                  className="sorting"
-                  role="columnheader"
-                  tabIndex="0"
-                  aria-controls="tablausuarios"
-                  rowSpan="1"
-                  colSpan="1"
-                  aria-label="Prestador: Activar para ordenar la columna de manera ascendente"
-
+                  Editar
+                </button>
+              </td>
+              <td>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDelete(usuario.usersid)}
                 >
-                  Nombre{" "}
-
-                </th>
-                <th
-                  className="sorting"
-                  role="columnheader"
-                  tabIndex="0"
-                  aria-controls="tablausuarios"
-                  rowSpan="1"
-                  colSpan="1"
-                  aria-label="clinica: Activar para ordenar la columna de manera ascendente"
-
-                >
-                  {/* Apellido{" "}
-
-                </th>
-                <th
-                  className="sorting"
-                  role="columnheader"
-                  tabIndex="0"
-                  aria-controls="tablausuarios"
-                  rowSpan="1"
-                  colSpan="1"
-                  aria-label="Horarios: Activar para ordenar la columna de manera ascendente"
-
-                >
-                  Documento{" "}
-
-                </th>
-                <th
-                  className="sorting"
-                  role="columnheader"
-                  tabIndex="0"
-                  aria-controls="tablausuarios"
-                  rowSpan="1"
-                  colSpan="1"
-                  aria-label="Horarios: Activar para ordenar la columna de manera ascendente" 
-
-                >*/}
-                  {" "}
-
-                </th>
-                <th
-                  className="sorting"
-                  role="columnheader"
-                  tabIndex="0"
-                  aria-controls="tablausuarios"
-                  rowSpan="1"
-                  colSpan="1"
-                  aria-label="Horarios: Activar para ordenar la columna de manera ascendente"
-
-                >
-                  {" "}
-
-                </th>
-              </tr>
-            </thead>
-
-            <tbody role="alert" aria-live="polite" aria-relevant="all">
-              {
-                usuarios && usuarios.map((usuario) => {
-                  return (
-                    <tr className="odd" key={usuario.usersid}>
-                      <td className="  sorting_1">{usuario.nomUser}</td>
-                      <td className=" ">{usuario.nomUser}</td>
-                      {/* <td className=" ">{usuario.nomUser}</td>
-                      <td className=" ">{usuario.nomUser}</td> */}
-                      <td>
-                        <button className="btn btn-warning"onClick={()=> {handleToggleEditar(), getUserId(usuario.usersid)}}>Editar</button>
-                      </td>
-                      <td>
-                        <button className="btn btn-danger"onClick={()=> handledelete(usuario.usersid)}>Eliminar</button>
-                      </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-  )
-}
+  );
+};

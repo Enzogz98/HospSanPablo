@@ -10,7 +10,7 @@ export const MainLogin = () => {
   let navigate = useNavigate()
 
 
-  const { handleLogear, getUser } = useContext(UserContext)
+  const { handleLogear, getUser, getUserId, userId } = useContext(UserContext)
   const { valuesForm, onInputChange } = useForm({
       usuario: '',
       contraseña: ''
@@ -20,6 +20,7 @@ export const MainLogin = () => {
     axios.post("http://localhost:8000/login/login",valuesForm)
     .then((resp)=>{
       handleLogear(true)
+      getUserId(resp.data.userId)
       getUser(valuesForm.usuario)
       navigate("/", {replace: true})
       alert("Bienvenido.")
@@ -27,6 +28,8 @@ export const MainLogin = () => {
       alert("Usuario o contraseña incorrectos.")
     })
   } 
+
+  
 
   return (
     <div className="">
