@@ -4,10 +4,10 @@ const logger = require('morgan');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { config } = require('dotenv')
-config()
-// const env-var = require('env-var')
+const { config } = require('dotenv');
+const path = require('path');
 
+config();
 
 const login = require('./routes/login');
 const documentos = require('./routes/documentos');
@@ -18,17 +18,23 @@ const app = express();
 app.use(bodyParser.json());
 app.use(compression());
 app.use(logger('dev'));
-app.use(cors());
-app.use(fileUpload());
-app.use('../uploads', express.static('uploads'));
 
-const port = process.env.PORT || 8000
+
+const corsOptions = {
+    origin: '*', 
+    methods: ['GET', 'POST', 'DELETE', 'PUT'], 
+    allowedHeaders: ['Content-Type', 'Authorization'] 
+};
+app.use(cors(corsOptions));
+
+app.use(fileUpload());
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
-
-    console.log( `Escuchando el puerto ${port}`)
-
-})
+    console.log(`Escuchando el puerto ${port}`);
+});
 
 app.use('/login', login);
 app.use('/documentos', documentos);

@@ -9,7 +9,7 @@ export const TablaUsuarios = ({ handleToggleEditar }) => {
   
   const { userId, getUserIdEdit } = useContext(UserContext);
 
-  // Función para obtener la lista de usuarios
+
   const getUsuarios = () => {
     axios.get("http://localhost:8000/login").then((resp) => {
       setUsuarios(resp.data);
@@ -20,27 +20,14 @@ export const TablaUsuarios = ({ handleToggleEditar }) => {
     getUsuarios();
   }, []);
 
-  const handleEditar = async ( usersId ) => {
 
-    getUserIdEdit( usersId )
-    handleToggleEditar()
-    alert(usersId)
+const handleEditar = (usersId) => {
+  handleToggleEditar(usersId)
+};
 
-    
-  //   handleToggleEditar(id)
-  //   try {
-  //     await axios.patch('http://localhost:8000/editar'{
-  //       user: username,
-  //       pass: password,
-  //     )}
-  //     });
-      
-  //   } catch (error) {
-  //     alert("error al editar usuario")
-  //   }
-  };
 
-  // Función para manejar la eliminación de un usuario
+
+
   const handleDelete = async (id) => {
     console.log(id)
     console.log(userId)
@@ -59,7 +46,7 @@ export const TablaUsuarios = ({ handleToggleEditar }) => {
   };
 
 
-  // Log para verificar el userId en el localStorage
+
   console.log("ID del usuario logueado desde Local Storage: ", localStorage.getItem('userId'));
 
   return (
