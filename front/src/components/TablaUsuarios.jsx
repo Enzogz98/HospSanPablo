@@ -5,10 +5,9 @@ import { UserContext } from "../context/UserContext";
 
 export const TablaUsuarios = ({ handleToggleEditar }) => {
   const [usuarios, setUsuarios] = useState([]);
-
   
-  const { userId, getUserIdEdit } = useContext(UserContext);
 
+  const { userId, setUserIdEdit } = useContext(UserContext);
 
   const getUsuarios = () => {
     axios.get("http://localhost:8000/login").then((resp) => {
@@ -20,25 +19,22 @@ export const TablaUsuarios = ({ handleToggleEditar }) => {
     getUsuarios();
   }, []);
 
-
-const handleEditar = (usersId) => {
-  handleToggleEditar(usersId)
-};
-
-
-
+  const handleEditar = (id) => {
+    handleToggleEditar(id)
+    setUserIdEdit(id)
+  };
 
   const handleDelete = async (id) => {
-    console.log(id)
-    console.log(userId)
+    console.log(id);
+    console.log(userId);    
+
     try {
       if (id == userId) {
         alert("No puedes borrar tu usuario");
       } else {
-        // comentado para no borrar a cada rato el usuario
-       // await axios.delete(`http://localhost:8000/login/${id}`);
+        // await axios.delete(`http://localhost:8000/login/${id}`) comentado para no borrar a cada rato el usuario
         alert("Usuario eliminado correctamente");
-        getUsuarios();  // Actualiza la lista de usuarios después de eliminar
+        getUsuarios(); // Actualiza la lista de usuarios después de eliminar
       }
     } catch (error) {
       console.error("Error al eliminar el usuario:", error);
@@ -47,7 +43,10 @@ const handleEditar = (usersId) => {
 
 
 
-  console.log("ID del usuario logueado desde Local Storage: ", localStorage.getItem('userId'));
+  console.log(
+    "ID del usuario logueado desde Local Storage: ",
+    localStorage.getItem("userId")
+  );
 
   return (
     <div>
@@ -59,15 +58,14 @@ const handleEditar = (usersId) => {
         <thead>
           <tr role="row">
             <th>Usuario</th>
-            <th>Nombre</th>
             <th></th>
             <th></th>
+
           </tr>
         </thead>
         <tbody>
           {usuarios.map((usuario) => (
             <tr key={usuario.usersid}>
-              <td>{usuario.nomUser}</td>
               <td>{usuario.nomUser}</td>
               <td>
                 <button

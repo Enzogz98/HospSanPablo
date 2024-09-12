@@ -205,13 +205,13 @@ DELIMITER //
 CREATE PROCEDURE sp_EditarUsers(
     IN p_usersid INT,
     IN p_nomUser VARCHAR(50),
-    IN p_pass VARCHAR(255)
+    IN p_pass VARCHAR(200)
 )
 BEGIN
     UPDATE users
-    SET nomUser = nomUser, 
-    pass = pass
-    WHERE usersid = usersid;
+    SET nomUser = p_nomUser, 
+        pass = p_pass
+    WHERE usersid = p_usersid;
 END //
 
 DELIMITER ;

@@ -18,7 +18,9 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     if (!userIdEdit) {
+      console.log("para editar:", userIdEdit);
       getUserIdEdit(); // Recuperar el ID si no está presente en el estado
+      
     }
   }, [userIdEdit]);
 
@@ -52,10 +54,10 @@ export const UserProvider = ({ children }) => {
     return value || localStorage.getItem("userId"); // Devuelve el valor correcto
   };
 
-  const getUserIdEdit = (value) => {
-    if (value) {
-      setUserIdEdit(value);
-      localStorage.setItem('userIdEdit', value);
+  const getUserIdEdit = (handleToggleEditar) => {
+    if (handleToggleEditar) {
+      setUserIdEdit(handleToggleEditar);
+      localStorage.setItem('userIdEdit', handleToggleEditar);
     } else {
       const savedUserIdEdit = localStorage.getItem('userIdEdit');
       setUserIdEdit(savedUserIdEdit); 
@@ -89,6 +91,7 @@ export const UserProvider = ({ children }) => {
         getUserId,
         userIdEdit,
         getUserIdEdit,
+        setUserIdEdit,
       }}
     >
       {children}

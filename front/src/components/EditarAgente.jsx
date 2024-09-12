@@ -4,12 +4,12 @@ import axios from "axios";
 import "../Css/agregrarUsuario.css";
 
 export const EditarAgente = ({ handleToggleUser }) => {
-  const [username, setUsername] = useState( "");
-  const [password, setPassword] = useState( "");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const [usuario, setUsuario] = useState({});
 
-  const { userIdEdit } = useContext(UserContext);
+  const {userIdEdit} = useContext(UserContext);
 
   const handleCancelar = () => {
     handleToggleUser();
@@ -21,37 +21,44 @@ export const EditarAgente = ({ handleToggleUser }) => {
       const resp = await axios.get(url + userIdEdit);
       const userData = resp.data || {};
       setUsuario(userData);
-      setUsername(userData.nomUser || ""); // Usa un valor por defecto si nomUser es undefined
-      setPassword(userData.pass || ""); // Usa un valor por defecto si pass es undefined
+      setUsername(userData.nomUser || "");
+      setUsername(userData.nomUser || "");
     } catch (err) {
       console.error("Error al obtener usuario:", err);
     }
   };
 
-  console.log(usuario)
-  
+  // const getUsuario = () => {
+  //   axios.get("http://localhost:8000/login/usuario/").then((resp) => {
+  //     setUserIdEdit(resp.data.usersid);
+  //     setUsername(resp.data.nomUser || "");
+  //     setPassword(resp.data.pass || "");
+  //   });
+  // };
+
   useEffect(() => {
-    
-      getUsuario();
-   
-  }, []);
+    console.log("ID del usuario a editar:", userIdEdit);
+    getUsuario();
+}, [userIdEdit]);
+
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(
-        `http://localhost:8000/agentes/editarUsuario/`,
-        {
-          userId: userIdEdit,
-          nomUser: username,
-          pass: password,
-        }
-      );
-      console.log("usuarioEditado", response.data);
-      getUserIdEdit("");
+      const url = "http://localhost:8000/agentes/editarUsuario";
+
+      const updatedUser = {
+        usersid: userIdEdit,
+        nomUser: username,
+        pass: password,
+      };
+      await axios.put(url, updatedUser);
+      console.log(userIdEdit);
+      alert("Usuario actualizado correctamente.");
       handleToggleUser();
-    } catch (error) {
-      console.error("Error al editar usuario", error);
+    } catch (err) {
+      console.error("Error al actualizar el usuario:", err);
+      alert("Ocurrió un error al intentar actualizar el usuario.");
     }
   };
 
@@ -69,7 +76,7 @@ export const EditarAgente = ({ handleToggleUser }) => {
               type="text"
               name="username"
               onChange={handleUsernameChange}
-              value={username || ""} // Asegúrate de que siempre haya un valor
+              value={username || ""}
             />
           </div>
           <div>
@@ -78,7 +85,7 @@ export const EditarAgente = ({ handleToggleUser }) => {
               type="password"
               name="password"
               onChange={handlePasswordChange}
-              value={password || ""} // Asegúrate de que siempre haya un valor
+              value={password || ""}
             />
           </div>
           <div className="body-botones-usuario">
