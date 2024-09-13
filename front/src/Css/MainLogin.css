@@ -1,7 +1,6 @@
 .bodyLogin{
     background: linear-gradient(to top, #081b29c5, #193a1faa);
-    width: 100vw;
-    height: 100vh;
+    height: 102vh;
     display: flex;
     justify-content: center;
     align-content: center;

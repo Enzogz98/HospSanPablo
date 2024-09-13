@@ -77,7 +77,7 @@ export const MainCartilla = () => {
       <div className="MainCartilla">
 
 
-        <div className="row my-5">
+        <div className="">
           <div className="col-xl-10 m-auto">
             <div className="divBusqueda">
               <input

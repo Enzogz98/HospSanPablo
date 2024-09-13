@@ -4,6 +4,7 @@ import  { useContext, useState } from 'react';
 import axios from "axios"
 import { UserContext } from "../context/UserContext";
 import { useForm } from "../hooks/useForm"
+import Footer from "./Footer"
 
 export const MainLogin = () => {
   
@@ -73,7 +74,9 @@ export const MainLogin = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
+    
   );
 };
 
