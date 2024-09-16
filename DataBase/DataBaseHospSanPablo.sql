@@ -44,6 +44,7 @@ CREATE TABLE agentes (
 -- Crear la tabla documentos
 CREATE TABLE documentos (
     documentosid INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
     documento VARCHAR (200) NOT NULL
 );
 

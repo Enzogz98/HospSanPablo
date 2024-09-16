@@ -6,6 +6,7 @@ export const Documentos = () => {
     const [titulo, setTitulo] = useState('');
     const [file, setFile] = useState(null);
     const [documentos, setDocumentos] = useState([]);
+    const [buscarDoc, setBuscarDoc] = useState('');
     const [fileName, setFileName] = useState('');
 
     const fetchDocumentos = async () => {
@@ -30,8 +31,6 @@ export const Documentos = () => {
         const formData = new FormData();
         formData.append('documento', file);
         formData.append('titulo', titulo);
-
-        console.log('Archivo seleccionado:', file);
 
         try {
             await axios.post('http://localhost:8000/documentos', formData, {
@@ -61,15 +60,29 @@ export const Documentos = () => {
         window.open(`http://localhost:8000/uploads/${filename}`, '_blank');
     };
 
+    // Filtrar los documentos según el término de búsqueda
+    const filteredDocuments = documentos.filter(doc => 
+        doc.titulo.toLowerCase().includes(buscarDoc.toLowerCase())
+    );
+
     return (
         <div className='pt-3'>
             <div className='pb-3'>
                 <h3 style={{ color: 'white' }}>Documentos</h3>
-                <input type='text' placeholder='Buscar Documento' />
-                <button className='btn btn-primary' >Buscar</button>
+                <input 
+                    type='text' 
+                    placeholder='Buscar Documento' 
+                    onChange={(e) => setBuscarDoc(e.target.value)}
+                    value={buscarDoc}
+                />
                 <br/>
                 <div className='body-file-upload'>
-                    <input type='text' value={titulo} onChange={(e) => setTitulo(e.target.value)} placeholder='Título del Documento' />
+                    <input 
+                        type='text' 
+                        value={titulo} 
+                        onChange={(e) => setTitulo(e.target.value)} 
+                        placeholder='Título del Documento' 
+                    />
                     <div className="custom-file-upload">
                         <input type='file' id="fileInput" onChange={handleFileChange} style={{ display: 'none' }} />
                         <label htmlFor="fileInput" className="btn btn-info">Seleccionar Archivo</label>
@@ -90,9 +103,9 @@ export const Documentos = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {documentos && documentos.map((documento) => (
+                    {filteredDocuments && filteredDocuments.map((documento) => (
                         <tr className="odd" key={documento.documentosid}>
-                            <td>{documento.documento}</td>
+                            <td>{documento.titulo}</td>
                             <td>
                                 <button className="btn btn-danger" onClick={() => handleDelete(documento.documentosid)}>Eliminar</button>
                             </td>

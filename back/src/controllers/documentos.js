@@ -14,6 +14,7 @@ const getDocumentos = (req, res) => {
     });
 };
 
+
 const uploadDocumento = (req, res) => {
     const documento = req.files.documento;
     const titulo  = req.body.titulo;
@@ -81,5 +82,5 @@ const deleteDocumento = (req, res) => {
 module.exports = {
     getDocumentos,
     uploadDocumento,
-    deleteDocumento,
+    deleteDocumento    
 };
