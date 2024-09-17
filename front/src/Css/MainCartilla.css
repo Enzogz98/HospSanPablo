@@ -4,21 +4,10 @@
 }
   
 .divBusqueda{
-  display: flex;
-  justify-content: start;
-  flex-direction: row;
   margin-bottom: 10px;
 }
 
 .input-buscar{
-  border: 3px solid rgba(0, 0, 0, 0.731);
-}
-
-.lupa{
-  height: 40px;
-  width: 40px;
-  background-color: rgba(255, 255, 255, 0.735);
-  border: none;
-  border-radius: 150px;
-  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
 }

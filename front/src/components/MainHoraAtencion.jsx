@@ -12,7 +12,7 @@ export const MainHoraAtencion = () => {
           </div>
             <br />
 
-            <div className="Tablas">
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom : '50px' }}>
 
                 <div className="tablaHospitalSP" data-aos="fade-right">
 
@@ -90,7 +90,7 @@ export const MainHoraAtencion = () => {
 
                 </div>
 
-                <div className="tablaNsdp" data-aos="fade-left">
+                {/* <div className="tablaNsdp" data-aos="fade-left">
 
                     <div className="tabla1">
                         <h3>CAPS Nuestra Señora del Pilar</h3>
@@ -175,7 +175,7 @@ export const MainHoraAtencion = () => {
                             </tr>
                         </table>
                     </div>
-                </div>
+                </div> */}
             
             </div>
 

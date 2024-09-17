@@ -7,12 +7,17 @@ export const MainCartilla = ({ pageProfesionales }) => {
   const [busqueda, setBusqueda] = useState("");
   const [ordenColumna, setOrdenColumna] = useState(null);
   const [ordenAscendente, setOrdenAscendente] = useState(true);
-  const [profesionales, setProfesionales] = useState();
+  const [profesionales, setProfesionales] = useState([]);
+  const [profesionalesFiltrados, setProfesionalesFiltrados] = useState([]);
   const { userNombre } = useContext(UserContext);
 
+
+
   const mostrarProfesionales = () => {
+    
     axios.get("http://localhost:8000/profesionales/").then((resp) => {
       setProfesionales(resp.data);
+      setProfesionalesFiltrados(resp.data); 
     });
   };
 
@@ -20,37 +25,30 @@ export const MainCartilla = ({ pageProfesionales }) => {
     mostrarProfesionales();
   }, []);
 
-  // const handleProfesionales = () => {
-  //   const filteredPrestadores = profesionales.filter((profesional) =>
-  //     profesional.especialidad.toLowerCase().includes(busqueda.toLowerCase())
-  //   );
-
-  //   if (filteredPrestadores.length > 0) {
-  //     setPrestadores(filteredPrestadores);
-  //   } else {
-  //     alert("No hay prestador");
-  //     setPrestadores(profesionales);
-  //   }
-  // };
-
   const borrarProfesional = async (id) => {
     if (userNombre === "admin")
       try {
         await axios.delete(`http://localhost:8000/profesionales/borrarProfesional/${id}`);
         alert("Profesional eliminado correctamente");
-        mostrarProfesionales()
+        mostrarProfesionales();
       } catch (error) {
         console.error("Error al eliminar el profesional:", error);
       }
   };
 
-  const handleVolver = () => {
-    setBusqueda("");
-    setPrestadores(profesionales);
+  const handleBusqueda = (e) => {
+    const textoBusqueda = e.target.value.toLowerCase();
+    setBusqueda(textoBusqueda);
+
+    const resultadosFiltrados = profesionales.filter((profesional) =>
+      profesional.especialidad.toLowerCase().includes(textoBusqueda)
+    );
+
+    setProfesionalesFiltrados(resultadosFiltrados);
   };
 
   const ordenarTabla = (columna) => {
-    const nuevosPrestadores = [...prestadores];
+    const nuevosPrestadores = [...profesionalesFiltrados];
     nuevosPrestadores.sort((a, b) => {
       const valorA = a[columna].toString().toLowerCase();
       const valorB = b[columna].toString().toLowerCase();
@@ -59,7 +57,7 @@ export const MainCartilla = ({ pageProfesionales }) => {
         : valorB.localeCompare(valorA);
     });
 
-    setPrestadores(nuevosPrestadores);
+    setProfesionalesFiltrados(nuevosPrestadores);
     setOrdenColumna(columna);
     setOrdenAscendente(!ordenAscendente);
   };
@@ -71,17 +69,12 @@ export const MainCartilla = ({ pageProfesionales }) => {
           <div className="divBusqueda">
             <input
               type="text"
-              placeholder="Buscar Por Especialidad"
+              placeholder="Buscar Especialidad 🔎"
               className="input-buscar"
-              value={busqueda} // Mantener el valor de búsqueda actual
-              onChange={(e) => setBusqueda(e.target.value)}
+              value={busqueda}
+              onChange={handleBusqueda} 
             />
-            <button className="btn btn-primary">Buscar 🔎</button>
-            {busqueda && (
-              <button className="btn btn-primary" onClick={handleVolver}>
-                Volver
-              </button>
-            )}
+            
           </div>
           <table
             className=" table table-hover table-condensed table-bordered bootstrap-datatable dataTable table-dark"
@@ -153,11 +146,10 @@ export const MainCartilla = ({ pageProfesionales }) => {
                     aria-controls="tablausuarios"
                     rowSpan="1"
                     colSpan="1"
-                    aria-label="Horarios: Activar para ordenar la columna de manera ascendente"
+                    aria-label="Editar"
                   >
                     EDITAR
                   </th>
-                  
                 ) : null}
                 {userNombre === "admin" ? (
                   <th
@@ -167,18 +159,17 @@ export const MainCartilla = ({ pageProfesionales }) => {
                     aria-controls="tablausuarios"
                     rowSpan="1"
                     colSpan="1"
-                    aria-label="Horarios: Activar para ordenar la columna de manera ascendente"
+                    aria-label="Eliminar"
                   >
                     Eliminar
                   </th>
-                  
                 ) : null}
               </tr>
             </thead>
 
             <tbody role="alert" aria-live="polite" aria-relevant="all">
-              {profesionales &&
-                profesionales.map((profesional) => {
+              {profesionalesFiltrados.length > 0 ? (
+                profesionalesFiltrados.map((profesional) => {
                   return (
                     <tr className="odd" key={profesional.idProfesionales}>
                       <td className="sorting_1">{profesional.especialidad}</td>
@@ -192,19 +183,24 @@ export const MainCartilla = ({ pageProfesionales }) => {
                       ) : null}
                       {userNombre === "admin" ? (
                         <td>
-                           <button
-                        className="btn btn-danger"
-                        onClick={() =>
-                          borrarProfesional(profesional.idProfesionales)
-                        }
-                      >
-                        Eliminar
-                      </button>
+                          <button
+                            className="btn btn-danger"
+                            onClick={() =>
+                              borrarProfesional(profesional.idProfesionales)
+                            }
+                          >
+                            Eliminar
+                          </button>
                         </td>
                       ) : null}
                     </tr>
                   );
-                })}
+                })
+              ) : (
+                <tr>
+                  <td colSpan="6">No se encontraron profesionales</td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

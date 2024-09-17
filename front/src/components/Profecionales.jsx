@@ -2,10 +2,12 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useForm } from "../hooks";
-import MainCartilla from "./MainCartilla";
-
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom';
 
 const Profecionales = () => {
+
+  const navigate = useNavigate();
 
   const initialForm = { prestador: "", clinica: "", especialidad: "", horarios: "", dni: "" };
 
@@ -45,10 +47,14 @@ const Profecionales = () => {
           dni: dni,
         }
       );
-      
-      alert('Profesional agregado');
-      console.log("Profesional agregado correctamente", response.data);
-      console.log(profesionales);
+
+      Swal.fire({
+        title: "Felicidades!",
+        text: "Profesional agregado correctamente",
+        icon: "success"
+      });
+
+      navigate('/CartillaMedica');
       
     } catch (error) {
       console.log("Error al agregar profesional", error);
@@ -113,7 +119,7 @@ const Profecionales = () => {
               <br />
               <div className="body-botones-usuario">
           
-                <button className="boton-agregar-usuario" type="submit" onClick={ agregarProfesionales }>
+                <button  style={{ display: 'block', margin: '0 auto' }} className="btn btn-success" type="submit" onClick={ agregarProfesionales }>
                   Agregar
                 </button>
     

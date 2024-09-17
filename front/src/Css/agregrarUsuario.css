@@ -1,47 +1,54 @@
-.body-agregar-usuario{
-background-color: rgba(0, 0, 0, 0.506);
-color: white;
-font-weight: 500;
-padding: 10px;
-margin: 30px;
-}
-
-.body-agregar-usuario label{
-margin-bottom: 10px;
-color: white;
-font-weight: 500;
-padding: 10px;
-}
-
-.body-agregar-usuario input{
-    border: none;
+.body-agregar-usuario {
     border-radius: 10px;
+    background-color: hsla(0, 2%, 12%, 0.813);
+    color: white;
+    font-weight: 500;
+    padding: 10px;
+    margin: 30px;
 }
 
-.body-botones-usuario{
+.body-agregar-usuario h3 {
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.body-agregar-usuario label {
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    padding: 10px;
+}
+
+.body-agregar-usuario input {
+    border: none;
+    border-radius: 5px;
+}
+
+.body-botones-usuario {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     padding: 10px;
-    
+
 }
 
-.boton-agregar-usuario{
+.boton-agregar-usuario {
     border-radius: 50px;
     border: none;
-    background-color: rgba(0, 123, 255, 0.537);
+    background-color: rgba(0, 255, 85, 0.537);
     color: white;
     margin-left: 10px;
     padding: 7px;
     font-weight: 500;
 }
 
-.boton-agregar-usuario:hover{
-    background-color: rgba(14, 52, 114, 0.537);
+.boton-agregar-usuario:hover {
+    background-color: rgba(14, 114, 14, 0.537);
     border: 1px solid white;
 }
 
-.boton-cancelar-usuario{
+.boton-cancelar-usuario {
     margin-left: 10px;
     border-radius: 50px;
     border: none;
@@ -51,7 +58,7 @@ padding: 10px;
     font-weight: 500;
 }
 
-.boton-cancelar-usuario:hover{
+.boton-cancelar-usuario:hover {
     border: 1px solid rgba(255, 255, 255, 0.735);
     background-color: rgba(132, 9, 9, 0.69);
 }

@@ -37,33 +37,39 @@ export const TablaUsuarios = ({ usuarios, handleToggleEditar }) => {
       >
         <thead>
           <tr role="row">
-            <th>Usuario</th>
-            <th></th>
-            <th></th>
+            <td colSpan="6" style={{ textAlign: "center", fontWeight: "bold" }}>
+              Todos Los Usuarios
+            </td>
           </tr>
         </thead>
         <tbody>
-          {usuarios.map((usuario) => (
-            <tr key={usuario.usersid}>
-              <td>{usuario.nomUser}</td>
-              <td>
-                <button
-                  className="btn btn-warning"
-                  onClick={() => handleEditar(usuario.usersid)}
-                >
-                  Editar
-                </button>
-              </td>
-              <td>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => handleDelete(usuario.usersid)}
-                >
-                  Eliminar
-                </button>
-              </td>
+          {usuarios.length > 0 ? (
+            usuarios.map((usuario) => (
+              <tr key={usuario.usersid}>
+                <td>{usuario.nomUser}</td>
+                <td>
+                  <button
+                    className="btn btn-warning"
+                    onClick={() => handleEditar(usuario.usersid)}
+                  >
+                    Editar
+                  </button>
+                </td>
+                <td>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(usuario.usersid)}
+                  >
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="6">No se encontraron usuarios</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>
