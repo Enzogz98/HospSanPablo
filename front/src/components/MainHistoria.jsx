@@ -63,9 +63,9 @@ export const MainHistoria = () => {
 
         <div className="columna-img-historia" data-aos="fade-left">
 
-          <div className="imagen-hitoria1"><img src={hospital1} alt="" /><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illo nihil rem rerum, commodi pariatur soluta inventore atque aliquam porro!</p></div>
+          <div className="imagen-hitoria1"><img src={hospital1} alt="" /><p>"El Hospital de San Pablo, situado en el histórico departamento de Lules, es un pilar de salud y bienestar para la comunidad local, brindando atención y esperanza a sus habitantes."</p></div>
 
-          <div className="imagen-hitoria2"><img src={hospital2} alt="" /><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illo nihil rem rerum, commodi pariatur soluta inventore atque aliquam porro! Voluptas commodi rerum ipsum harum voluptates, aut doloribus distinctio minima?</p></div>
+          <div className="imagen-hitoria2"><img src={hospital2} alt="" /><p>"El Consultorio Materno Infantil de San Pablo es un espacio dedicado a la atención integral de madres y niños, brindando servicios especializados Comprometido con el bienestar de la comunidad, este centro se destaca por su calidez y profesionalismo en el acompañamiento de las familias de la región."</p></div>
 
         </div>
 

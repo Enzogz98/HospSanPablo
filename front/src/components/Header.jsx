@@ -65,7 +65,7 @@ export const Header = () => {
                       </div>
                       <div>
 
-                        <Nav.Link id="button" onClick={()=> handleLogear(false)}>Salir</Nav.Link>
+                        <NavLink to="/" id="button" onClick={()=> handleLogear(false)}>Salir</NavLink>
                       </div>
                     </>
                   )

@@ -4,7 +4,7 @@
 
 body{
   margin: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://cdn.lecturio.com/assets/Featured-image-Student-Blog-Hospital-Team.jpg") center/cover no-repeat;
+  background:  linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../assets/background-desenfocado.jpg") center/cover no-repeat ;
   min-height: 100vh;
   position: relative;
   padding-bottom: 14em;

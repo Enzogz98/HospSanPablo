@@ -32,7 +32,7 @@ export const TablaUsuarios = ({ handleToggleEditar }) => {
       if (id == userId) {
         alert("No puedes borrar tu usuario");
       } else {
-        // await axios.delete(`http://localhost:8000/login/${id}`) comentado para no borrar a cada rato el usuario
+        await axios.delete(`http://localhost:8000/login/${id}`) 
         alert("Usuario eliminado correctamente");
         getUsuarios(); // Actualiza la lista de usuarios después de eliminar
       }
