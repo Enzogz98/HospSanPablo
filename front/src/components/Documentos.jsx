@@ -68,7 +68,19 @@ export const Documentos = () => {
     return (
         <div className='pt-3'>
             <div className='pb-3'>
-                <h3 style={{ color: 'white' }}>Documentos</h3>
+            <h3
+          style={{
+            color: "white",
+            border: "2px solid #28a745", // Un borde verde oscuro
+            padding: "5px", // Espaciado interno
+            borderRadius: "8px", // Bordes redondeados
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // Sombra en el texto
+            backgroundColor: "#333333",
+            textAlign: "center", // Mantener el tamaño ajustado al contenido
+          }}
+        >
+          DOCUMENTOS
+        </h3>
                 <input 
                     type='text' 
                     placeholder='Buscar Documento' 

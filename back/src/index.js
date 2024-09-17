@@ -12,6 +12,7 @@ config();
 const login = require('./routes/login');
 const documentos = require('./routes/documentos');
 const agentesRoute = require('./routes/agentes');
+const profesionales = require('./routes/profesionales');
 
 const app = express();
 
@@ -39,7 +40,8 @@ app.listen(port, () => {
 app.use('/login', login);
 app.use('/documentos', documentos);
 app.use('/agentes', agentesRoute);
+app.use('/profesionales', profesionales);
 
 app.get('/', (req, res) => {
-    res.send('Welcome <br/> Franco Gay<br> ');
+    res.send('welcome <br/> Joaquin Gil Dev <br> ');
 });

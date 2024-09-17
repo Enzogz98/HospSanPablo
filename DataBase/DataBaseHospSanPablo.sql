@@ -217,3 +217,14 @@ END //
 
 DELIMITER ;
 
+CREATE TABLE profesionales (
+    idProfesionales INT PRIMARY KEY AUTO_INCREMENT,
+    prestador VARCHAR(50),
+    clinica VARCHAR(50),
+    especialidad VARCHAR(50),
+    horarios VARCHAR(200),
+    dni INT NOT NULL);
+
+INSERT INTO profesionales (prestador, clinica, especialidad, horarios, dni) VALUES ("Franco", "Hospital San Pablo", "Recepcionista", "Una vez a la semana", 42008014 );
+    
+SELECT * FROM hospsanpablo.profesionales;

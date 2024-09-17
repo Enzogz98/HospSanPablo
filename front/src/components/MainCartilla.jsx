@@ -1,59 +1,52 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import "../Css/MainCartilla.css";
+import axios from "axios";
+import { UserContext } from "../context/UserContext";
 
-const profesionales = [
-  {
-    id: 1,
-    especialidad: "ALERGIA",
-    prestador: "STISMAN RODOLFO",
-    clinica: "YERBA BUENA",
-    horario: "Lun.Mar.Jue.Vie.16:30 a 20 Hs.",
-  },
-  {
-    id: 2,
-    especialidad: "SEGURIDAD",
-    prestador: "GERMAN GARMENDIA",
-    clinica: "SAN MIGUEL DE TUCUMAN",
-    horario: "Lun.Mar.Jue.Vie.16:30 a 20 Hs.",
-  },
-  {
-    id: 3,
-    especialidad: "ENFERMERA",
-    prestador: "ABDALA ALEJANDRA",
-    clinica: "YERBA BUENA",
-    horario: "Lun.Mar.Jue.Vie.16:30 a 20 Hs.",
-  },
-  {
-    id: 4,
-    especialidad: "ODONTÓLOGO",
-    prestador: "ACKER KEGEL HENNI GRETTEL",
-    clinica: "LULES",
-    horario: "Jue.Vie.16:30 a 20 Hs.",
-  },
-];
-
-export const MainCartilla = () => {
-  const [prestadores, setPrestadores] = useState(profesionales);
+export const MainCartilla = ({ pageProfesionales }) => {
   const [busqueda, setBusqueda] = useState("");
   const [ordenColumna, setOrdenColumna] = useState(null);
   const [ordenAscendente, setOrdenAscendente] = useState(true);
+  const [profesionales, setProfesionales] = useState();
+  const { userNombre } = useContext(UserContext);
 
-  const handleProfesionales = () => {
-    const filteredPrestadores = profesionales.filter((profesional) =>
-      profesional.especialidad.toLowerCase().includes(busqueda.toLowerCase())
-    );
+  const mostrarProfesionales = () => {
+    axios.get("http://localhost:8000/profesionales/").then((resp) => {
+      setProfesionales(resp.data);
+    });
+  };
 
-    if (filteredPrestadores.length > 0) {
-      setPrestadores(filteredPrestadores);
-    } else {
-      alert("No hay prestador");
-      setPrestadores(profesionales);
-    }
+  useEffect(() => {
+    mostrarProfesionales();
+  }, []);
+
+  // const handleProfesionales = () => {
+  //   const filteredPrestadores = profesionales.filter((profesional) =>
+  //     profesional.especialidad.toLowerCase().includes(busqueda.toLowerCase())
+  //   );
+
+  //   if (filteredPrestadores.length > 0) {
+  //     setPrestadores(filteredPrestadores);
+  //   } else {
+  //     alert("No hay prestador");
+  //     setPrestadores(profesionales);
+  //   }
+  // };
+
+  const borrarProfesional = async (id) => {
+    if (userNombre === "admin")
+      try {
+        await axios.delete(`http://localhost:8000/profesionales/borrarProfesional/${id}`);
+        alert("Profesional eliminado correctamente");
+        mostrarProfesionales()
+      } catch (error) {
+        console.error("Error al eliminar el profesional:", error);
+      }
   };
 
   const handleVolver = () => {
     setBusqueda("");
-    setPrestadores(profesionales); // Restaurar la lista completa de profesionales
+    setPrestadores(profesionales);
   };
 
   const ordenarTabla = (columna) => {
@@ -83,9 +76,7 @@ export const MainCartilla = () => {
               value={busqueda} // Mantener el valor de búsqueda actual
               onChange={(e) => setBusqueda(e.target.value)}
             />
-            <button className="btn btn-primary" onClick={handleProfesionales}>
-              Buscar 🔎
-            </button>
+            <button className="btn btn-primary">Buscar 🔎</button>
             {busqueda && (
               <button className="btn btn-primary" onClick={handleVolver}>
                 Volver
@@ -154,20 +145,66 @@ export const MainCartilla = () => {
                   Horarios{" "}
                   {ordenColumna === "horario" && ordenAscendente ? "▲" : "▼"}
                 </th>
+                {userNombre === "admin" ? (
+                  <th
+                    className="sorting"
+                    role="columnheader"
+                    tabIndex="0"
+                    aria-controls="tablausuarios"
+                    rowSpan="1"
+                    colSpan="1"
+                    aria-label="Horarios: Activar para ordenar la columna de manera ascendente"
+                  >
+                    EDITAR
+                  </th>
+                  
+                ) : null}
+                {userNombre === "admin" ? (
+                  <th
+                    className="sorting"
+                    role="columnheader"
+                    tabIndex="0"
+                    aria-controls="tablausuarios"
+                    rowSpan="1"
+                    colSpan="1"
+                    aria-label="Horarios: Activar para ordenar la columna de manera ascendente"
+                  >
+                    Eliminar
+                  </th>
+                  
+                ) : null}
               </tr>
             </thead>
 
             <tbody role="alert" aria-live="polite" aria-relevant="all">
-              {prestadores.map((prestador) => {
-                return (
-                  <tr className="odd" key={prestador.id}>
-                    <td className="sorting_1">{prestador.especialidad}</td>
-                    <td>{prestador.prestador}</td>
-                    <td>{prestador.clinica}</td>
-                    <td>{prestador.horario}</td>
-                  </tr>
-                );
-              })}
+              {profesionales &&
+                profesionales.map((profesional) => {
+                  return (
+                    <tr className="odd" key={profesional.idProfesionales}>
+                      <td className="sorting_1">{profesional.especialidad}</td>
+                      <td>{profesional.prestador}</td>
+                      <td>{profesional.clinica}</td>
+                      <td>{profesional.horarios}</td>
+                      {userNombre === "admin" ? (
+                        <td>
+                          <button className="btn btn-warning">Editar</button>
+                        </td>
+                      ) : null}
+                      {userNombre === "admin" ? (
+                        <td>
+                           <button
+                        className="btn btn-danger"
+                        onClick={() =>
+                          borrarProfesional(profesional.idProfesionales)
+                        }
+                      >
+                        Eliminar
+                      </button>
+                        </td>
+                      ) : null}
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>

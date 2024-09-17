@@ -1,0 +1,27 @@
+.Titulo-Profesional {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.437);
+}
+
+.Titulo-Profesional span{
+    font-weight: bold;
+    color: #28a745;
+    text-transform: uppercase;
+}
+
+.panel-control{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.437);
+}
+
+.btn-active {
+    background-color: #ffffff;
+    color: rgb(0, 106, 255);
+  }
+  

@@ -1,52 +1,32 @@
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import axios from "axios";
 
 import { UserContext } from "../context/UserContext";
 
-export const TablaUsuarios = ({ handleToggleEditar }) => {
-  const [usuarios, setUsuarios] = useState([]);
-  
-
+export const TablaUsuarios = ({ usuarios, handleToggleEditar }) => {
   const { userId, setUserIdEdit } = useContext(UserContext);
 
-  const getUsuarios = () => {
-    axios.get("http://localhost:8000/login").then((resp) => {
-      setUsuarios(resp.data);
-    });
-  };
-
-  useEffect(() => {
-    getUsuarios();
-  }, []);
-
   const handleEditar = (id) => {
-    handleToggleEditar(id)
-    setUserIdEdit(id)
+    handleToggleEditar(id);
+    setUserIdEdit(id);
   };
 
   const handleDelete = async (id) => {
     console.log(id);
-    console.log(userId);    
+    console.log(userId);
 
     try {
-      if (id == userId) {
+      if (id === userId) {
         alert("No puedes borrar tu usuario");
       } else {
-        await axios.delete(`http://localhost:8000/login/${id}`) 
+        await axios.delete(`http://localhost:8000/login/${id}`);
         alert("Usuario eliminado correctamente");
-        getUsuarios(); // Actualiza la lista de usuarios después de eliminar
+        // Si necesitas actualizar la lista de usuarios, propaga un cambio desde el componente principal
       }
     } catch (error) {
       console.error("Error al eliminar el usuario:", error);
     }
   };
-
-
-
-  console.log(
-    "ID del usuario logueado desde Local Storage: ",
-    localStorage.getItem("userId")
-  );
 
   return (
     <div>
@@ -60,7 +40,6 @@ export const TablaUsuarios = ({ handleToggleEditar }) => {
             <th>Usuario</th>
             <th></th>
             <th></th>
-
           </tr>
         </thead>
         <tbody>

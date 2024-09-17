@@ -1,6 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
-import { UserContext } from '../context/UserContext';
-// import { useForm } from "../hooks";
+import { useState, useEffect } from 'react';
 import "../Css/agregrarUsuario.css";
 import axios from "axios";
 
@@ -11,7 +9,6 @@ export const AgregarUsuario = ({ handleToggleUser }) => {
 
   const handleCancelar = () => {
     handleToggleUser();
-    
   };
 
   const getUsuarios = ()=>{
@@ -40,14 +37,7 @@ export const AgregarUsuario = ({ handleToggleUser }) => {
       })
         const response = await axios.post("http://localhost:8000/agentes/registrar", {
           user: username,
-          pass: password,
-          // nombre: valuesForm.nombre,
-          // apellido: valuesForm.apellido,
-          // dni: valuesForm.dni,
-          // direccion: valuesForm.direccion,
-          // telefono: valuesForm.telefono,
-          // funcion: valuesForm.funcion,
-          // rol: valuesForm.rol,
+          pass: password
         });
         console.log("usuarioAgregado", response.data);
         handleToggleUser();
@@ -84,79 +74,6 @@ export const AgregarUsuario = ({ handleToggleUser }) => {
               value={password}
             />
           </div>
-
-
-  {/*           <div>
-              <label htmlFor="">Nombre:</label>
-              <input
-                type="text"
-                name="nombre"
-                onChange={onInputChange}
-                value={valuesForm.nombre}
-              />
-            </div>
-
-            <div>
-              {" "}
-              <label htmlFor="">Apellido:</label>
-              <input
-                type="text"
-                name="apellido"
-                onChange={onInputChange}
-                value={valuesForm.apellido}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="">Documento:</label>
-              <input
-                type="text"
-                name="dni"
-                onChange={onInputChange}
-                value={valuesForm.dni}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="">Direccion:</label>
-              <input
-                type="text"
-                name="direccion"
-                onChange={onInputChange}
-                value={valuesForm.direccion}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="">Telefono:</label>
-              <input
-                type="text"
-                name="telefono"
-                onChange={onInputChange}
-                value={valuesForm.telefono}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="">Funcion:</label>
-              <input
-                type="text"
-                name="funcion"
-                onChange={onInputChange}
-                value={valuesForm.funcion}
-              />
-            </div>
-
-            <label htmlFor="">Rol:</label>
-            <select
-              name="rol"
-              id=""
-              onChange={onInputChange}
-              value={valuesForm.rol}
-            >
-              <option value="1">Admin</option>
-              <option value="2">Agente</option>
-            </select>  */}
 
             <br />
             <div className="body-botones-usuario">
