@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import axios from "axios";
+import Swal from 'sweetalert2'
 
 import { UserContext } from "../context/UserContext";
 
@@ -16,14 +17,26 @@ export const TablaUsuarios = ({ usuarios, handleToggleEditar }) => {
     console.log(userId);
 
     try {
-      if (id === userId) {
-        alert("No puedes borrar tu usuario");
+      if (parseInt(id) === parseInt(userId)) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "No puedes borrarte a ti mismo!",
+        });
       } else {
         await axios.delete(`http://localhost:8000/login/${id}`);
-        alert("Usuario eliminado correctamente");
+        Swal.fire({
+          icon: "success",
+          title: "Usuario borrado correctamente"
+        });
         // Si necesitas actualizar la lista de usuarios, propaga un cambio desde el componente principal
       }
     } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Ocurrió un error inesperado :(",
+      });
       console.error("Error al eliminar el usuario:", error);
     }
   };
