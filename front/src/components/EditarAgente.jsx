@@ -2,8 +2,9 @@ import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
 import "../Css/agregrarUsuario.css";
+import Swal from 'sweetalert2';
 
-export const EditarAgente = ({ handleToggleUser }) => {
+export const EditarAgente = ({ handleToggleUser}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,16 +29,7 @@ export const EditarAgente = ({ handleToggleUser }) => {
     }
   };
 
-  // const getUsuario = () => {
-  //   axios.get("http://localhost:8000/login/usuario/").then((resp) => {
-  //     setUserIdEdit(resp.data.usersid);
-  //     setUsername(resp.data.nomUser || "");
-  //     setPassword(resp.data.pass || "");
-  //   });
-  // };
-
   useEffect(() => {
-    console.log("ID del usuario a editar:", userIdEdit);
     getUsuario();
 }, [userIdEdit]);
 
@@ -53,12 +45,17 @@ export const EditarAgente = ({ handleToggleUser }) => {
         pass: password,
       };
       await axios.put(url, updatedUser);
-      console.log(userIdEdit);
-      alert("Usuario actualizado correctamente.");
+      Swal.fire({
+        icon: "success",
+        title: "Usuario actualizado correctamente",
+      });
       handleToggleUser();
     } catch (err) {
-      console.error("Error al actualizar el usuario:", err);
-      alert("Ocurrió un error al intentar actualizar el usuario.");
+      Swal.fire({
+        icon: "error",
+        title: "Opss..",
+        text: "Ocurrió un error al intentar actualizar el usuario!",
+      });
     }
   };
 

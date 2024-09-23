@@ -12,13 +12,12 @@ export const AdminUsuarios = () => {
   const [filtro, setFiltro] = useState("");
   const [usuariosFiltrados, setUsuariosFiltrados] = useState([]);
 
-  // Obtener la lista de usuarios desde el backend
   const getUsuarios = () => {
     axios
       .get("http://localhost:8000/login")
       .then((resp) => {
         setUsuarios(resp.data);
-        setUsuariosFiltrados(resp.data); // Inicialmente, todos los usuarios
+        setUsuariosFiltrados(resp.data); 
       })
       .catch((error) => console.error("Error al obtener usuarios", error));
   };
@@ -36,6 +35,7 @@ export const AdminUsuarios = () => {
 
   const handleToggleUser = () => {
     setToggleUser(false);
+    getUsuarios();
   };
 
   const handleToggleEditar = () => {
@@ -49,12 +49,12 @@ export const AdminUsuarios = () => {
         <h3
           style={{
             color: "white",
-            border: "2px solid #28a745", // Un borde verde oscuro
-            padding: "5px", // Espaciado interno
-            borderRadius: "8px", // Bordes redondeados
-            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // Sombra en el texto
+            border: "2px solid #28a745",
+            padding: "5px",
+            borderRadius: "8px",
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
             backgroundColor: "#333333",
-            textAlign: "center", // Mantener el tamaño ajustado al contenido
+            textAlign: "center",
           }}
         >
           USUARIOS
@@ -92,6 +92,7 @@ export const AdminUsuarios = () => {
         <TablaUsuarios
           usuarios={usuariosFiltrados}
           handleToggleEditar={handleToggleEditar}
+          getUsuarios={getUsuarios} // Pasar getUsuarios como prop
         />
       )}
     </div>

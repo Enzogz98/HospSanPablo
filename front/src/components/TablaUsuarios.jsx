@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import axios from "axios";
-import Swal from 'sweetalert2'
-
+import Swal from 'sweetalert2';
 import { UserContext } from "../context/UserContext";
 
-export const TablaUsuarios = ({ usuarios, handleToggleEditar }) => {
+export const TablaUsuarios = ({ usuarios, handleToggleEditar, getUsuarios }) => {
   const { userId, setUserIdEdit } = useContext(UserContext);
 
   const handleEditar = (id) => {
@@ -13,9 +12,6 @@ export const TablaUsuarios = ({ usuarios, handleToggleEditar }) => {
   };
 
   const handleDelete = async (id) => {
-    console.log(id);
-    console.log(userId);
-
     try {
       if (parseInt(id) === parseInt(userId)) {
         Swal.fire({
@@ -27,9 +23,9 @@ export const TablaUsuarios = ({ usuarios, handleToggleEditar }) => {
         await axios.delete(`http://localhost:8000/login/${id}`);
         Swal.fire({
           icon: "success",
-          title: "Usuario borrado correctamente"
+          title: "Usuario borrado correctamente",
         });
-        // Si necesitas actualizar la lista de usuarios, propaga un cambio desde el componente principal
+        getUsuarios();
       }
     } catch (error) {
       Swal.fire({
@@ -37,7 +33,7 @@ export const TablaUsuarios = ({ usuarios, handleToggleEditar }) => {
         title: "Oops...",
         text: "Ocurrió un error inesperado :(",
       });
-      console.error("Error al eliminar el usuario:", error);
+
     }
   };
 

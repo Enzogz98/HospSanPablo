@@ -138,7 +138,7 @@ export const MainCartilla = ({ pageProfesionales }) => {
                   Horarios{" "}
                   {ordenColumna === "horario" && ordenAscendente ? "▲" : "▼"}
                 </th>
-                {userNombre === "admin" ? (
+                {/* {userNombre === "admin" ? (
                   <th
                     className="sorting"
                     role="columnheader"
@@ -150,7 +150,7 @@ export const MainCartilla = ({ pageProfesionales }) => {
                   >
                     EDITAR
                   </th>
-                ) : null}
+                ) : null} */}
                 {userNombre === "admin" ? (
                   <th
                     className="sorting"
@@ -176,11 +176,11 @@ export const MainCartilla = ({ pageProfesionales }) => {
                       <td>{profesional.prestador}</td>
                       <td>{profesional.clinica}</td>
                       <td>{profesional.horarios}</td>
-                      {userNombre === "admin" ? (
+                      {/* {userNombre === "admin" ? (
                         <td>
                           <button className="btn btn-warning">Editar</button>
                         </td>
-                      ) : null}
+                      ) : null} */}
                       {userNombre === "admin" ? (
                         <td>
                           <button

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import "../Css/agregrarUsuario.css";
 import axios from "axios";
+import Swal from 'sweetalert2';
 
 export const AgregarUsuario = ({ handleToggleUser }) => {
   const [username, setUsername] = useState("");
@@ -31,7 +32,11 @@ export const AgregarUsuario = ({ handleToggleUser }) => {
       usuarios.find((usuario) => {
         if(usuario.nomUser === username){
     
-          alert("El usuario ya existe")
+          Swal.fire({
+            icon: "error",
+            title: "ERROR!",
+            text: "El Usuario Con Este UserName Ya Existe",
+          });
           return
         }
       })
