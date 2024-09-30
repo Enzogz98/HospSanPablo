@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import "../Css/MainCartilla.css";
 import axios from "axios";
 import { UserContext } from "../context/UserContext";
+import Swal from 'sweetalert2';
 
 export const MainCartilla = ({ pageProfesionales }) => {
   const [busqueda, setBusqueda] = useState("");
@@ -29,7 +30,10 @@ export const MainCartilla = ({ pageProfesionales }) => {
     if (userNombre === "admin")
       try {
         await axios.delete(`http://localhost:8000/profesionales/borrarProfesional/${id}`);
-        alert("Profesional eliminado correctamente");
+        Swal.fire({
+          icon: "success",
+          title: "Usuario borrado correctamente",
+        });
         mostrarProfesionales();
       } catch (error) {
         console.error("Error al eliminar el profesional:", error);

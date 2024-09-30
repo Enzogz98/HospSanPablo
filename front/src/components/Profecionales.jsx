@@ -4,6 +4,7 @@ import axios from "axios";
 import { useForm } from "../hooks";
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom';
+import "../Css/profesionales.css"
 
 const Profecionales = () => {
 
@@ -33,7 +34,11 @@ const Profecionales = () => {
       const existeProfesional = profesionales.some((profesional) => parseInt(profesional.dni) === parseInt(dni));
       
       if (existeProfesional) {
-        alert("El profesional con este dni ya existe");
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "El profesional con este DNI ya existe",
+        });
         return; 
       }
   
@@ -68,70 +73,90 @@ const Profecionales = () => {
   };
 
   return (
-    <><div><h3
-    style={{
-      color: "white",
-      border: "2px solid #28a745", 
-      padding: "5px", 
-      borderRadius: "8px", 
-      textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", 
-      backgroundColor: "#333333",
-      textAlign: "center", 
-    }}
-  >
-    AGREGAR PROFESIONAL
-  </h3></div>
-    
-    <div className="body-agregar-usuario">
+    <>
       <div>
-        <h3>Datos del profesional</h3>
-
- 
-            
-            <div>
-
-            <form onSubmit={ onSubmit }>
-              <div>
-                <label>Prestador:</label>
-                <input type="text" name="prestador" onChange={onInputChange} value={prestador} />
-              </div>
-    
-              <div>
-                <label>Clinica:</label>
-                <input type="text" name="clinica" onChange={onInputChange} value={clinica} />
-              </div>
-    
-              <div>
-                <label>Especialidad:</label>
-                <input type="text" name="especialidad" onChange={onInputChange} value={especialidad} />
-              </div>
-    
-              <div>
-                <label>Horarios:</label>
-                <input type="text" name="horarios" onChange={onInputChange} value={horarios} />
-              </div>
-    
-              <div>
-                <label>DNI:</label>
-                <input type="number" name="dni" onChange={onInputChange} value={dni} placeholder="solo numeros" />
-              </div>
-    
-              <br />
-              <div className="body-botones-usuario">
-          
-                <button  style={{ display: 'block', margin: '0 auto' }} className="btn btn-success" type="submit" onClick={ agregarProfesionales }>
-                  Agregar
-                </button>
-    
-              </div>
-    
-            </form>
-          </div>
-
-
+        <h3 className="titulo-agregar-profesional">
+          AGREGAR PROFESIONAL
+        </h3>
       </div>
-    </div></>
+  
+      <div className="body-agregar-profesional">
+        <div className="agregar-profesional-contenedor">
+          <h3 className="agregar-profesional-titulo">Datos del profesional</h3>
+  
+          <form className="agregar-profesional-formulario" onSubmit={onSubmit}>
+            <div>
+              <label className="agregar-profesional-label">Prestador:</label>
+              <input
+                type="text"
+                className="agregar-profesional-input"
+                name="prestador"
+                onChange={onInputChange}
+                value={prestador}
+              />
+            </div>
+  
+            <div>
+              <label className="agregar-profesional-label">Clinica:</label>
+              <input
+                type="text"
+                className="agregar-profesional-input"
+                name="clinica"
+                onChange={onInputChange}
+                value={clinica}
+              />
+            </div>
+  
+            <div>
+              <label className="agregar-profesional-label">Especialidad:</label>
+              <input
+                type="text"
+                className="agregar-profesional-input"
+                name="especialidad"
+                onChange={onInputChange}
+                value={especialidad}
+              />
+            </div>
+  
+            <div>
+              <label className="agregar-profesional-label">Horarios:</label>
+              <input
+                type="text"
+                className="agregar-profesional-input"
+                name="horarios"
+                onChange={onInputChange}
+                value={horarios}
+              />
+            </div>
+  
+            <div>
+              <label className="agregar-profesional-label">DNI:</label>
+              <input
+                type="number"
+                className="agregar-profesional-input"
+                name="dni"
+                onChange={onInputChange}
+                value={dni}
+                placeholder="solo numeros"
+              />
+            </div>
+  
+            <br />
+            <div className="body-botones-profesional">
+              <button
+                className="boton-agregar-profesional"
+                type="submit"
+                onClick={agregarProfesionales}
+              >
+                Agregar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
   );
+  
 };
 
 export default Profecionales;

@@ -40,19 +40,26 @@ export const Documentos = () => {
           "Content-Type": "multipart/form-data",
         },
       });
+      Swal.fire({
+        icon: "success",
+        title: "Documento agregado correctamente",
+      });
       fetchDocumentos();
       setTitulo("");
       setFile(null);
       setFileName("");
       setMostrarFormulario(false);
-    } catch (error) {
-      console.error("Error al subir documento:", error);
-    }
+    } catch (error) {}
   };
 
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:8000/documentos/${id}`);
+      Swal.fire({
+        icon: "warning",
+        title: "Atencion!",
+        text: "Se acaba de eliminar un documento",
+      });
       fetchDocumentos();
     } catch (error) {
       console.error("Error al eliminar documento:", error);
@@ -134,12 +141,11 @@ export const Documentos = () => {
         aria-describedby="Documentos_info"
       >
         <thead>
-        <tr role="row">
-  <td colSpan="6" style={{ textAlign: 'center', fontWeight: 'bold' }}>
-    Todos Los Documentos
-  </td>
-</tr>
-
+          <tr role="row">
+            <td colSpan="6" style={{ textAlign: "center", fontWeight: "bold" }}>
+              Todos Los Documentos
+            </td>
+          </tr>
         </thead>
         <tbody>
           {filteredDocuments.length > 0 ? (

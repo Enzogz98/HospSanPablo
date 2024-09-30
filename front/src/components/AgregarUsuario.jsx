@@ -35,7 +35,7 @@ export const AgregarUsuario = ({ handleToggleUser }) => {
           Swal.fire({
             icon: "error",
             title: "ERROR!",
-            text: "El Usuario Con Este UserName Ya Existe",
+            text: "Ya Existe este usuario",
           });
           return
         }
@@ -44,7 +44,10 @@ export const AgregarUsuario = ({ handleToggleUser }) => {
           user: username,
           pass: password
         });
-        console.log("usuarioAgregado", response.data);
+        Swal.fire({
+          icon: "success",
+          title: "Usuario agregado correctamente"
+        });
         handleToggleUser();
     } catch (error) {
       console.log("error al agregar user", error);
@@ -57,29 +60,31 @@ export const AgregarUsuario = ({ handleToggleUser }) => {
   return (
     <>
       <div className="body-agregar-usuario">
-        <div>
-          <h3>Datos del usuario</h3>
-          <form onSubmit={handleOnSubmit}>
-          <div>
-            <label>Usuario:</label>
-            <input
-              type="text"
-              name="username"
-              onChange={handleUsernameChange}
-              value={username}
-            />
-          </div>
-
-          <div>
-            <label>Contraseña:</label>
-            <input
-              type="password"
-              name="password"
-              onChange={handlePasswordChange}
-              value={password}
-            />
-          </div>
-
+        <div className="agregar-usuario-contenedor">
+          <h3 className="agregar-usuario-titulo">Agrega los datos del usuario</h3>
+          <form className="agregar-usuario-formulario" onSubmit={handleOnSubmit}>
+            <div>
+              <label className="agregar-usuario-label">Usuario:</label>
+              <input
+                type="text"
+                className="agregar-usuario-input"
+                name="username"
+                onChange={handleUsernameChange}
+                value={username}
+              />
+            </div>
+  
+            <div>
+              <label className="agregar-usuario-label">Contraseña:</label>
+              <input
+                type="password"
+                className="agregar-usuario-input"
+                name="password"
+                onChange={handlePasswordChange}
+                value={password}
+              />
+            </div>
+  
             <br />
             <div className="body-botones-usuario">
               <button
@@ -98,4 +103,5 @@ export const AgregarUsuario = ({ handleToggleUser }) => {
       </div>
     </>
   );
+  
 };

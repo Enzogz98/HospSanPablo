@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
-import "../Css/agregrarUsuario.css";
+import "../Css/editarAgente.css";
 import Swal from 'sweetalert2';
 
 export const EditarAgente = ({ handleToggleUser}) => {
@@ -46,8 +46,9 @@ export const EditarAgente = ({ handleToggleUser}) => {
       };
       await axios.put(url, updatedUser);
       Swal.fire({
-        icon: "success",
-        title: "Usuario actualizado correctamente",
+        icon: "warning",
+        title: "Atencion!",
+        text: "Se acaba de editar un usuario"
       });
       handleToggleUser();
     } catch (err) {
@@ -63,23 +64,25 @@ export const EditarAgente = ({ handleToggleUser}) => {
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
   return (
-    <div className="body-editar-usuario bg-light">
-      <div>
-        <h3>Datos del usuario</h3>
-        <form onSubmit={handleOnSubmit}>
+    <div className="body-editar-usuario">
+      <div className="editar-usuario-contenedor">
+        <h3 className="editar-usuario-titulo">Edita los datos del usuario</h3>
+        <form className="editar-usuario-formulario" onSubmit={handleOnSubmit}>
           <div>
-            <label>Usuario:</label>
+            <label className="editar-usuario-label">Editar usuario:</label>
             <input
               type="text"
+              className="editar-usuario-input"
               name="username"
               onChange={handleUsernameChange}
               value={username || ""}
             />
           </div>
           <div>
-            <label>Contraseña:</label>
+            <label className="editar-usuario-label">Editar contraseña:</label>
             <input
               type="password"
+              className="editar-usuario-input"
               name="password"
               onChange={handlePasswordChange}
               value={password || ""}
@@ -101,6 +104,6 @@ export const EditarAgente = ({ handleToggleUser}) => {
       </div>
     </div>
   );
-};
+}  
 
 export default EditarAgente;
